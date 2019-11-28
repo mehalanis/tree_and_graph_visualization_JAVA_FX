@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.indexController">
+   <top>
+      <AnchorPane prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #00355f;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#home" prefHeight="39.0" prefWidth="35.0" style="-fx-background-color: none;" text="Home">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icon/HomeWhite32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label fx:id="titre" layoutX="270.0" layoutY="8.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial Narrow Bold" size="30.0" />
+               </font>
+            </Label>
+           
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <Pane fx:id="panel" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
