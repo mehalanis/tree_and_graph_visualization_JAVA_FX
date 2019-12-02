@@ -10,28 +10,35 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.indexController">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo.indexController">
+   <center>
+      <StackPane fx:id="panel" BorderPane.alignment="CENTER" />
+   </center>
    <top>
-      <AnchorPane prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #00355f;" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="52.0" style="-fx-background-color: #00355f;" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="ALWAYS"  />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#home" prefHeight="39.0" prefWidth="35.0" style="-fx-background-color: none;" text="Home">
+            <Button mnemonicParsing="false" onAction="#home"  style="-fx-background-color: none;">
                <graphic>
-                  <ImageView fitHeight="37.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0"  pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/icon/HomeWhite32px.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
-            <Label fx:id="titre" layoutX="270.0" layoutY="8.0" textFill="WHITE">
+               </graphic>
+            </Button>
+            <Label fx:id="titre" text="Label" textFill="WHITE" GridPane.columnIndex="1">
                <font>
-                  <Font name="Arial Narrow Bold" size="30.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-           
          </children>
-      </AnchorPane>
+      </GridPane>
    </top>
-   <center>
-      <Pane fx:id="panel" BorderPane.alignment="CENTER" />
-   </center>
 </BorderPane>

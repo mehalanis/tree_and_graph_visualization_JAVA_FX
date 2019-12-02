@@ -18,11 +18,5 @@ public class AVL extends Arbre {
     public boolean suppression(int val) {
         return false;
     }
-    
-
-    @Override
-    public Node rechercher(int val) {
-        return null;
-    }
 
 }

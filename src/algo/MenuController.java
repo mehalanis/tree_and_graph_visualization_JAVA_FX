@@ -28,6 +28,7 @@ public class MenuController implements Initializable {
             titre.setText(s);
             panel.getChildren().clear();
             try {
+              System.out.println(panel.getWidth());
               Parent root = FXMLLoader.load(getClass().getResource(s+".fxml"));
               panel.getChildren().add(root);
             } catch (IOException ex) {
@@ -48,7 +49,7 @@ public class MenuController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }  
     public void setPanel(Pane p){
         this.panel=p;

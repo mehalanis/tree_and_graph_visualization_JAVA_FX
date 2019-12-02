@@ -15,16 +15,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 
 
 public class indexController implements Initializable {
-    Parent menu;
+    GridPane  menu;
     @FXML
     private Label label;
     
     @FXML
-    private Pane panel;
+    private StackPane panel;
     @FXML
     private Button btn_abr;
     @FXML
@@ -34,6 +37,8 @@ public class indexController implements Initializable {
     @FXML
     public void home(){
         panel.getChildren().clear();
+     
+        //menu.setPrefSize(panel.getWidth(), panel.getHeight());
         panel.getChildren().add(menu);
         titre.setText("");
     }
@@ -48,6 +53,7 @@ public class indexController implements Initializable {
             i.setPanel(panel);
             i.setTitre(titre);
             menu=load.getRoot();
+           
             panel.getChildren().add(menu);
             
         } catch (IOException ex) {

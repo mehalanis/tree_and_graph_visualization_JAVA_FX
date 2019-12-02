@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/TAS/TASmax.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/TAS/TASmin.java</file>
             <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/ABR_AVL/Arbre.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/ABR_AVL/Node.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/ABR_AVL/AVL.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/algo/ALGO.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/algo/ABRController.java</file>
             <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/ABR_AVL/ABR.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/ABR_AVL/NodeAVL.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/algo/indexController.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/ABR_AVL/Find.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/algo/ABR.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/ALGO/src/Formes/Cercle.java</file>
         </group>
     </open-files>
 </project-private>
