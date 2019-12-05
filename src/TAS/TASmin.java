@@ -6,14 +6,15 @@
 package TAS;
 
 import java.util.Scanner;
+import javafx.scene.Group;
+import javafx.scene.shape.Line;
 
 /**
  *
  * @author meder
  */
+
 public class TASmin extends TASmax {
-
-
 
     public TASmin(int cpct) {
         super(cpct);
@@ -21,16 +22,20 @@ public class TASmin extends TASmax {
 
     public void inserer(int element) {
       // TODO: implement
+      super.inserer(-element);
+      /*
       Tas[++taille] = -element;
       // Maintenance des lois du Tas
       int current = taille;
       while (Tas[current] > Tas[parent(current)]) {
         Permuter(current, parent(current));
         current = parent(current);
-      }
+      }*/
    }
-   public int Rechercher(int valeur) {
+  // public int Rechercher(int valeur) {
       // TODO: implement
+    //  super.Rechercher(valeur);
+      /*
       int pos = 0;
       int found= 0;
 
@@ -46,33 +51,53 @@ public class TASmin extends TASmax {
           return pos;
       }
       System.out.println("la valeur \""+(-valeur)+ "\" n\'éxiste pas.");
-      return 0;
-    }
+      return 0;*/
+      //  return 0;
+    //}
 
    /** *  @param val
      * @return
 
     * @pdOid 87ad828d-4b45-488d-81d4-8fa55ee77fbc */
     @Override
-    public int Supprimer(int val){
-        int pos = 0;
-        pos = Rechercher(-val);
+    public Node Supprimer(int val){
+        super.Supprimer(-val);
+        /*int pos = 0;
+        pos = Rechercher(val);
             if(pos != 0){
 
                 int popped = Tas[pos];
                 Tas[pos] = Tas[taille--];
                 maxTas(pos);
                 return popped;
-            }
-        return 0;
+            }*/
+        return null;
         }
     @Override
      public void Afficher(){
       for (int i = 1; i <= taille; i++){
-            System.out.print(-Tas[i] + " ");
+            System.out.print(-Tas[i].getVal() + " ");
       }
       System.out.println();
-   }
+     }
+     
+    public void Afficher(int pos,Group g,int x,int y,int prevx,int prevy,int lev,int gap)
+    {   
+
+	if(pos >taille)
+		return;
+        
+        g.getChildren().add(Tas[pos].getC(x,y));
+	
+	if((++lev) != 1){
+            Line line = new Line(prevx +23,prevy + 46,x + 23,y);
+            line.setStrokeWidth(2);
+            g.getChildren().add(line);
+            gap = (gap  )/2;
+        }
+	Afficher(this.filsGauche(pos),g,x-gap,y+50,x,y,lev,gap);
+	Afficher(this.filsDroit(pos),g,x+gap,y+50,x,y,lev,gap);
+    }/*
     public static void main(String[] args) {
         // TODO code application logic here
 
@@ -105,6 +130,5 @@ public class TASmin extends TASmax {
                 Tas.Supprimer(11);
                 Tas.Afficher();
 
-    }
-
+    }*/
 }
