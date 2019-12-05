@@ -17,17 +17,17 @@ import javafx.scene.text.Font;
  * @author Mehalanis
  */
 public class Cercle extends StackPane {
-   public Node node;
+   public int val;
    public Circle circle; 
    public Label label;
    public static Font font=new Font(18);
-   public Cercle(Node node){
-       this.node=node;
+   public Cercle(int val){
+       this.val=val;
        circle=new Circle(22);
        circle.setStroke(Color.BLACK);
        circle.setStrokeWidth(2);
        circle.setFill(Color.WHITE);
-       label=new Label(node.getVal()+"");
+       label=new Label(val+"");
        label.setFont(font);
        this.getChildren().add(circle);
        this.getChildren().add(label);

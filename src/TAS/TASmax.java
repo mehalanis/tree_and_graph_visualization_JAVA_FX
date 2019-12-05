@@ -16,8 +16,6 @@ import javafx.scene.Group;
 import javafx.scene.shape.Line;
 
 public class TASmax {
- //  protected int[] Tas;
-  // protected Cercle[] cercle;
    protected Node[] Tas; 
    protected int taille;//La taille Du Tas
    protected int cpct;//capacité maximum du Tas
@@ -25,8 +23,6 @@ public class TASmax {
    public TASmax(int cpct) {
      this.cpct=cpct;
      this.taille=0;
-    // Tas=new int[this.cpct + 1];
-   //  cercle=new Cercle[this.cpct + 1];
    Tas = new Node[this.cpct +1];
      Tas[0]= new Node(Integer.MAX_VALUE,null);
      //l'indice 0 ne peut pas étre utilisée dans les prochaine fonctions
@@ -80,7 +76,7 @@ public class TASmax {
      }
    }
 
-   public void inserer(int element) {
+   public int inserer(int element) {
       // TODO: implement
       
       taille++;
@@ -91,6 +87,7 @@ public class TASmax {
         Permuter(current, parent(current));
         current = parent(current);
       }
+      return current;
    }
    public int Rechercher(int valeur) {
       // TODO: implement

@@ -33,6 +33,10 @@ public class Node {
         return c;
     }
 
+    public Cercle getC() {
+        return c;
+    }
+    
     public void setC(Cercle c) {
         this.c = c;
     }

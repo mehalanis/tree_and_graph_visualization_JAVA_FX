@@ -9,7 +9,7 @@ public class Node {
    Cercle c;
     public Node(int val) {
         this.val = val;
-        c=new Cercle(this);
+        c=new Cercle(val);
     }
 
     public void setVal(int val) {
