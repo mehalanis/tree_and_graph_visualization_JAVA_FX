@@ -33,14 +33,18 @@ public class AVL extends Arbre {
             }
         }
         NodeAVL v=(NodeAVL)n;
-        v.setBalence(calculeProfondeur(n.getFG()) - calculeProfondeur(n.getFD()));
+        v.setBalence(calculeBalance(n));
         v = (NodeAVL) rotation(v);
-        v.setProfendeur(max(calculeProfondeur(n.getFG()), calculeProfondeur(n.getFD())) + 1);
+        v.setProfendeur(calculeProfondeur(n));
+        n=v;
         return n;
     }
 
     private int calculeProfondeur(Node n) {
-        return (n == null) ? -1 : ((NodeAVL)n).getProfendeur();
+        return (n == null) ? -1 : max(n.getFD().getProfendeur(),n.getFG().getProfendeur())+1;
+    }
+    private int calculeBalance(Node n){
+        return (calculeProfondeur(n.getFG()) - calculeProfondeur(n.getFD()))
     }
 
     private Node rotation(Node r) {
@@ -50,10 +54,10 @@ public class AVL extends Arbre {
                 NodeAVL P = R.fd;
                 R.fd = P.fg;
                 P.fg = R;
-                R.profendeur = max(calculeProfondeur(R.fg), calculeProfondeur(R.fd)) + 1;
-                P.profendeur = max(calculeProfondeur(P.fg), calculeProfondeur(P.fd)) + 1;
-                R.balence = (calculeProfondeur(R.fg) - calculeProfondeur(R.fd));
-                P.balence = (calculeProfondeur(P.fg) - calculeProfondeur(P.fd));
+                R.profendeur = calculeProfondeur(R);
+                P.profendeur = calculeProfondeur(P);
+                R.balence = calculeBalance(R);
+                P.balence = calculeBalance(P);
                 return P;
 
             } else if ((R.balence == -2) && (R.fd.balence == 1)) {
@@ -63,22 +67,22 @@ public class AVL extends Arbre {
                 P.fg = Q.fd;
                 Q.fd = P;
                 Q.fg = R;
-                R.profendeur = max(calculeProfondeur(R.fg), calculeProfondeur(R.fd)) + 1;
-                P.profendeur = max(calculeProfondeur(P.fg), calculeProfondeur(P.fd)) + 1;
-                Q.profendeur = max(calculeProfondeur(Q.fg), calculeProfondeur(Q.fd)) + 1;
-                R.balence = (calculeProfondeur(R.fg) - calculeProfondeur(R.fd));
-                P.balence = (calculeProfondeur(P.fg) - calculeProfondeur(P.fd));
-                Q.balence = (calculeProfondeur(Q.fg) - calculeProfondeur(Q.fd));
+                R.profendeur = calculeProfondeur(R);
+                P.profendeur = calculeProfondeur(P);
+                Q.profendeur = calculeProfondeur(Q);
+                R.balence = calculeBalance(R);
+                P.balence = calculeBalance(P);
+                Q.balence = calculeBalance(Q);
                 return Q;
 
             } else if ((R.balence == 2) && (R.fg.balence == 1)) {
                 NodeAVL P = R.fg;
                 R.fg = P.fd;
                 P.fd = R;
-                R.profendeur = max(calculeProfondeur(R.fg), calculeProfondeur(R.fd)) + 1;
-                P.profendeur = max(calculeProfondeur(P.fg), calculeProfondeur(P.fd)) + 1;
-                R.balence = (calculeProfondeur(R.fg) - calculeProfondeur(R.fd));
-                P.balence = (calculeProfondeur(P.fg) - calculeProfondeur(P.fd));
+                R.profendeur = calculeProfondeur(R);
+                P.profendeur = calculeProfondeur(P);
+                R.balence = calculeBalance(R);
+                P.balence = calculeBalance(P);
                 return P;
 
             } else if ((R.balence == 2) && (R.fg.balence == -1)) {
@@ -88,12 +92,12 @@ public class AVL extends Arbre {
                 P.fd = Q.fg;
                 Q.fd = R;
                 Q.fg = P;
-                R.profendeur = max(calculeProfondeur(R.fg), calculeProfondeur(R.fd)) + 1;
-                P.profendeur = max(calculeProfondeur(P.fg), calculeProfondeur(P.fd)) + 1;
-                Q.profendeur = max(calculeProfondeur(Q.fg), calculeProfondeur(Q.fd)) + 1;
-                R.balence = (calculeProfondeur(R.fg) - calculeProfondeur(R.fd));
-                P.balence = (calculeProfondeur(P.fg) - calculeProfondeur(P.fd));
-                Q.balence = (calculeProfondeur(Q.fg) - calculeProfondeur(Q.fd));
+                R.profendeur = calculeProfondeur(R);
+                P.profendeur = calculeProfondeur(P);
+                Q.profendeur = calculeProfondeur(Q);
+                R.balence = calculeBalance(R);
+                P.balence = calculeBalance(P);
+                Q.balence = calculeBalance(Q);
                 return Q;
             }
 
@@ -123,7 +127,7 @@ public class AVL extends Arbre {
                     return n;
                 }
 
-                //si on a chaisit le min prédéssusseur:
+                //si on a choisit le min prédéssusseur:
                 NodeAVL t1 = minVal(n.fd);
                 n.value = t1.value;
                 n.fd = delete(n.fd, t1.value);
