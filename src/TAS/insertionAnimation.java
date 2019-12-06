@@ -19,27 +19,25 @@ import javafx.util.Duration;
  */
 public class insertionAnimation extends Thread {
 
-    public int n;
     public AnchorPane group;
     public TASmax tas;
 
-    public insertionAnimation(int n, AnchorPane group, TASmax tas) {
-        this.n = n;
+    public insertionAnimation( AnchorPane group, TASmax tas) {
+       
         this.group = group;
         this.tas = tas;
     }
 
     @Override
     public void run() {
-        Runnable updater = new Runnable() {
+       /* Runnable updater = new Runnable() {
             @Override
             public void run() {
                 tas.Afficher();
             }
         };
-        tas.taille++;
-        tas.Tas[tas.taille] = new Node(n, new Cercle(n));
-        Platform.runLater(updater);
+        
+        Platform.runLater(updater);*/
         int current = tas.taille;
         TranslateTransition t1, t2;
         while (tas.Tas[current].getVal() > tas.Tas[tas.parent(current)].getVal()) {

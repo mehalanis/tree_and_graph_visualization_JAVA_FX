@@ -31,7 +31,7 @@ public class TASmax {
         this.cpct = cpct;
         this.taille = 0;
         Tas = new Node[this.cpct + 1];
-        Tas[0] = new Node(Integer.MAX_VALUE, null);
+        Tas[0] = new Node(Integer.MAX_VALUE);
         //l'indice 0 ne peut pas étre utilisée dans les prochaine fonctions
     }
 
@@ -78,7 +78,10 @@ public class TASmax {
     }
 
     public void inserer(int element) {
-        new insertionAnimation(element, group, this).start();
+        taille++;
+        Tas[taille] = new Node(element);
+        Afficher();
+        new insertionAnimation( group, this).start();
     }
 
     public int Rechercher(int valeur) {

@@ -15,9 +15,9 @@ public class Node {
     private int val;
     private Cercle c; 
 
-    public Node(int val, Cercle c) {
+    public Node(int val) {
         this.val = val;
-        this.c = c;
+        this.c = new Cercle(val);
     }
 
     public int getVal() {
