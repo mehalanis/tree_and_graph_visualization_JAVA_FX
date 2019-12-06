@@ -7,6 +7,7 @@ package TAS;
 
 import java.util.Scanner;
 import javafx.scene.Group;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 
 /**
@@ -16,15 +17,15 @@ import javafx.scene.shape.Line;
 
 public class TASmin extends TASmax {
 
-    public TASmin(int cpct) {
-        super(cpct);
+    public TASmin(int cpct,AnchorPane group) {
+        super(cpct,group);
+        Tas[0] = new Node(Integer.MIN_VALUE, null);
     }
 
-    public int inserer(int element) {
-      int pos=super.inserer(-element);
-      Node n=Tas[pos];
-      n.getC().setVal(element);
-      return pos;
+    public void inserer(int element) {
+      super.inserer(-element);
+     // Node n=Tas[this.Rechercher(element)];
+     // n.getC().setVal(element);
    }
      public int Rechercher(int valeur) {
          return super.Rechercher(-valeur);
@@ -32,15 +33,13 @@ public class TASmin extends TASmax {
 
     @Override
     public Node Supprimer(int val){
-        super.Supprimer(-val);
-
-        return null;
-        }
-    @Override
+        return super.Supprimer(-val);
+    }
+  /*  @Override
      public void Afficher(){
       for (int i = 1; i <= taille; i++){
             System.out.print(-Tas[i].getVal() + " ");
       }
       System.out.println();
-     }
+     }*/
 }

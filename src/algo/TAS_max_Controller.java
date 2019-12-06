@@ -9,31 +9,29 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 
 public class TAS_max_Controller implements Initializable {
     TASmax tas;
-    @FXML Group arbre;
+    @FXML AnchorPane arbre;
     @FXML TextField text;
     @FXML Label trouver_label;
     @FXML
     public void insert(ActionEvent e){
-       int pos=tas.inserer(Integer.parseInt(text.getText())); 
-       Afficher();
+       tas.inserer(Integer.parseInt(text.getText())); 
+      // Afficher();
     }
     @FXML
     public void Rechercher(ActionEvent e){
        // tas.rechercher(trouver_label,text.getText());
     }
+    @FXML
+    public void supprimer(ActionEvent e){
+        tas.Supprimer(Integer.parseInt(text.getText()));
+        tas.Afficher();
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tas=new TASmax(20);
-    }    
-     public void Afficher(){
-        arbre.getChildren().clear();
-        //int gap = abr.depth(abr.root);
-        int gap=3;
-        gap = gap * gap *8;
-        tas.Afficher(1, arbre ,1200/ 2, 0,1200/ 2, 0,0,gap);
+        tas=new TASmax(20,arbre);
     }
-    
 }
