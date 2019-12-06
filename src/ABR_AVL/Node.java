@@ -17,6 +17,7 @@ public class Node {
 
     public void setVal(int val) {
         this.val = val;
+        c.setVal(val);
     }
 
     public void setFG(Node FG) {

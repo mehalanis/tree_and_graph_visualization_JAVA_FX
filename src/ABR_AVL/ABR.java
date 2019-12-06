@@ -15,7 +15,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-
 public class ABR extends Arbre {
 
     public ABR(AnchorPane group) {
@@ -56,8 +55,60 @@ public class ABR extends Arbre {
         new insertionAnimation(this, node, group).start();
     }
 
+    public void suppression(String val, char r) {
+        suppression( Integer.parseInt(val), r);
+    }
+
     @Override
-    public boolean suppression(int val) {
-        return true;
+    public void suppression(int val, char r) {
+        this.root = suppression(this.root, val, r);
+    }
+
+    public Node suppression(Node root, int val, char r) {
+        if (root == null) {
+            return null;
+        } else {
+            if (root.getVal() > val) {
+                root.setFG(suppression(root.getFG(), val, r));
+                return root;
+            } else {
+                if (root.getVal() < val) {
+                    root.setFD(suppression(root.getFD(), val, r));
+                    return root;
+                } else {
+                    return suppressionRacine(root, r);
+                }
+            }
+        }
+    }
+
+    public Node suppressionRacine(Node root, char r) {
+        if (root.getFG() == null) {
+            if (root.getFD() == null) {
+                return null;
+            } else {
+                return root.getFD();
+            }
+        } else {
+            if (root.getFD() == null) {
+                return root.getFG();
+            } else {
+                Node[] tab;
+                if (r == 'S') {
+                    System.out.println("Successeur");
+                    tab = this.Successeur(root);
+                    root.setVal(tab[1].getVal());
+                    root.setFD(suppression(root.getFD(), tab[1].getVal(), r));
+                }
+                if(r=='P'){
+                    System.out.println("Predecesseur");
+                    tab = this.Predecesseur(root);
+                    root.setVal(tab[1].getVal());
+                    root.setFG(suppression(root.getFG(), tab[1].getVal(), r));
+                }
+                
+                return root;
+            }
+        }
     }
 }

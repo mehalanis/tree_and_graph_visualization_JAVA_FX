@@ -14,11 +14,11 @@ import javafx.util.Duration;
 
 public class insertionAnimation extends Thread {
 
-    public ABR abr;
+    public Arbre abr;
     public Node n;
     public AnchorPane group;
 
-    public insertionAnimation(ABR abr, Node n, AnchorPane group) {
+    public insertionAnimation(Arbre abr, Node n, AnchorPane group) {
         this.abr = abr;
         this.n = n;
         this.group = group;
@@ -26,17 +26,23 @@ public class insertionAnimation extends Thread {
 
     @Override
     public void run() {
-        int gap = abr.depth(abr.root) - 1;
+        int gap = abr.depth(abr.root) ;
+        if (abr instanceof ABR) {
+            ABR r = (ABR) abr;
+            abr.root = r.insertion(abr.root, n);
+        } else {
+            //AVL b = (AVL) abr;
+        }
         gap = gap * gap * 10;
         insertionAnimation(abr.root, n, 1200 / 2, 0, 1200 / 2, 0, 0, gap);
     }
 
     private void insertionAnimation(Node root, Node n, int x, int y, int prevx, int prevy, int lev, int gap) {
-        if (root == null) {
+        if (root == n) {
             TranslateTransition t1 = new TranslateTransition(Duration.millis(500), n.getC());
             t1.setToX(x);
-            t1.setToY(y - 50);
-            t1.setOnFinished(new OnFinishedinsererAnimation(group, n, abr));
+            t1.setToY(y);
+            t1.setOnFinished(new OnFinishedInsertionAnimation(group, n, abr));
             t1.play();
         } else {
             lev++;
@@ -48,7 +54,6 @@ public class insertionAnimation extends Thread {
                 Logger.getLogger(Find.class.getName()).log(Level.SEVERE, null, ex);
             }
             root.setCircleColor(Color.BLACK);
-            System.out.println("node val= " + root.getVal() + "x= " + x + " y= " + y + " gap =" + gap);
             if (n.getVal() < root.getVal()) {
                 if (root.getLFG() != null) {
                     root.setColorLFG(Color.YELLOW);

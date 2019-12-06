@@ -23,23 +23,24 @@ public class ABRController implements Initializable {
     @FXML AnchorPane arbre;
     @FXML TextField text;
     @FXML Label trouver_label;
-    int k=3;
     @FXML
     public void insert(ActionEvent e){
        abr.insertionAnimation(text.getText()); 
-       //Afficher();
     }
     @FXML
     public void Rechercher(ActionEvent e){
         abr.rechercher(trouver_label,text.getText());
     }
+    @FXML
+    public void supprimer(ActionEvent e){
+        abr.suppression(text.getText(),'S');
+        abr.Afficher();
+        Afficher();
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         abr=new ABR(arbre);
-        abr.insertion(5);
-        Cercle c=new Cercle(5);
-        c.setLayout(0, 0);
-        arbre.getChildren().add(c);
+      //  abr.insertion(5);
         abr.insertion(4);
         abr.insertion(6);
         Afficher();

@@ -11,13 +11,13 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.AnchorPane;
 
 
-public class OnFinishedinsererAnimation implements EventHandler {
+public class OnFinishedInsertionAnimation implements EventHandler {
 
     public AnchorPane p;
     public Node n;
     public Arbre abr;
 
-    public OnFinishedinsererAnimation(AnchorPane p, Node n, Arbre abr) {
+    public OnFinishedInsertionAnimation(AnchorPane p, Node n, Arbre abr) {
         this.p = p;
         this.n = n;
         this.abr = abr;
@@ -25,12 +25,7 @@ public class OnFinishedinsererAnimation implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        if (abr instanceof ABR) {
-            ABR r = (ABR) abr;
-            abr.root = r.insertion(abr.root, n);
-        } else {
-            AVL b = (AVL) abr;
-        }
+        
         n.setC(new Cercle(n.getVal()));
         p.getChildren().clear();
         int gap = abr.depth(abr.root);

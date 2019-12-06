@@ -19,8 +19,7 @@ public class AVL extends Arbre {
     }
 
     @Override
-    public boolean suppression(int val) {
-        return false;
+    public void suppression(int val,char r) {
     }
 
 }

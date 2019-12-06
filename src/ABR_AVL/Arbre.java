@@ -19,7 +19,7 @@ public abstract class Arbre {
     
     public abstract void insertion(int n);
 
-    public abstract boolean suppression(int val);
+    public abstract void suppression(int val,char r);
 
     public void Afficher() {
         Afficher(this.root);
@@ -58,7 +58,6 @@ public abstract class Arbre {
             g.getChildren().add(line);
             gap = (gap) / 2;
         }
-        System.out.println("node = " + t.getVal() + " x = " + x + " y= " + y + " gap=" + gap);
         Afficher(t.getFG(), t, g, x - gap, y + 50, x, y, lev, gap);
         Afficher(t.getFD(), t, g, x + gap, y + 50, x, y, lev, gap);
     }
@@ -70,5 +69,29 @@ public abstract class Arbre {
     public void rechercher(Label label, int val) {
         Find t = new Find(root, label, val);
         t.start();
+    }
+    public Node[] Successeur(Node root){
+        Node[] tab=new Node[2]; //[0]=PS , [1]=S
+        tab[0]=root;
+        tab[1]=root.getFD();
+        if(tab[1]!=null){
+            while(tab[1].getFG()!=null){
+                tab[0]=tab[1];
+                tab[1]=tab[1].getFG();
+            }
+        }
+        return tab;
+    }
+    public Node[] Predecesseur(Node root){
+        Node[] tab=new Node[2]; //[0]=PP , [1]=P
+        tab[0]=root;
+        tab[1]=root.getFG();
+        if(tab[1]!=null){
+            while(tab[1].getFD()!=null){
+                tab[0]=tab[1];
+                tab[1]=tab[1].getFD();
+            }
+        }
+        return tab;
     }
 }
