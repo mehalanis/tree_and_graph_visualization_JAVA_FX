@@ -36,7 +36,7 @@ public abstract class Arbre {
 
     public int depth(Node t) {
         if (t == null) {
-            return 0;
+            return -1;
         }
         return 1 + Math.max(depth(t.getFG()), depth(t.getFD()));
     }
