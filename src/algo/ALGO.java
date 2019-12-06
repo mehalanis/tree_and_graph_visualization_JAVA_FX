@@ -28,7 +28,7 @@ public class ALGO extends Application {
         Parent root = load.getRoot();
         
         Scene scene = new Scene(root);
-        
+
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();

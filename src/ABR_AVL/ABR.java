@@ -11,8 +11,11 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class ABR extends Arbre {
@@ -76,6 +79,12 @@ public class ABR extends Arbre {
                     root.setFD(suppression(root.getFD(), val, r));
                     return root;
                 } else {
+                   /* Label x=new Label("X");
+                    x.setTextFill(Color.RED);
+                    x.setFont(new Font(76));
+                    x.setLayoutX(root.getC().getLayoutX());
+                    x.setLayoutY(root.getC().getLayoutY()-30);
+                    group.getChildren().add(x);*/
                     return suppressionRacine(root, r);
                 }
             }

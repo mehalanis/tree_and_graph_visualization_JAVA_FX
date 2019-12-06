@@ -7,6 +7,7 @@ package ABR_AVL;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
@@ -29,13 +30,19 @@ public class Find extends Thread {
     @Override
     public void run() {
         Node n = find(node, val);
-        // label.setText(((n!=null)?"trouve "+val:"pas trouve"+val));
+        Runnable updater = new Runnable() {
+
+            @Override
+            public void run() {
+                label.setText(((n != null) ? "found : " + val : "not found : " + val));
+            }
+        };
+        Platform.runLater(updater);
         try {
             Thread.sleep(2000);
         } catch (InterruptedException ex) {
         }
         n.setCircleColor(Color.BLACK);
-
     }
 
     public Node find(Node t, int find) {
@@ -44,7 +51,7 @@ public class Find extends Thread {
         }
         t.setCircleColor(Color.YELLOW);
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException ex) {
         }
         if (t.getVal() == find) {
