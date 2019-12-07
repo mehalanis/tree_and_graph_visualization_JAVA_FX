@@ -9,7 +9,7 @@ public class Node {
    private int val;
    private Node FG=null,FD=null;
    private Line LFG,LFD;
-   Cercle c;
+   private Cercle c;
     public Node(int val) {
         this.val = val;
         c=new Cercle(val);

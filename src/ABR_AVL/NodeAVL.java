@@ -5,6 +5,8 @@
  */
 package ABR_AVL;
 
+import Formes.CercleAVL;
+
 /**
  *
  * @author mounir
@@ -15,7 +17,7 @@ public class NodeAVL extends Node {
     public NodeAVL(int x){
         super(x);
         balence=0;
-        
+        super.setC(new CercleAVL(x,balence));
     }
 
     public int getProfendeur() {
@@ -33,6 +35,12 @@ public class NodeAVL extends Node {
     public void setBalence(int balence) {
         this.balence = balence;
     }
-    
+    public NodeAVL getFG() {
+        return (NodeAVL)super.getFG();
+    }
+
+    public NodeAVL getFD() {
+        return (NodeAVL)super.getFD();
+    }
 }
 

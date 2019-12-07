@@ -31,10 +31,12 @@ public class insertionAnimation extends Thread {
             ABR r = (ABR) abr;
             abr.root = r.insertion(abr.root, n);
         } else {
-            //AVL b = (AVL) abr;
+            AVL r=(AVL)abr;
+            abr.root=r.insertion(abr.root,(NodeAVL)n);
         }
-        gap = gap * gap * 10;
-        insertionAnimation(abr.root, n, 1200 / 2, 0, 1200 / 2, 0, 0, gap);
+        gap = gap * gap * 24;
+        insertionAnimation(abr.root, n, (int)group.getWidth() / 2, 0, (int)group.getWidth()  / 2, 0, 0, gap);
+       
     }
 
     private void insertionAnimation(Node root, Node n, int x, int y, int prevx, int prevy, int lev, int gap) {

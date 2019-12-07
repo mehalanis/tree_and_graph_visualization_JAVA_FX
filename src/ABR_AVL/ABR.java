@@ -52,9 +52,7 @@ public class ABR extends Arbre {
 
     public void insertionAnimation(int n) {
         Node node = new Node(n);
-        int gap = this.depth(this.root);
         this.group.getChildren().add(node.getCircle(0, 0));
-        gap = gap * gap * 10;
         new insertionAnimation(this, node, group).start();
     }
 

@@ -18,86 +18,101 @@ public class AVL extends Arbre {
         super(group);
     }
 
-    public void insertion(int x) {
-        root = insertion(root, x);
+    public void insertionAnimation(String n) {
+        insertionAnimation(Integer.parseInt(n));
     }
 
-    private Node insertion(Node n, int x) {
+    public void insertionAnimation(int n) {
+        NodeAVL node = new NodeAVL(n);
+        this.group.getChildren().add(node.getCircle(0, 0));
+        new insertionAnimation(this, node, group).start();
+    }
+
+    @Override
+    public void insertion(int n) {
+        root = insertion(root, new NodeAVL(n));
+    }
+
+    public void insertion(String x) {
+        insertion(Integer.parseInt(x));
+    }
+
+    public NodeAVL insertion(Node n, NodeAVL x) {
         if (n == null) {
-            n = new NodeAVL(x);
+            return x;
         } else {
-            if (x < n.getVal()) {
+            if (x.getVal() < n.getVal()) {
                 n.setFG(insertion(n.getFG(), x));
-            } else if (x > n.getVal()) {
+            } else if (x.getVal() > n.getVal()) {
                 n.setFD(insertion(n.getFD(), x));
             }
         }
-        NodeAVL v=(NodeAVL)n;
-        v.setBalence(calculeBalance(n));
-        v = (NodeAVL) rotation(v);
-        v.setProfendeur(calculeProfondeur(n));
-        n=v;
-        return n;
+        NodeAVL v = (NodeAVL) n;
+        v.setBalence(calculeBalance(v));
+        v = rotation(v);
+        v.setProfendeur(calculeProfondeur(v));
+        return v;
     }
 
-    private int calculeProfondeur(Node n) {
-        return (n == null) ? -1 : max(n.getFD().getProfendeur(),n.getFG().getProfendeur())+1;
-    }
-    private int calculeBalance(Node n){
-        return (calculeProfondeur(n.getFG()) - calculeProfondeur(n.getFD()))
+    private int calculeProfondeur(NodeAVL n) {
+        return ((n == null) ? -1 : (Math.max(calculeProfondeur(n.getFD()), calculeProfondeur(n.getFG())) + 1));
     }
 
-    private Node rotation(Node r) {
-        NodeAVL R=(NodeAVL)r;
+    private int calculeBalance(NodeAVL n) {
+        return (calculeProfondeur(n.getFG()) - calculeProfondeur(n.getFD()));
+    }
+
+    private NodeAVL rotation(Node r) {
+        NodeAVL R = (NodeAVL) r;
         if (R != null) {
-            if ((R.getBalence() == -2) && (((NodeAVL)R.getFD()).getBalence() == -1)) {
-                NodeAVL P = R.fd;
-                R.fd = P.fg;
-                P.fg = R;
-                R.profendeur = calculeProfondeur(R);
-                P.profendeur = calculeProfondeur(P);
-                R.balence = calculeBalance(R);
-                P.balence = calculeBalance(P);
+            if ((R.getBalence() == -2) && (R.getFD().getBalence() == -1)) {
+                NodeAVL P = R.getFD();
+                R.setFD(P.getFG());
+                P.setFG(R);
+                R.setProfendeur(calculeProfondeur(R));
+                P.setProfendeur(calculeProfondeur(P));
+                R.setBalence(calculeBalance(R));
+                P.setBalence(calculeBalance(P));
                 return P;
 
-            } else if ((R.balence == -2) && (R.fd.balence == 1)) {
-                NodeAVL P = R.fd;
-                NodeAVL Q = P.fg;
-                R.fd = Q.fg;
-                P.fg = Q.fd;
-                Q.fd = P;
-                Q.fg = R;
-                R.profendeur = calculeProfondeur(R);
-                P.profendeur = calculeProfondeur(P);
-                Q.profendeur = calculeProfondeur(Q);
-                R.balence = calculeBalance(R);
-                P.balence = calculeBalance(P);
-                Q.balence = calculeBalance(Q);
+            } else if ((R.getBalence() == -2) && (R.getFD().getBalence() == 1)) {
+                NodeAVL P = R.getFD();
+                NodeAVL Q = P.getFG();
+                R.setFD(Q.getFG());
+                P.setFG(Q.getFD());
+                Q.setFD(P);
+                Q.setFG(R);
+                R.setProfendeur(calculeProfondeur(R));
+                P.setProfendeur(calculeProfondeur(P));
+                Q.setProfendeur(calculeProfondeur(Q));
+                R.setBalence(calculeBalance(R));
+                P.setBalence(calculeBalance(P));
+                Q.setBalence(calculeBalance(Q));
                 return Q;
 
-            } else if ((R.balence == 2) && (R.fg.balence == 1)) {
-                NodeAVL P = R.fg;
-                R.fg = P.fd;
-                P.fd = R;
-                R.profendeur = calculeProfondeur(R);
-                P.profendeur = calculeProfondeur(P);
-                R.balence = calculeBalance(R);
-                P.balence = calculeBalance(P);
+            } else if ((R.getBalence() == 2) && (R.getFG().getBalence() == 1)) {
+                NodeAVL P = R.getFG();
+                R.setFG(P.getFD());
+                P.setFD(R);
+                R.setProfendeur(calculeProfondeur(R));
+                P.setProfendeur(calculeProfondeur(P));
+                R.setBalence(calculeBalance(R));
+                P.setBalence(calculeBalance(P));
                 return P;
 
-            } else if ((R.balence == 2) && (R.fg.balence == -1)) {
-                NodeAVL P = R.fg;
-                NodeAVL Q = P.fd;
-                R.fg = Q.fd;
-                P.fd = Q.fg;
-                Q.fd = R;
-                Q.fg = P;
-                R.profendeur = calculeProfondeur(R);
-                P.profendeur = calculeProfondeur(P);
-                Q.profendeur = calculeProfondeur(Q);
-                R.balence = calculeBalance(R);
-                P.balence = calculeBalance(P);
-                Q.balence = calculeBalance(Q);
+            } else if ((R.getBalence() == 2) && (R.getFG().getBalence() == -1)) {
+                NodeAVL P = R.getFG();
+                NodeAVL Q = P.getFD();
+                R.setFG(Q.getFD());
+                P.setFD(Q.getFG());
+                Q.setFD(R);
+                Q.setFG(P);
+                R.setProfendeur(calculeProfondeur(R));
+                P.setProfendeur(calculeProfondeur(P));
+                Q.setProfendeur(calculeProfondeur(Q));
+                R.setBalence(calculeBalance(R));
+                P.setBalence(calculeBalance(P));
+                Q.setBalence(calculeBalance(Q));
                 return Q;
             }
 
@@ -105,39 +120,46 @@ public class AVL extends Arbre {
         return R;
 
     }
-
-    public void delete(int x) {
-        root = delete(root, x);
+    public void delete(String x, char r) {
+        delete(Integer.parseInt(x),r);
+    }
+    public void delete(int x, char r) {
+        root = delete(root, x, r);
     }
 
-    private NodeAVL delete(NodeAVL n, int x) {
+    private NodeAVL delete(Node R, int x, char r) {
+        NodeAVL n = (NodeAVL) R;
         if (n != null) {
-            if (x < n.value) {
-                n.fg = delete(n.fg, x);
-            } else if (x > n.value) {
-                n.fd = delete(n.fd, x);
+            if (x < n.getVal()) {
+                n.setFG(delete(n.getFG(), x, r));
+            } else if (x > n.getVal()) {
+                n.setFD(delete(n.getFD(), x, r));
             } else {
-                if ((n.fg == null) || (n.fd == null)) {
-                    if (n.fg == null) {
-                        n = n.fd;
+                if ((n.getFG() == null) || (n.getFD() == null)) {
+                    if (n.getFG() == null) {
+                        n = n.getFD();
                     } else {
-                        n = n.fg;
+                        n = n.getFG();
                     }
 
                     return n;
                 }
 
-                //si on a choisit le min prédéssusseur:
-                NodeAVL t1 = minVal(n.fd);
-                n.value = t1.value;
-                n.fd = delete(n.fd, t1.value);
+                //si on a choisit le min prédéssusseur
+                if (r == 'S') {
+                    NodeAVL t1 = minVal(n.getFD());
+                    n.setVal(t1.getVal());
+                    n.setFD(delete(n.getFD(), t1.getVal(), r));
+                } else {
+                    NodeAVL t2 = maxVal(n.getFG());
+                    n.setVal(t2.getVal());
+                    n.setFG(delete(n.getFG(), t2.getVal(),r));
+                }
                 // si on a choisit le max succésseur :
-                /*NoeudAvl t2=maxVal(n.fg);
-              n.value=t2.value;
-              n.fg=delete(n.fg,t2.value);*/
+                /**/
             }
-            n.balence = (calculeProfondeur(n.fg) - calculeProfondeur(n.fd));
-            n.profendeur = max(calculeProfondeur(n.fg), calculeProfondeur(n.fd)) + 1;
+            n.setBalence(calculeBalance(n));
+            n.setProfendeur(calculeProfondeur(n));
             n = rotation(n);
             return n;
         } else {
@@ -147,31 +169,31 @@ public class AVL extends Arbre {
     }
 
     public void affich() {
-        affichage(root);
+        affichage((NodeAVL) root);
     }
 
     private void affichage(NodeAVL n) {
         if (n == null) {
         } else {
-            affichage(n.fg);
-            if (n.fg != null) {
+            affichage(n.getFG());
+            /* if (n.getFG() != null) {
                 System.out.println("\n fils gauche = " + n.fg.value);
-            }
-            System.out.println("value = " + n.value + "\n profendeur = " + n.profendeur + "\n balence = " + n.balence);
-            if (n.fd != null) {
+            }*/
+            System.out.println("value = " + n.getVal() /*+ "\n profendeur = " + n.profendeur */ + "\n balence = " + n.getBalence());
+            /*if (n.fd != null) {
                 System.out.println(" fils droit = " + n.fd.value);
-            }
-            affichage(n.fd);
+            }*/
+            affichage(n.getFD());
         }
 
     }
 
     private NodeAVL minVal(NodeAVL n) {
-        return (n.fg == null) ? n : minVal(n.fg);
+        return (n.getFG() == null) ? n : minVal(n.getFG());
     }
 
     private NodeAVL maxVal(NodeAVL n) {
-        return (n.fd == null) ? n : minVal(n.fd);
+        return (n.getFD() == null) ? n : minVal(n.getFD());
     }
 
     @Override

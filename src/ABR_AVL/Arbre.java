@@ -1,5 +1,7 @@
 package ABR_AVL;
 
+import Formes.Cercle;
+import Formes.CercleAVL;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +24,7 @@ public abstract class Arbre {
 
     public abstract void suppression(int val,char r);
 
-    public void Afficher() {
+    /*public void Afficher() {
         Afficher(this.root);
     }
 
@@ -32,7 +34,7 @@ public abstract class Arbre {
             System.out.println(root.getVal());
             Afficher(root.getFD());
         }
-    }    
+    } */   
 
     public int depth(Node t) {
         if (t == null) {
@@ -40,12 +42,23 @@ public abstract class Arbre {
         }
         return 1 + Math.max(depth(t.getFG()), depth(t.getFD()));
     }
-
+    public void Afficher(){
+        group.getChildren().clear();
+        int gap = this.depth(this.root);
+        gap = gap * gap *24;
+        this.Afficher(this.root,null, group ,(int)group.getWidth()/ 2, 0,(int)group.getWidth()/ 2, 0,0,gap);
+    }
     public void Afficher(Node t, Node root, AnchorPane g, int x, int y, int prevx, int prevy, int lev, int gap) {        
         
         if (t == null) {
             return;
         }
+        if(t instanceof NodeAVL){
+           t.setC(new CercleAVL(t.getVal(),((NodeAVL)t).getBalence()));
+        }else{
+          t.setC(new Cercle(t.getVal()));              
+        }
+        
         g.getChildren().add(t.getCircle(x, y));
         
         if ((++lev) != 1) {

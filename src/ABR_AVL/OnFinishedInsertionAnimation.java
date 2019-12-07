@@ -25,12 +25,9 @@ public class OnFinishedInsertionAnimation implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        
-        n.setC(new Cercle(n.getVal()));
         p.getChildren().clear();
-        int gap = abr.depth(abr.root);
-        gap = gap * gap * 10;
-        abr.Afficher(abr.root, null, p, 1200 / 2, 0, 1200 / 2, 0, 0, gap);
+        abr.Afficher();
+        
 
     }
 }

@@ -37,26 +37,20 @@ public class ABRController implements Initializable {
     @FXML
     public void supprimer(ActionEvent e){
         abr.suppression(text.getText(),((predecesseur.isSelected())?'P':'S'));
-        Afficher();
+        abr.Afficher();
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         abr=new ABR(arbre);
-        abr.insertion(5);
+        /*abr.insertion(5);
         abr.insertion(4);
         abr.insertion(6);
-        Afficher();
+        */
         trouver_label.setText("");
         ToggleGroup tg=new ToggleGroup();
         predecesseur.setToggleGroup(tg);
         successeur.setToggleGroup(tg);
         predecesseur.setSelected(true);
+        abr.Afficher();
     }    
-    public void Afficher(){
-        arbre.getChildren().clear();
-        int gap = abr.depth(abr.root);
-        gap = gap * gap *10;
-        abr.Afficher(abr.root,null, arbre ,1200/ 2, 0,1200/ 2, 0,0,gap);
-    }
-   
 }
