@@ -22,22 +22,19 @@ public class insertionAnimation extends Thread {
     public AnchorPane group;
     public TASmax tas;
 
-    public insertionAnimation( AnchorPane group, TASmax tas) {
-       
+    public insertionAnimation(AnchorPane group, TASmax tas) {
+
         this.group = group;
         this.tas = tas;
     }
 
     @Override
     public void run() {
-       /* Runnable updater = new Runnable() {
-            @Override
-            public void run() {
-                tas.Afficher();
-            }
-        };
-        
-        Platform.runLater(updater);*/
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(insertionAnimation.class.getName()).log(Level.SEVERE, null, ex);
+        }
         int current = tas.taille;
         TranslateTransition t1, t2;
         while (tas.Tas[current].getVal() > tas.Tas[tas.parent(current)].getVal()) {
@@ -54,10 +51,10 @@ public class insertionAnimation extends Thread {
             t1.play();
             t2.play();
             try {
-                Thread.sleep(600);
+                Thread.sleep(700);
             } catch (InterruptedException ex) {
                 Logger.getLogger(insertionAnimation.class.getName()).log(Level.SEVERE, null, ex);
-            }            
+            }
             current = tas.parent(current);
         }
     }

@@ -23,8 +23,7 @@ public class TASmin extends TASmax {
 
     public void inserer(int element) {
       super.inserer(-element);
-     // Node n=Tas[this.Rechercher(element)];
-     // n.getC().setVal(element);
+      
    }
      public int Rechercher(int valeur) {
          return super.Rechercher(-valeur);

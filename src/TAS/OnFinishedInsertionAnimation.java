@@ -27,7 +27,6 @@ public class OnFinishedInsertionAnimation implements EventHandler {
         
     @Override
     public void handle(Event event) {
-        //n.setC(new Cercle(n.getVal()));
         p.getChildren().clear();
         tas.Afficher();
     }

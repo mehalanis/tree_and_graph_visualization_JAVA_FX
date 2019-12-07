@@ -130,7 +130,7 @@ public class TASmax {
         if (pos > taille) {
             return;
         }
-        Tas[pos].setC(new Cercle(Tas[pos].getVal()));
+        Tas[pos].setC(new Cercle(Math.abs(Tas[pos].getVal())));
         g.getChildren().add(Tas[pos].getC(x, y));
 
         if ((++lev) != 1) {
