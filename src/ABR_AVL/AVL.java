@@ -43,7 +43,7 @@ public class AVL extends Arbre {
         } else {
             if (x.getVal() < n.getVal()) {
                 n.setFG(insertion(n.getFG(), x));
-            } else if (x.getVal() > n.getVal()) {
+            } else{
                 n.setFD(insertion(n.getFD(), x));
             }
         }

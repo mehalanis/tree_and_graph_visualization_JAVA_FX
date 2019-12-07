@@ -19,7 +19,6 @@ public class TASmin extends TASmax {
 
     public TASmin(int cpct,AnchorPane group) {
         super(cpct,group);
-        Tas[0] = new Node(Integer.MIN_VALUE);
     }
 
     public void inserer(int element) {
