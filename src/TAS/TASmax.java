@@ -103,6 +103,32 @@ public class TASmax {
         System.out.println("la valeur \"" + valeur + "\" n\'éxiste pas.");
         return 0;
     }
+    public int RechercherV(int valeur) {
+        int pos = 0;
+        // Création d'une file
+        Queue<Integer> q = new LinkedList<>();
+        if (taille != 0) {
+            pos=1;
+            q.add(pos);
+            while ((q.peek() != null)) {
+                pos = q.remove();
+                System.out.println(pos);
+                if (Tas[pos].getVal() == valeur) {
+                    System.out.println("la valeur \"" + (Math.abs(valeur)) + "\" éxiste à la position \"" + pos + "\" ");
+                    return pos;
+                }
+
+                if (Tas[filsGauche(pos)].getVal() >= valeur) {
+                    q.add(filsGauche(pos));
+                }
+                if (Tas[filsDroit(pos)].getVal() >= valeur) {
+                    q.add(filsDroit(pos));
+                 }
+
+            }
+        
+    }   return -1;
+}
 
     public void Supprimer(int val) {
         new SupprimerAnimation(this,val).start();
