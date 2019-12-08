@@ -10,24 +10,16 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.layout.AnchorPane;
 
-/**
- *
- * @author anispitchou
- */
 public class OnFinishedInsertionAnimation implements EventHandler {
-    public AnchorPane p;
     public TASmax tas;
-    public Node n;
 
-    public OnFinishedInsertionAnimation(AnchorPane p, TASmax tas, Node n) {
-        this.p = p;
+    public OnFinishedInsertionAnimation(TASmax tas) {
         this.tas = tas;
-        this.n = n;
     }
-        
+    
     @Override
     public void handle(Event event) {
-        p.getChildren().clear();
+        tas.group.getChildren().clear();
         tas.Afficher();
     }
     

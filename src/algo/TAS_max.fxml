@@ -43,8 +43,11 @@
       <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="TOP_CENTER">
          <content>
             <BorderPane fx:id="border" prefHeight="200.0" prefWidth="200.0">
-               <left>
-                  <Label fx:id="trouver_label" text="Label" BorderPane.alignment="TOP_CENTER">
+               <center>
+                  <AnchorPane fx:id="arbre" BorderPane.alignment="CENTER" />
+               </center>
+               <top>
+                  <Label fx:id="trouver_label" text="Label" BorderPane.alignment="TOP_LEFT">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -55,10 +58,7 @@
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding>
                   </Label>
-               </left>
-               <center>
-                  <AnchorPane fx:id="arbre"  BorderPane.alignment="CENTER" />
-               </center>
+               </top>
             </BorderPane>
          </content>
       </ScrollPane>

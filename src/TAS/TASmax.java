@@ -47,8 +47,8 @@ public class TASmax {
         return (2 * pos) + 1;
     }
 
-    private boolean feuille(int pos) {
-        return pos >= (taille / 2) && pos <= taille;
+    public boolean feuille(int pos) {
+        return (pos >= (taille / 2)+1) && pos <= taille;
     }
 
     public void Permuter(int pos1, int pos2) {
@@ -59,7 +59,7 @@ public class TASmax {
         Tas[pos2] = tmp;
     }
 
-    protected void Equi(int pos) {
+    /*protected void Equi(int pos) {
         if (feuille(pos)) {
             return;
         }
@@ -76,7 +76,7 @@ public class TASmax {
             }
         }
     }
-
+*/
     public void inserer(int element) {
         taille++;
         Tas[taille] = new Node(element);
@@ -104,8 +104,9 @@ public class TASmax {
         return 0;
     }
 
-    public Node Supprimer(int val) {
-        int pos = 0;
+    public void Supprimer(int val) {
+        new SupprimerAnimation(this,val).start();
+       /* int pos = 0;
         pos = Rechercher(val);
         if (pos != 0) {
             Node popped;
@@ -114,9 +115,13 @@ public class TASmax {
             Equi(pos);
             return popped;
         }
-        return null;
+        return null;*/
     }
-
+    public void Aff() {
+        for(int i=1;i<=taille;i++){
+            System.out.print(Tas[i].getVal()+" ");
+        }
+    }
     public void Afficher() {
         group.getChildren().clear();
         //int gap = abr.depth(abr.root);
@@ -135,6 +140,11 @@ public class TASmax {
 
         if ((++lev) != 1) {
             Line line = new Line(prevx + 23, prevy + 46, x + 23, y);
+            if(this.filsGauche(this.parent(pos))==pos){
+                Tas[this.parent(pos)].setLFG(line);
+            }else{
+                Tas[this.parent(pos)].setLFD(line);
+            }
             line.setStrokeWidth(2);
             g.getChildren().add(line);
             gap = (gap) / 2;

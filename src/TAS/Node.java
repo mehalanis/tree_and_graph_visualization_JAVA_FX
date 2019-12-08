@@ -6,6 +6,7 @@
 package TAS;
 
 import Formes.Cercle;
+import javafx.scene.shape.Line;
 
 /**
  *
@@ -14,7 +15,7 @@ import Formes.Cercle;
 public class Node {
     private int val;
     private Cercle c; 
-
+    private Line LFG,LFD;
     public Node(int val) {
         this.val = val;
         this.c = new Cercle(val);
@@ -39,6 +40,22 @@ public class Node {
     
     public void setC(Cercle c) {
         this.c = c;
+    }
+
+    public Line getLFG() {
+        return LFG;
+    }
+
+    public void setLFG(Line LFG) {
+        this.LFG = LFG;
+    }
+
+    public Line getLFD() {
+        return LFD;
+    }
+
+    public void setLFD(Line LFD) {
+        this.LFD = LFD;
     }
     
     

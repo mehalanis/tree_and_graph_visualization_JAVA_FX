@@ -28,7 +28,6 @@ public class TAS_min_Controller implements Initializable {
     @FXML
     public void supprimer(ActionEvent e){
         tas.Supprimer(Integer.parseInt(text.getText()));
-        tas.Afficher();
     }
 
     @Override

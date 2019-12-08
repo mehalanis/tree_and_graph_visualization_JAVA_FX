@@ -30,8 +30,8 @@ public class TASmin extends TASmax {
     }
 
     @Override
-    public Node Supprimer(int val){
-        return super.Supprimer(-val);
+    public void Supprimer(int val){
+         super.Supprimer(val);
     }
   /*  @Override
      public void Afficher(){

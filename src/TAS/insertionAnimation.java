@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package TAS;
 
 import Formes.Cercle;
@@ -13,10 +9,7 @@ import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
-/**
- *
- * @author anispitchou
- */
+
 public class insertionAnimation extends Thread {
 
     public AnchorPane group;
@@ -39,17 +32,7 @@ public class insertionAnimation extends Thread {
         TranslateTransition t1, t2;
         while (tas.Tas[current].getVal() > tas.Tas[tas.parent(current)].getVal()) {
             tas.Permuter(current, tas.parent(current));
-            t1 = new TranslateTransition(Duration.millis(500), tas.Tas[tas.parent(current)].getC());
-            t1.setToX(tas.Tas[current].getC().getLayoutX() - tas.Tas[tas.parent(current)].getC().getLayoutX());
-            t1.setToY(tas.Tas[current].getC().getLayoutY() - tas.Tas[tas.parent(current)].getC().getLayoutY());
-            t1.setOnFinished(new OnFinishedInsertionAnimation(group, tas, tas.Tas[tas.parent(current)]));
-
-            t2 = new TranslateTransition(Duration.millis(500), tas.Tas[current].getC());
-            t2.setToX(tas.Tas[tas.parent(current)].getC().getLayoutX() - tas.Tas[current].getC().getLayoutX());
-            t2.setToY(tas.Tas[tas.parent(current)].getC().getLayoutY() - tas.Tas[current].getC().getLayoutY());
-            t2.setOnFinished(new OnFinishedInsertionAnimation(group, tas, tas.Tas[current]));
-            t1.play();
-            t2.play();
+            new Permutation(tas, current, tas.parent(current)).start();
             try {
                 Thread.sleep(700);
             } catch (InterruptedException ex) {
