@@ -129,6 +129,9 @@ public class TASmax {
         
     }   return -1;
 }
+    public void RechercherAnimation(int val){
+        new  RechercherAnimation(this,val).start();
+    }
 
     public void Supprimer(int val) {
         new SupprimerAnimation(this,val).start();
@@ -148,12 +151,17 @@ public class TASmax {
             System.out.print(Tas[i].getVal()+" ");
         }
     }
+    public int profondeur(){
+        String binary =Integer.toBinaryString(taille);
+        return (binary.toCharArray().length-1);
+    }
+
     public void Afficher() {
         group.getChildren().clear();
         //int gap = abr.depth(abr.root);
-        int gap = 3;
-        gap = gap * gap * 10;
-        this.Afficher(1, group, 1200 / 2, 0, 1200 / 2, 0, 0, gap);
+        int gap = profondeur();
+        gap = gap * gap * 25;
+        this.Afficher(1, group, (int)group.getWidth() / 2, 0, (int)group.getWidth() / 2, 0, 0, gap);
     }
 
     public void Afficher(int pos, AnchorPane g, int x, int y, int prevx, int prevy, int lev, int gap) {
@@ -161,7 +169,12 @@ public class TASmax {
         if (pos > taille) {
             return;
         }
-        Tas[pos].setC(new Cercle(Math.abs(Tas[pos].getVal())));
+        if(this instanceof TASmin ){
+            Tas[pos].setC(new Cercle(-Tas[pos].getVal()));
+        }else{
+            Tas[pos].setC(new Cercle(Tas[pos].getVal()));
+        }
+        
         g.getChildren().add(Tas[pos].getC(x, y));
 
         if ((++lev) != 1) {

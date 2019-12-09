@@ -23,7 +23,7 @@ public class TAS_max_Controller implements Initializable {
     }
     @FXML
     public void Rechercher(ActionEvent e){
-       // tas.rechercher(trouver_label,text.getText());
+        tas.RechercherAnimation(Integer.parseInt(text.getText()));
     }
     @FXML
     public void supprimer(ActionEvent e){
