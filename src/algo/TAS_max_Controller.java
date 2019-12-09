@@ -31,6 +31,6 @@ public class TAS_max_Controller implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tas=new TASmax(20,arbre);
+        tas=new TASmax(20,arbre,trouver_label);
     }
 }

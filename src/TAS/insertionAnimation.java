@@ -29,7 +29,6 @@ public class insertionAnimation extends Thread {
             Logger.getLogger(insertionAnimation.class.getName()).log(Level.SEVERE, null, ex);
         }
         int current = tas.taille;
-        TranslateTransition t1, t2;
         while (tas.Tas[current].getVal() > tas.Tas[tas.parent(current)].getVal()) {
             tas.Permuter(current, tas.parent(current));
             new Permutation(tas, current, tas.parent(current)).start();

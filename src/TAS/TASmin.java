@@ -7,6 +7,7 @@ package TAS;
 
 import java.util.Scanner;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 
@@ -17,8 +18,8 @@ import javafx.scene.shape.Line;
 
 public class TASmin extends TASmax {
 
-    public TASmin(int cpct,AnchorPane group) {
-        super(cpct,group);
+    public TASmin(int cpct,AnchorPane group,Label result) {
+        super(cpct,group,result);
     }
 
     public void inserer(int element) {
@@ -31,7 +32,8 @@ public class TASmin extends TASmax {
 
     @Override
     public void Supprimer(int val){
-         super.Supprimer(val);
+        new SupprimerAnimation(this,-val).start();
+        // super.Supprimer(val);
     }
   /*  @Override
      public void Afficher(){

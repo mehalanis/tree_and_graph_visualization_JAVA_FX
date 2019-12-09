@@ -32,6 +32,6 @@ public class TAS_min_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tas=new TASmin(15,arbre);
+        tas=new TASmin(15,arbre,trouver_label);
     }    
 }

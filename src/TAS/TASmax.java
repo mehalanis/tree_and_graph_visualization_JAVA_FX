@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
@@ -25,14 +26,16 @@ public class TASmax {
     protected int taille;//La taille Du Tas
     protected int cpct;//capacité maximum du Tas
     protected AnchorPane group;
+    public Label result;
 
-    public TASmax(int cpct, AnchorPane group) {
+    public TASmax(int cpct, AnchorPane group,Label result) {
         this.group = group;
         this.cpct = cpct;
         this.taille = 0;
         Tas = new Node[this.cpct + 1];
         Tas[0] = new Node(Integer.MAX_VALUE);
         //l'indice 0 ne peut pas étre utilisée dans les prochaine fonctions
+        this.result=result;
     }
 
     protected int parent(int pos) {
@@ -130,7 +133,7 @@ public class TASmax {
     }   return -1;
 }
     public void RechercherAnimation(int val){
-        new  RechercherAnimation(this,val).start();
+        new  RechercherAnimation(this,this.result,val).start();
     }
 
     public void Supprimer(int val) {

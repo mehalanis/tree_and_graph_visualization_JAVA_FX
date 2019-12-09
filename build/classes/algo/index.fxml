@@ -15,30 +15,25 @@
       <StackPane fx:id="panel" BorderPane.alignment="CENTER" />
    </center>
    <top>
-      <GridPane prefHeight="52.0" style="-fx-background-color: #00355f;" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" />
-          <ColumnConstraints hgrow="ALWAYS"  />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button mnemonicParsing="false" onAction="#home"  style="-fx-background-color: none;">
+      <BorderPane prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: #00355f;" BorderPane.alignment="CENTER">
+         <left>
+            <Button mnemonicParsing="false" onAction="#home" style="-fx-background-color: none;" BorderPane.alignment="CENTER">
                <graphic>
-                  <ImageView fitHeight="39.0"  pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/icon/HomeWhite32px.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Label fx:id="titre" text="Label" textFill="WHITE" GridPane.columnIndex="1">
+         </left>
+         <center>
+            <Label fx:id="titre" text="Label" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-         </children>
-      </GridPane>
+         </center>
+      </BorderPane>
    </top>
 </BorderPane>

@@ -17,25 +17,33 @@ public class SupprimerAnimation extends Thread {
     @Override
     public void run() {
         int pos = 0;
-        pos = tas.Rechercher(val);
+        //pos = tas.Rechercher(val);
+        RechercherAnimation RA=new RechercherAnimation(tas,val);
+        RA.start();
+        try {
+            RA.join();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SupprimerAnimation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pos=RA.getPos_val();
         tas.Tas[pos].getC().setStroke(Color.RED);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
             Logger.getLogger(SupprimerAnimation.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Permutation p1;
         if (pos != 0) {
             tas.Tas[pos].getC().setVisible(false);
-            new Permutation(tas, tas.taille, pos).start();
+            p1=new Permutation(tas, tas.taille, pos);
+            p1.start();
             try {
-                Thread.sleep(300);
+                p1.join();
                 tas.Tas[pos] = tas.Tas[tas.taille--];
                 Thread.sleep(600);
             } catch (InterruptedException ex) {
                 Logger.getLogger(SupprimerAnimation.class.getName()).log(Level.SEVERE, null, ex);
             }
-            // Node popped;
-            // popped = tas.Tas[pos];
             Equi(pos);
         }
     }
