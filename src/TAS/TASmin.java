@@ -29,6 +29,12 @@ public class TASmin extends TASmax {
      public int Rechercher(int valeur) {
          return super.Rechercher(-valeur);
     }
+     
+     
+    @Override
+    public void RechercherAnimation(int val){
+        new  RechercherAnimation(this,this.result,-val).start();
+    }
 
     @Override
     public void Supprimer(int val){
