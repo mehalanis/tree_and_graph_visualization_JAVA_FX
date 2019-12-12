@@ -24,7 +24,7 @@ public class insertionAnimation extends Thread {
     @Override
     public void run() {
         try {
-            Thread.sleep(300);
+            Thread.sleep(100);
         } catch (InterruptedException ex) {
             Logger.getLogger(insertionAnimation.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -33,7 +33,7 @@ public class insertionAnimation extends Thread {
             tas.Permuter(current, tas.parent(current));
             new Permutation(tas, current, tas.parent(current)).start();
             try {
-                Thread.sleep(700);
+                Thread.sleep(900);
             } catch (InterruptedException ex) {
                 Logger.getLogger(insertionAnimation.class.getName()).log(Level.SEVERE, null, ex);
             }

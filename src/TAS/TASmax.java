@@ -163,7 +163,7 @@ public class TASmax {
         group.getChildren().clear();
         //int gap = abr.depth(abr.root);
         int gap = profondeur();
-        gap = gap * gap * 25;
+        gap = gap * 2 * 24;
         this.Afficher(1, group, (int)group.getWidth() / 2, 0, (int)group.getWidth() / 2, 0, 0, gap);
     }
 

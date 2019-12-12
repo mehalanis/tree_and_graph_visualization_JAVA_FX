@@ -41,7 +41,7 @@ public class MenuController implements Initializable {
         Button b=(Button)e.getSource();
         if(b==btn_abr) s="ABR";
         else if(b==btn_tas_min) s="TAS_min";
-        else if(b==btn_amr) s="AMR";
+        else if(b==btn_amr) s="amr";
         else if(b==btn_avl)s="AVL";
         else if(b==btn_tas_max)s="TAS_max";
         else if(b==btn_b_arbre)s="B_Arbre";

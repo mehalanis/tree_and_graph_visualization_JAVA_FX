@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ABR_AVL;
+package AMR;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -26,24 +27,24 @@ import javafx.scene.text.FontWeight;
  */
 public class LoadFileTXT extends Thread {
 
-    public Arbre abr;
+    public amr amr;
     public File file;
-    public AnchorPane group;
+    public Group group;
     public HBox hbox_label;
     private ArrayList<Integer> list;
     private ArrayList<Label> list_label;
 
-    public LoadFileTXT(Arbre abr, File file, AnchorPane group, HBox hbox_label) {
-        this.abr = abr;
+    public LoadFileTXT(amr amr, File file, Group group, HBox hbox_label) {
+        this.amr = amr;
         this.file = file;
         this.group = group;
         this.hbox_label = hbox_label;
-        list = new ArrayList<Integer>();
+                list = new ArrayList<Integer>();
         list_label = new ArrayList<Label>();
         int temp;
         Label label;
-        Font font= Font.font("time", FontWeight.BOLD, 18);
-        Insets insets=new Insets(0,10,0,0);
+        Font font = Font.font("time", FontWeight.BOLD, 18);
+        Insets insets = new Insets(0, 10, 0, 0);
         try {
             Scanner scanfile = new Scanner(file);
             while (scanfile.hasNextLine()) {
@@ -52,7 +53,7 @@ public class LoadFileTXT extends Thread {
                     list.add(temp);
                     label = new Label("" + temp);
                     label.setFont(font);
-                    label.setPadding(insets );
+                    label.setPadding(insets);
                     label.setTextFill(Color.GREY);
                     list_label.add(label);
                     hbox_label.getChildren().add(label);
@@ -60,7 +61,7 @@ public class LoadFileTXT extends Thread {
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(LoadFileTXT.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TAS.LoadFileTXT.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -70,61 +71,36 @@ public class LoadFileTXT extends Thread {
         try {
             Thread.sleep(300);
         } catch (InterruptedException ex) {
+
             Logger.getLogger(LoadFileTXT.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Node node = null;
         int val = 0;
 
-        insertionAnimation insert;
-
-        insertNode t;
-        Color rgb = Color.rgb(232,225,35);
-        for(int i=0;i<list.size();i++){
+        Color rgb = Color.rgb(232, 225, 35);
+        for (int i = 0; i < list.size(); i++) {
             list_label.get(i).setTextFill(rgb);
-            if(abr instanceof AVL){
-                node = new NodeAVL(list.get(i));
-            }else{
-                node = new Node(list.get(i));
-            }
-            t = new insertNode(node);
-            Platform.runLater(t);
+            amr.insertion(list.get(i));
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    amr.Afficher();
+                }
+
+            });
             try {
-                Thread.sleep(300);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(LoadFileTXT.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            insert = new insertionAnimation(abr, node, group);
-            insert.start();
-            try {
-                insert.join();
-                Thread.sleep(700);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(LoadFileTXT.class.getName()).log(Level.SEVERE, null, ex);
             }
             list_label.get(i).setTextFill(Color.GREEN);
         }
-        Platform.runLater(new Runnable(){
+        Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 hbox_label.getChildren().clear();
             }
-            
+
         });
-        
     }
 
-    public class insertNode implements Runnable {
-
-        Node node;
-
-        public insertNode(Node node) {
-            this.node = node;
-        }
-
-        @Override
-        public void run() {
-            group.getChildren().add(node.getCircle(0, 0));
-        }
-
-    }
 }
