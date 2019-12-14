@@ -40,7 +40,7 @@ public class indexController implements Initializable {
      
         //menu.setPrefSize(panel.getWidth(), panel.getHeight());
         panel.getChildren().add(menu);
-        titre.setText("");
+        titre.setText("Projet 1 ALGO");
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -55,6 +55,7 @@ public class indexController implements Initializable {
             menu=load.getRoot();
            
             panel.getChildren().add(menu);
+            titre.setText("Projet 1 ALGO");
             
         } catch (IOException ex) {
             Logger.getLogger(indexController.class.getName()).log(Level.SEVERE, null, ex);

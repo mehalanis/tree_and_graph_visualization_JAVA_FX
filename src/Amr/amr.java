@@ -362,6 +362,7 @@ public class amr {
             hbox.getChildren().add(t.getRectangle(i).getRectangle(0, 0));
 
         }
+        
         hbox.setLayoutX(x);
         hbox.setLayoutY(y);
         arbre.getChildren().add(hbox);

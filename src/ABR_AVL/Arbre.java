@@ -58,7 +58,7 @@ public abstract class Arbre {
         }else{
           t.setC(new Cercle(t.getVal()));              
         }
-        
+        System.out.println("lev "+lev+" x= "+x+" y= "+y);
         g.getChildren().add(t.getCircle(x, y));
         
         if ((++lev) != 1) {
