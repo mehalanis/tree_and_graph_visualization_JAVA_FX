@@ -83,7 +83,7 @@
          <content>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <center>
-                  <AnchorPane fx:id="arbre" BorderPane.alignment="TOP_CENTER" />
+                  <Group fx:id="arbre" BorderPane.alignment="TOP_CENTER" />
                </center>
             </BorderPane>
          </content>

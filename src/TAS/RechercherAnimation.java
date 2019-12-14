@@ -33,6 +33,7 @@ public class RechercherAnimation extends Thread {
     public RechercherAnimation(TASmax tas, int val) {
         this.tas = tas;
         this.val = val;
+        
     }
     
     @Override
@@ -43,6 +44,9 @@ public class RechercherAnimation extends Thread {
 
                 @Override
                 public void run() {
+                    if(tas instanceof TASmin){
+                        val=-val;
+                    }
                     label.setText(((pos_val != 0) ? "found : " + val : "not found : " + val));
                 }
             };
@@ -79,7 +83,6 @@ public class RechercherAnimation extends Thread {
                 }
                 pos = q.remove();
                 if (tas.Tas[pos].getVal() == valeur) {
-                    System.out.println("la valeur \"" + (Math.abs(valeur)) + "\" éxiste à la position \"" + pos + "\" ");
                     while (q.peek() != null) {
                         tas.Tas[q.remove()].getC().setStroke(Color.BLACK);
                     }

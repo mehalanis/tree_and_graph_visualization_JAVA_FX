@@ -1,8 +1,8 @@
 package algo;
 
+import BTree.*;
+import BTree.Pair;
 import Formes.rectangle;
-import b_arbre.AfficherB_Tree;
-import b_arbre.B_Arbre;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,9 +19,9 @@ import javafx.stage.FileChooser;
 
 public class B_Arbre_Controller implements Initializable {
 
-    B_Arbre racine4;
+    BTree<Integer> bTree;
     @FXML
-    AnchorPane arbre;
+    Group arbre;
     @FXML
     TextField text;
     @FXML
@@ -33,25 +33,36 @@ public class B_Arbre_Controller implements Initializable {
 
     @FXML
     public void insert(ActionEvent e) {
-        racine4 = racine4.Insertion(Integer.parseInt(text.getText()));
-        racine4 = racine4.getRacine();
-        AfficherB_Tree aff = new AfficherB_Tree(racine4, arbre);
-        aff.Afficher();
-     //   racine4.AfficherT();
+        bTree.insert(Integer.parseInt(text.getText()));
+        bTree.Afficher();
     }
 
     @FXML
     public void Rechercher(ActionEvent e) {
+        BTNode<Pair<Integer>> s=bTree.getNode(Integer.parseInt(text.getText()));
+        String k=s.toString();
+        if (!k.equals("NullNode")) {
+            trouver_label.setText("Found : " +text.getText());
+        } else {
+            trouver_label.setText("Not Found : " + text.getText());
+
+        }
+
     }
 
     @FXML
     public void supprimer(ActionEvent e) {
-
+        bTree.delete(Integer.parseInt(text.getText()));
+        bTree.Afficher();
     }
 
     @FXML
     public void FileTXT(ActionEvent e) {
-
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichier txt", "*.txt"));
+        File f = fc.showOpenDialog(null);
+        LoadFileTXT load = new LoadFileTXT(bTree, f, arbre, List_Nombre);
+        load.start();
     }
 
     @FXML
@@ -61,23 +72,8 @@ public class B_Arbre_Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        racine4 = new B_Arbre(25);
-        racine4.setOrdre(3); // pour les ordre pair on prends tjr ordre 3 
-        racine4 = racine4.Insertion(60);
-        racine4 = racine4.Insertion(35);
-        racine4 = racine4.Insertion(10);
-        racine4 = racine4.Insertion(5);
-        racine4 = racine4.Insertion(18);
-        racine4 = racine4.Insertion(22);
-        racine4 = racine4.Insertion(44);
-        racine4 = racine4.Insertion(13);
-        racine4 = racine4.getRacine();
-        AfficherB_Tree aff = new AfficherB_Tree(racine4, arbre);
-        aff.Afficher();
-        //racine4.Afficherarbre();
-        // racine4.AfficherT();
-        // MyCanvas my=new MyCanvas(400,400,racine4,arbre);
-        //   my.DrawBTree();
+        bTree = new BTree<Integer>(3, arbre);
+
     }
 
 }
