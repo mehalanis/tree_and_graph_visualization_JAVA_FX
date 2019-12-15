@@ -2,6 +2,12 @@ package BTree;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import Formes.rectangle;
+import javafx.scene.Group;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.shape.Line;
 
 /**
  * DataStructure Created by Blaise Wang on 16/6/5.
@@ -14,6 +20,7 @@ public class BTNode<E extends Comparable<E>> implements Serializable {
     private BTNode<E> father;
     ArrayList<BTNode<E>> children = new ArrayList<BTNode<E>>();
     ArrayList<E> keys = new ArrayList<>();
+    ArrayList< rectangle> rectangle=new ArrayList< rectangle> ();
 
     BTNode() {
     }
@@ -22,9 +29,7 @@ public class BTNode<E extends Comparable<E>> implements Serializable {
         fullNumber = order - 1;
     }
 
-    /**
-     * @return true, if node is a leaf
-     */
+    
     boolean isLastInternalNode() {
         if (keys.size() == 0) {
             return false;
@@ -42,6 +47,15 @@ public class BTNode<E extends Comparable<E>> implements Serializable {
      */
     BTNode<E> getFather() {
         return father;
+    }
+     /*public rectangle getRectangle() {
+        return this.rectangle;
+    }*/
+    public rectangle getRectangle(int pos){
+       return  rectangle.get(pos);
+    }
+    public void addRectangle(rectangle rectangle) {
+        this.rectangle.add(rectangle);
     }
 
     /**

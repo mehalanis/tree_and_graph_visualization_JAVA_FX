@@ -3,9 +3,14 @@ package BTree;
 import Formes.rectangle;
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class BTree<K extends Comparable<K>> implements Serializable {
@@ -15,11 +20,14 @@ public class BTree<K extends Comparable<K>> implements Serializable {
     private final int halfNumber;
     private final BTNode<Pair<K>> nullBTNode = new BTNode<Pair<K>>();
     private Group arbre;
+    rectangle rectangle[];
 
     /**
      *
      * @param order of B-tree
      */
+    public BTNode getNullNode(){BTNode<Pair<K>> nullBTNode = new BTNode<Pair<K>>();
+        return nullBTNode;}
     public BTree(int order, Group arbre) {
         if (order < 3) {
             try {
@@ -73,7 +81,57 @@ public class BTree<K extends Comparable<K>> implements Serializable {
             return null;
         }
     }
+ /*public BTNode<Pair<K>> recurech( K key) {
 
+        
+        if (isEmpty()) {
+            return nullBTNode;
+        }
+     
+        BTNode<Pair<K>> currentNode = root;
+                
+        while (!currentNode.equals(nullBTNode)) {
+            
+            int i = 0;
+             getRectangle(i).setStroke(Color.YELLOW);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(RechercheAnimation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            getRectangle(i).setStroke(Color.BLACK);
+            while (i < currentNode.getSize()) {
+                if (currentNode.getKey(i).equals(key)) {
+                     getRectangle(i).setStroke(Color.GREEN);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        //label.setText("found : " + val);
+                    }
+
+                });
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(RechercheAnimation.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+               getRectangle(i).setStroke(Color.BLACK);
+                
+                    int index = i;
+                    return currentNode;
+                } else if (currentNode.getKey(i).first.compareTo(key) > 0) {
+                    currentNode = currentNode.getChild(i);
+                    i = 0;
+                } else {
+                    i++;
+                }
+            }
+            if (!currentNode.isNull()) {
+                currentNode = currentNode.getChild(currentNode.getSize());
+            }
+        }
+        return nullBTNode;}*/
     public BTNode<Pair<K>> getNode(K key) {
         if (isEmpty()) {
             return nullBTNode;
@@ -99,7 +157,7 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         return nullBTNode;
     }
 
-    public void replace(K key) {
+/*    public void replace(K key) {
         Pair<K> pair = new Pair<K>(key);
         BTNode<Pair<K>> currentNode = root;
 
@@ -124,7 +182,7 @@ public class BTree<K extends Comparable<K>> implements Serializable {
             }
         }
     }
-
+*/
     private BTNode<Pair<K>> getHalfKeys(Pair<K> pair, BTNode<Pair<K>> fullNode) {
         int fullNodeSize = fullNode.getSize();
 
@@ -140,7 +198,16 @@ public class BTree<K extends Comparable<K>> implements Serializable {
 
         return getHalfKeys(fullNode);
     }
+     public rectangle getRectangle(int i) {
+        return rectangle[i];
+    }
 
+    public void setRectangle(rectangle rectangle,int i) {
+        this.rectangle[i] = rectangle;
+    }
+     public void RechercheAnimation(int val,Label l) {
+        new RechercheAnimation(this, val, l).start();
+    }
     private BTNode<Pair<K>> getHalfKeys(BTNode<Pair<K>> fullNode) {
         BTNode<Pair<K>> newNode = new BTNode<Pair<K>>(order);
         for (int i = 0; i < halfNumber; i++) {
@@ -223,10 +290,10 @@ public class BTree<K extends Comparable<K>> implements Serializable {
 
         BTNode<Pair<K>> currentNode = root;
 
-        if (get(pair.first) != null) {
+        /*if (get(pair.first) != null) {
             replace(key);
             return;
-        }
+        }*/
 
         while (!currentNode.isLastInternalNode()) {
             int i = 0;
@@ -499,8 +566,11 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         }
         HBox hbox = new HBox();
         rectangle r;
+        t.rectangle.removeAll(t.rectangle);
         for (int i = 0; i < t.keys.size(); i++) {
+           
             r = new rectangle(Integer.parseInt(t.getKey(i).toString()));
+            t.addRectangle(r);
             hbox.getChildren().add(r);
         }
         hbox.setLayoutX(x);

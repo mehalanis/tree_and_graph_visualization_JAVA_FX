@@ -39,14 +39,15 @@ public class B_Arbre_Controller implements Initializable {
 
     @FXML
     public void Rechercher(ActionEvent e) {
-        BTNode<Pair<Integer>> s=bTree.getNode(Integer.parseInt(text.getText()));
+        bTree.RechercheAnimation(Integer.parseInt(text.getText()),trouver_label);
+       /* BTNode<Pair<Integer>> s=bTree.getNode(Integer.parseInt(text.getText()));
         String k=s.toString();
         if (!k.equals("NullNode")) {
             trouver_label.setText("Found : " +text.getText());
         } else {
             trouver_label.setText("Not Found : " + text.getText());
 
-        }
+        }*/
 
     }
 
