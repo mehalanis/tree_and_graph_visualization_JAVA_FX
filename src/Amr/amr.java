@@ -15,24 +15,26 @@ public class amr {
     private boolean sucesseur = false;
     private boolean predecesseur = true; // pour la supression a recup de l'interface
     public Group arbre;
-    
+
     public amr(int t, Group arbre) {
         this.t = t;
         this.arbre = arbre;
     }
-    
+
     public Noeud getRoot() {
         return root;
     }
-    public void SwitchSucPred(char c){
-        if(c=='S'){
-            sucesseur=true;
-            predecesseur=false;
-        }else{
-            sucesseur=false;
-            predecesseur=true;
+
+    public void SwitchSucPred(char c) {
+        if (c == 'S') {
+            sucesseur = true;
+            predecesseur = false;
+        } else {
+            sucesseur = false;
+            predecesseur = true;
         }
     }
+
     boolean isFull(Noeud noeud) {
         return noeud.size == t - 1;
     }
@@ -148,7 +150,7 @@ public class amr {
         return recurech(root, data);
     }
 
-    public void RechercherAnimation(int val,Label l) {
+    public void RechercherAnimation(int val, Label l) {
         new RechercherAnimation(this, val, l).start();
     }
 
@@ -216,13 +218,13 @@ public class amr {
                     return;
                 } else if (Noeud.children[i] != null && Noeud.children[i + 1] != null) { // il a deux fils a traiter
                     if (sucesseur == true) {
-                        Noeud.data[i] = Noeud.children[i + 1].data[0];
-                        recusup(Noeud.children[i + 1], Noeud.children[i + 1].data[0]);
+                        Noeud.data[i] = getS(Noeud.children[i + 1]).data[0];
+                        recusup(getS(Noeud.children[i + 1]), getS(Noeud.children[i + 1]).data[0]);
                         return;
                     }
                     if (predecesseur == true) {
-                        Noeud.data[i] = Noeud.children[i].data[Noeud.children[i].size - 1];
-                        recusup(Noeud.children[i], Noeud.children[i].data[Noeud.children[i].size - 1]);
+                        Noeud.data[i] = getP(Noeud.children[i]).data[getP(Noeud.children[i]).size - 1];
+                        recusup(getP(Noeud.children[i]), getP(Noeud.children[i]).data[getP(Noeud.children[i]).size - 1]);
                         return;
                     }
 
@@ -267,6 +269,28 @@ public class amr {
 
         }// end for
 
+    }
+
+    public static Noeud getS(Noeud noeud) {
+        int i = 0;
+        if (noeud.leaf == false) {
+            while (noeud.children[i] == null && i < noeud.size) {
+                i++;
+            }
+            return getS(noeud.children[i]);
+        }
+        return noeud;
+    }
+
+    public static Noeud getP(Noeud noeud) {
+        int i = noeud.size;
+        if (noeud.leaf == false) {
+            while (noeud.children[i] == null && i >= 0) {
+                i--;
+            }
+            return getP(noeud.children[i]);
+        }
+        return noeud;
     }
 
     public void suppression(int data) {
@@ -362,12 +386,12 @@ public class amr {
             hbox.getChildren().add(t.getRectangle(i).getRectangle(0, 0));
 
         }
-        
+     
         hbox.setLayoutX(x);
         hbox.setLayoutY(y);
         arbre.getChildren().add(hbox);
         if ((++lev) != 1) {
-            Line line = new Line(prevx, prevy + 36, x + (35*t.size)/2, y);
+            Line line = new Line(prevx, prevy + 36, x + (35 * t.size) / 2, y);
             line.setStrokeWidth(2);
             arbre.getChildren().add(line);
             gap = (gap) / this.t;
@@ -376,10 +400,10 @@ public class amr {
             return;
         }
         int xpere = x;
-
+        
         for (int i = 0; i < t.size + 1; i++) {
 
-            Afficher(t.children[i], t, x - gap, y + 58, xpere, y, lev, gap);
+            Afficher(t.children[i], t, x - gap, y + 60, xpere, y, lev, gap);
             if (this.t % 2 == 0) {
                 x += gap - (this.t / 2) * 15;
             } else {

@@ -89,14 +89,9 @@ public class LoadFileTXT extends Thread {
                 }
 
             });
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(LoadFileTXT.class.getName()).log(Level.SEVERE, null, ex);
-            }
 
             try {
-                Thread.sleep(700);
+                Thread.sleep(1300);
             } catch (InterruptedException ex) {
                 Logger.getLogger(LoadFileTXT.class.getName()).log(Level.SEVERE, null, ex);
             }

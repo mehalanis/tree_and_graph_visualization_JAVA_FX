@@ -37,8 +37,6 @@ public class indexController implements Initializable {
     @FXML
     public void home(){
         panel.getChildren().clear();
-     
-        //menu.setPrefSize(panel.getWidth(), panel.getHeight());
         panel.getChildren().add(menu);
         titre.setText("Projet 1 ALGO");
     }

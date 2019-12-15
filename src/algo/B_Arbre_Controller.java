@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -27,10 +28,9 @@ public class B_Arbre_Controller implements Initializable {
     @FXML
     Label trouver_label;
     @FXML
-    RadioButton predecesseur, successeur;
-    @FXML
     HBox List_Nombre;
-
+    @FXML
+    ComboBox ordre;
     @FXML
     public void insert(ActionEvent e) {
         bTree.insert(Integer.parseInt(text.getText()));
@@ -40,14 +40,6 @@ public class B_Arbre_Controller implements Initializable {
     @FXML
     public void Rechercher(ActionEvent e) {
         bTree.RechercheAnimation(Integer.parseInt(text.getText()),trouver_label);
-       /* BTNode<Pair<Integer>> s=bTree.getNode(Integer.parseInt(text.getText()));
-        String k=s.toString();
-        if (!k.equals("NullNode")) {
-            trouver_label.setText("Found : " +text.getText());
-        } else {
-            trouver_label.setText("Not Found : " + text.getText());
-
-        }*/
 
     }
 
@@ -68,13 +60,17 @@ public class B_Arbre_Controller implements Initializable {
 
     @FXML
     public void ChangerOrdre(ActionEvent e) {
-
+        bTree = new BTree<Integer>(Integer.parseInt((String) ordre.getValue()), arbre);
+        bTree.Afficher();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         bTree = new BTree<Integer>(3, arbre);
-
+        trouver_label.setText("");
+        for(int i=3;i<=5;i++){
+            ordre.getItems().add(i+"");
+        }
     }
 
 }

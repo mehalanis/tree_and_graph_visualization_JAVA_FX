@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -19,12 +20,35 @@
           
         </rowConstraints>
          <children>
-            <Button fx:id="btn_abr" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="169.0" text="ABR" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btn_tas_min" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="194.0" text="TAS min" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btn_amr" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="171.0" text="AMR" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btn_avl" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="169.0" text="AVL" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Button fx:id="btn_tas_max" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="193.0" text="TAS max" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Button fx:id="btn_b_arbre" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="171.0" text="B-Arbre" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="btn_abr" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="169.0" text="ABR" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font></Button>
+         <Button fx:id="btn_tas_min" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="194.0" text="TAS min" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+             <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         </Button>
+            <Button fx:id="btn_amr" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="171.0" text="AMR" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+             <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         </Button>
+            <Button fx:id="btn_avl" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="169.0" text="AVL" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+             <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         </Button>
+            <Button fx:id="btn_tas_max" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="193.0" text="TAS max" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+             <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         </Button>
+            <Button fx:id="btn_b_arbre" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadArbre" prefHeight="140.0" prefWidth="171.0" text="B-Arbre" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+             <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         </Button>
          </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

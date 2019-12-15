@@ -40,7 +40,7 @@ public class SupprimerAnimation extends Thread {
             try {
                 p1.join();
                 tas.Tas[pos] = tas.Tas[tas.taille--];
-                Thread.sleep(800);
+                Thread.sleep(1200);
             } catch (InterruptedException ex) {
                 Logger.getLogger(SupprimerAnimation.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -60,7 +60,7 @@ public class SupprimerAnimation extends Thread {
                 tas.Permuter(pos, tas.filsGauche(pos));
                 new Permutation(tas, pos, tas.filsGauche(pos)).start();
                 try {
-                    Thread.sleep(800);
+                    Thread.sleep(1000);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(SupprimerAnimation.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -69,7 +69,7 @@ public class SupprimerAnimation extends Thread {
                 tas.Permuter(pos, tas.filsDroit(pos));
                 new Permutation(tas, pos, tas.filsDroit(pos)).start();
                 try {
-                    Thread.sleep(800);
+                    Thread.sleep(1000);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(SupprimerAnimation.class.getName()).log(Level.SEVERE, null, ex);
                 }

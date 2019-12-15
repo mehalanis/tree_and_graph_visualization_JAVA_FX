@@ -65,7 +65,7 @@ public class AVL extends Arbre {
     private NodeAVL rotation(Node r) {
         NodeAVL R = (NodeAVL) r;
         if (R != null) {
-            if ((R.getBalence() == -2) && (R.getFD().getBalence() == -1)) {
+            if ((R.getBalence() == -2) &&((R.getFD().getBalence() == -1)||(R.getFD().getBalence() == 0))) {
                 NodeAVL P = R.getFD();
                 R.setFD(P.getFG());
                 P.setFG(R);
@@ -90,7 +90,7 @@ public class AVL extends Arbre {
                 Q.setBalence(calculeBalance(Q));
                 return Q;
 
-            } else if ((R.getBalence() == 2) && (R.getFG().getBalence() == 1)) {
+            } else if ((R.getBalence() == 2) && ((R.getFG().getBalence() == 1)||(R.getFG().getBalence() == 0))) {
                 NodeAVL P = R.getFG();
                 R.setFG(P.getFD());
                 P.setFD(R);

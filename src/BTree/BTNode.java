@@ -12,9 +12,7 @@ import javafx.scene.shape.Line;
 /**
  * DataStructure Created by Blaise Wang on 16/6/5.
  */
-public class BTNode<E extends Comparable<E>> implements Serializable {
-
-    private static final long serialVersionUID = 2631590509760908280L;
+public class BTNode<E extends Comparable<E>>  {
 
     private int fullNumber;
     private BTNode<E> father;
@@ -42,15 +40,10 @@ public class BTNode<E extends Comparable<E>> implements Serializable {
         return true;
     }
 
-    /**
-     * @return the father
-     */
     BTNode<E> getFather() {
         return father;
     }
-     /*public rectangle getRectangle() {
-        return this.rectangle;
-    }*/
+
     public rectangle getRectangle(int pos){
        return  rectangle.get(pos);
     }
@@ -58,76 +51,42 @@ public class BTNode<E extends Comparable<E>> implements Serializable {
         this.rectangle.add(rectangle);
     }
 
-    /**
-     * @param father the father to set
-     */
     void setFather(BTNode<E> father) {
         this.father = father;
     }
 
-    /**
-     * @param index the index to get
-     * @return the child
-     */
     BTNode<E> getChild(int index) {
         return children.get(index);
     }
 
-    /**
-     * @param index the index to add
-     * @param node the node to be added
-     */
     void addChild(int index, BTNode<E> node) {
         children.add(index, node);
     }
 
-    /**
-     * @param index the index to remove
-     */
     void removeChild(int index) {
         children.remove(index);
     }
 
-    /**
-     * @param index the index to get
-     * @return the key
-     */
     E getKey(int index) {
         return keys.get(index);
     }
 
-    /**
-     * @param index the index to add
-     * @param element the element be added
-     */
     void addKey(int index, E element) {
         keys.add(index, element);
     }
 
-    /**
-     * @param index the index to remove
-     */
     void removeKey(int index) {
         keys.remove(index);
     }
 
-    /**
-     * @return true, if keys.size() == order - 1
-     */
     boolean isFull() {
         return fullNumber == keys.size();
     }
 
-    /**
-     * @return true, if keys.size() > order - 1
-     */
     boolean isOverflow() {
         return fullNumber < keys.size();
     }
 
-    /**
-     * @return true, if keys is empty
-     */
     boolean isNull() {
         return keys.isEmpty();
     }
@@ -135,16 +94,10 @@ public class BTNode<E extends Comparable<E>> implements Serializable {
         return children.isEmpty();
     }
 
-    /**
-     * @return keys size
-     */
     int getSize() {
         return keys.size();
     }
 
-    /**
-     * @return a string
-     */
     public String toString() {
         if (keys.size() == 0) {
             return "NullNode";

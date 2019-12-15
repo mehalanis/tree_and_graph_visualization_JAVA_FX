@@ -48,7 +48,6 @@ public class RechercheAnimation extends Thread {
         while (!currentNode.equals(BTree.getNullNode())) {
 
             int i = 0;
-            //currentNode.getRectangle(i).setStroke(Color.BLACK);
             while (i < currentNode.getSize()) {
 
                 currentNode.getRectangle(i).setStroke(Color.YELLOW);
@@ -71,6 +70,7 @@ public class RechercheAnimation extends Thread {
                     } catch (InterruptedException ex) {
                         Logger.getLogger(RechercheAnimation.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                    currentNode.getRectangle(i).setStroke(Color.BLACK);
                     int index = i;
                     return currentNode;
                 } else {
@@ -79,7 +79,6 @@ public class RechercheAnimation extends Thread {
                         currentNode = currentNode.getChild(i);
                         i = 0;
                     } else {
-
                         i++;
                     }
                 }
@@ -92,54 +91,4 @@ public class RechercheAnimation extends Thread {
         return this.BTree.getNullNode();
 
     }
-
-
-    /*public boolean recurech(BTree Noeud, int data) {
-
-        for (int i = 0; i <= Noeud.getTreeSize() - 1; i++) {
-            Noeud.getRectangle(i).setStroke(Color.YELLOW);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(RechercheAnimation.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            Noeud.getRectangle(i).setStroke(Color.BLACK);
-            if (data == Noeud.getNode(i).getKey(i)) {
-                Noeud.getRectangle(i).setStroke(Color.GREEN);
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        label.setText("found : " + val);
-                    }
-
-                });
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(RechercherAnimation.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                Noeud.getRectangle(i).setStroke(Color.BLACK);
-                return true;
-            }
-            if (data < Noeud.data[i]) {
-                if (Noeud.children[i] == null) {
-                    return false;
-                } else {
-                    return recurech(Noeud.children[i], data);
-                }
-            }
-            if (data > Noeud.data[Noeud.size - 1]) {
-                if (Noeud.children[Noeud.size] == null) {
-                    return false;
-                } else {
-                    return recurech(Noeud.children[Noeud.size], data);
-                }
-
-            }
-        }
-
-        return false;
-    }
-     */
 }

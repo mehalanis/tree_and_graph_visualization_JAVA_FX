@@ -25,11 +25,19 @@ public class MenuController implements Initializable {
     public void LoadArbre(ActionEvent e){
         String s=TestBtn(e);
         if(s!=null){
-            titre.setText(s);
+           if(s.equals("B_Arbre")){
+               titre.setText(s.replace("_", "-"));
+           }else{
+               if(s.equals("amr")){
+                   titre.setText(s.toUpperCase());
+               }else{
+                   titre.setText(s.replace("_", " "));
+               }    
+           }
             panel.getChildren().clear();
             try {
-              System.out.println(panel.getWidth());
               Parent root = FXMLLoader.load(getClass().getResource(s+".fxml"));
+               
               panel.getChildren().add(root);
             } catch (IOException ex) {
               Logger.getLogger(indexController.class.getName()).log(Level.SEVERE, null, ex);

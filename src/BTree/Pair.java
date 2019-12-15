@@ -1,10 +1,7 @@
 package BTree;
 
-import java.io.Serializable;
 
-
-public class Pair<A extends Comparable<A>> implements Comparable<Pair<A>>, Serializable {
-    private static final long serialVersionUID = -8914647164831651005L;
+public class Pair<A extends Comparable<A>> implements Comparable<Pair<A>> {
 
     A first;
     Pair(A a) {

@@ -81,7 +81,10 @@
          <content>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <center>
-                  <AnchorPane fx:id="arbre" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER" />
+                  <AnchorPane fx:id="arbre" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets top="5.0" />
+                     </BorderPane.margin></AnchorPane>
                   
                </center>
             </BorderPane>

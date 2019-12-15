@@ -17,12 +17,12 @@ public class Permutation extends Thread {
     @Override
     public void run() {
         TranslateTransition t1, t2;
-        t1 = new TranslateTransition(Duration.millis(700), tas.Tas[pos2].getC());
+        t1 = new TranslateTransition(Duration.millis(800), tas.Tas[pos2].getC());
         t1.setToX(tas.Tas[pos1].getC().getLayoutX() - tas.Tas[pos2].getC().getLayoutX());
         t1.setToY(tas.Tas[pos1].getC().getLayoutY() - tas.Tas[pos2].getC().getLayoutY());
         t1.setOnFinished(new OnFinishedInsertionAnimation(tas));
 
-        t2 = new TranslateTransition(Duration.millis(700), tas.Tas[pos1].getC());
+        t2 = new TranslateTransition(Duration.millis(800), tas.Tas[pos1].getC());
         t2.setToX(tas.Tas[pos2].getC().getLayoutX() - tas.Tas[pos1].getC().getLayoutX());
         t2.setToY(tas.Tas[pos2].getC().getLayoutY() - tas.Tas[pos1].getC().getLayoutY());
         t2.setOnFinished(new OnFinishedInsertionAnimation(tas));

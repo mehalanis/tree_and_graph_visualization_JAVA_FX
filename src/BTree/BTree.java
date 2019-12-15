@@ -1,33 +1,24 @@
 package BTree;
 
 import Formes.rectangle;
-import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-public class BTree<K extends Comparable<K>> implements Serializable {
+public class BTree<K extends Comparable<K>>  {
 
     private BTNode<Pair<K>> root = null;
     private int order, index, treeSize;
     private final int halfNumber;
     private final BTNode<Pair<K>> nullBTNode = new BTNode<Pair<K>>();
     private Group arbre;
-    rectangle rectangle[];
 
-    /**
-     *
-     * @param order of B-tree
-     */
-    public BTNode getNullNode(){BTNode<Pair<K>> nullBTNode = new BTNode<Pair<K>>();
-        return nullBTNode;}
+    public BTNode getNullNode() {
+        BTNode<Pair<K>> nullBTNode = new BTNode<Pair<K>>();
+        return nullBTNode;
+    }
+
     public BTree(int order, Group arbre) {
         if (order < 3) {
             try {
@@ -81,57 +72,7 @@ public class BTree<K extends Comparable<K>> implements Serializable {
             return null;
         }
     }
- /*public BTNode<Pair<K>> recurech( K key) {
 
-        
-        if (isEmpty()) {
-            return nullBTNode;
-        }
-     
-        BTNode<Pair<K>> currentNode = root;
-                
-        while (!currentNode.equals(nullBTNode)) {
-            
-            int i = 0;
-             getRectangle(i).setStroke(Color.YELLOW);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(RechercheAnimation.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            getRectangle(i).setStroke(Color.BLACK);
-            while (i < currentNode.getSize()) {
-                if (currentNode.getKey(i).equals(key)) {
-                     getRectangle(i).setStroke(Color.GREEN);
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        //label.setText("found : " + val);
-                    }
-
-                });
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(RechercheAnimation.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-               getRectangle(i).setStroke(Color.BLACK);
-                
-                    int index = i;
-                    return currentNode;
-                } else if (currentNode.getKey(i).first.compareTo(key) > 0) {
-                    currentNode = currentNode.getChild(i);
-                    i = 0;
-                } else {
-                    i++;
-                }
-            }
-            if (!currentNode.isNull()) {
-                currentNode = currentNode.getChild(currentNode.getSize());
-            }
-        }
-        return nullBTNode;}*/
     public BTNode<Pair<K>> getNode(K key) {
         if (isEmpty()) {
             return nullBTNode;
@@ -157,32 +98,6 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         return nullBTNode;
     }
 
-/*    public void replace(K key) {
-        Pair<K> pair = new Pair<K>(key);
-        BTNode<Pair<K>> currentNode = root;
-
-        if (get(pair.first) == null) {
-            return;
-        }
-        while (!currentNode.equals(nullBTNode)) {
-            int i = 0;
-            while (i < currentNode.getSize()) {
-                if (currentNode.getKey(i).first.equals(pair.first)) {
-
-                    return;
-                } else if (currentNode.getKey(i).first.compareTo(pair.first) > 0) {
-                    currentNode = currentNode.getChild(i);
-                    i = 0;
-                } else {
-                    i++;
-                }
-            }
-            if (!currentNode.isNull()) {
-                currentNode = currentNode.getChild(currentNode.getSize());
-            }
-        }
-    }
-*/
     private BTNode<Pair<K>> getHalfKeys(Pair<K> pair, BTNode<Pair<K>> fullNode) {
         int fullNodeSize = fullNode.getSize();
 
@@ -198,16 +113,11 @@ public class BTree<K extends Comparable<K>> implements Serializable {
 
         return getHalfKeys(fullNode);
     }
-     public rectangle getRectangle(int i) {
-        return rectangle[i];
-    }
 
-    public void setRectangle(rectangle rectangle,int i) {
-        this.rectangle[i] = rectangle;
-    }
-     public void RechercheAnimation(int val,Label l) {
+    public void RechercheAnimation(int val, Label l) {
         new RechercheAnimation(this, val, l).start();
     }
+
     private BTNode<Pair<K>> getHalfKeys(BTNode<Pair<K>> fullNode) {
         BTNode<Pair<K>> newNode = new BTNode<Pair<K>>(order);
         for (int i = 0; i < halfNumber; i++) {
@@ -237,7 +147,6 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         childNode.getFather().addChild(index, childNode.getChild(0));
         childNode.getFather().addChild(index + 1, childNode.getChild(1));
     }
-
 
     private void mergeWithFatherNode(BTNode<Pair<K>> childNode) {
         int fatherNodeSize = childNode.getFather().getSize();
@@ -294,7 +203,6 @@ public class BTree<K extends Comparable<K>> implements Serializable {
             replace(key);
             return;
         }*/
-
         while (!currentNode.isLastInternalNode()) {
             int i = 0;
             while (i < currentNode.getSize()) {
@@ -358,7 +266,6 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         }
     }
 
- 
     private int findChild(BTNode<Pair<K>> node) {
         if (!node.equals(root)) {
             BTNode<Pair<K>> fatherNode = node.getFather();
@@ -372,7 +279,6 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         return -1;
     }
 
- 
     private BTNode<Pair<K>> balanceDeletedNode(BTNode<Pair<K>> node) {
         boolean flag;
         int nodeIndex = findChild(node);
@@ -456,7 +362,6 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         }
     }
 
- 
     private BTNode<Pair<K>> replaceNode(BTNode<Pair<K>> node) {
         BTNode<Pair<K>> currentNode = node.getChild(index + 1);
         while (!currentNode.isLastInternalNode()) {
@@ -496,7 +401,7 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         } else {
             boolean flag = true;
             boolean isReplaced = false;
-            if (!node.isLastInternalNode()) {
+           if (!node.isLastInternalNode()) {
                 node = replaceNode(node);
                 deleteNode = node;
                 isReplaced = true;
@@ -568,7 +473,7 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         rectangle r;
         t.rectangle.removeAll(t.rectangle);
         for (int i = 0; i < t.keys.size(); i++) {
-           
+
             r = new rectangle(Integer.parseInt(t.getKey(i).toString()));
             t.addRectangle(r);
             hbox.getChildren().add(r);
@@ -578,7 +483,7 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         arbre.getChildren().add(hbox);
         if ((++lev) != 1) {
 
-             Line line = new Line(prevx, prevy + 36, x + (35 * t.getSize()) / 2, y);
+            Line line = new Line(prevx, prevy + 36, x + (35 * t.getSize()) / 2, y);
             line.setStrokeWidth(2);
             arbre.getChildren().add(line);
             gap = (gap) / this.order;
@@ -588,8 +493,8 @@ public class BTree<K extends Comparable<K>> implements Serializable {
         }
         int xpere = x;
 
-        for (int i = 0; i < t.getSize()+1; i++) {
-            if ((t.getSize()+1 == 2) && (i == 1)) {
+        for (int i = 0; i < t.getSize() + 1; i++) {
+            if ((t.getSize() + 1 == 2) && (i == 1)) {
                 x += gap;
             }
             Afficher(t.getChild(i), t, x - gap, y + 58, xpere, y, lev, gap);
