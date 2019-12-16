@@ -35,19 +35,34 @@ public class ABRController implements Initializable {
     RadioButton predecesseur, successeur;
     @FXML
     HBox List_Nombre;
+
     @FXML
     public void insert(ActionEvent e) {
-        abr.insertionAnimation(text.getText());
+        try {
+            abr.insertionAnimation(text.getText());
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
 
     @FXML
     public void Rechercher(ActionEvent e) {
-        abr.rechercher(trouver_label, text.getText());
+        try {
+            abr.rechercher(trouver_label, text.getText());
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
 
     @FXML
     public void supprimer(ActionEvent e) {
-        abr.suppression(text.getText(), ((predecesseur.isSelected()) ? 'P' : 'S'));
+        try {
+            abr.suppression(text.getText(), ((predecesseur.isSelected()) ? 'P' : 'S'));
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
         abr.Afficher();
     }
 
@@ -55,8 +70,8 @@ public class ABRController implements Initializable {
     public void FileTXT(ActionEvent e) {
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichier txt", "*.txt"));
-        File f=fc.showOpenDialog(null);
-        LoadFileTXT load = new LoadFileTXT(abr, f, arbre,List_Nombre);
+        File f = fc.showOpenDialog(null);
+        LoadFileTXT load = new LoadFileTXT(abr, f, arbre, List_Nombre);
         load.start();
     }
 

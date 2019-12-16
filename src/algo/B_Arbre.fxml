@@ -34,7 +34,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <ComboBox fx:id="ordre" onAction="#ChangerOrdre" prefHeight="37.0" prefWidth="100.0" promptText="D'ordre 3" />
+                  <ComboBox fx:id="ordre" onAction="#ChangerOrdre" prefHeight="31.0" prefWidth="117.0" promptText="D'ordre 3" />
                   <Separator maxWidth="1.7976931348623157E308" minWidth="-Infinity" opacity="0.0" />
                   <Button mnemonicParsing="false" onAction="#FileTXT" text="File TXT">
                      <HBox.margin>

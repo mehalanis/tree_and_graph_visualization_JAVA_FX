@@ -16,7 +16,6 @@ public class ALGO extends Application {
         load.setLocation(getClass().getResource("index.fxml"));
         load.load();
         indexController i= load.getController();
-        // i.set("anis");
         Parent root = load.getRoot();
         
         Scene scene = new Scene(root);

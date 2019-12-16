@@ -1,4 +1,3 @@
-
 package algo;
 
 import ABR_AVL.AVL;
@@ -17,44 +16,69 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 
-
 public class AVLController implements Initializable {
+
     AVL avl;
-    @FXML AnchorPane arbre;
-    @FXML TextField text;
-    @FXML Label trouver_label;
-    @FXML RadioButton predecesseur,successeur;
+    @FXML
+    AnchorPane arbre;
+    @FXML
+    TextField text;
+    @FXML
+    Label trouver_label;
+    @FXML
+    RadioButton predecesseur, successeur;
     @FXML
     HBox List_Nombre;
+
     @FXML
-    public void insert(ActionEvent e){
-       avl.insertionAnimation(text.getText()); 
+    public void insert(ActionEvent e) {
+        try {
+            avl.insertionAnimation(text.getText());
+
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
+
     @FXML
-    public void Rechercher(ActionEvent e){
-        avl.rechercher(trouver_label,text.getText());
+    public void Rechercher(ActionEvent e) {
+        try {
+            avl.rechercher(trouver_label, text.getText());
+
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
+
     @FXML
-    public void supprimer(ActionEvent e){
-        avl.delete(text.getText(),((predecesseur.isSelected())?'P':'S'));
-        avl.Afficher();
+    public void supprimer(ActionEvent e) {
+        try {
+            avl.delete(text.getText(), ((predecesseur.isSelected()) ? 'P' : 'S'));
+            avl.Afficher();
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
     }
+
     @FXML
     public void FileTXT(ActionEvent e) {
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichier txt", "*.txt"));
-        File f=fc.showOpenDialog(null);
-        LoadFileTXT load = new LoadFileTXT(avl, f, arbre,List_Nombre);
+        File f = fc.showOpenDialog(null);
+        LoadFileTXT load = new LoadFileTXT(avl, f, arbre, List_Nombre);
         load.start();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        avl=new AVL(arbre);
+        avl = new AVL(arbre);
         trouver_label.setText("");
-        ToggleGroup tg=new ToggleGroup();
+        ToggleGroup tg = new ToggleGroup();
         predecesseur.setToggleGroup(tg);
         successeur.setToggleGroup(tg);
         predecesseur.setSelected(true);
-    }    
-    
+    }
+
 }

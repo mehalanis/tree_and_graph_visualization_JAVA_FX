@@ -45,7 +45,7 @@ public abstract class Arbre {
     public void Afficher(){
         group.getChildren().clear();
         int gap = this.depth(this.root);
-        gap = gap * 2 *24;
+        gap = gap * 2 *30;
         this.Afficher(this.root,null, group ,(int)group.getWidth()/ 2, 0,(int)group.getWidth()/ 2, 0,0,gap);
     }
     public void Afficher(Node t, Node root, AnchorPane g, int x, int y, int prevx, int prevy, int lev, int gap) {        

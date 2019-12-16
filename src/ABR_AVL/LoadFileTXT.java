@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ABR_AVL;
 
 import java.io.File;
@@ -20,10 +15,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-/**
- *
- * @author anispitchou
- */
 public class LoadFileTXT extends Thread {
 
     public Arbre abr;
@@ -32,7 +23,7 @@ public class LoadFileTXT extends Thread {
     public HBox hbox_label;
     private ArrayList<Integer> list;
     private ArrayList<Label> list_label;
-
+    
     public LoadFileTXT(Arbre abr, File file, AnchorPane group, HBox hbox_label) {
         this.abr = abr;
         this.file = file;

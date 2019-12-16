@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TAS;
 
 import Formes.Cercle;
 import javafx.scene.shape.Line;
 
-/**
- *
- * @author meder
- */
+
 public class Node {
     private int val;
     private Cercle c; 

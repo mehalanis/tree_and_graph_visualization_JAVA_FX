@@ -186,7 +186,8 @@ public class amr {
                     childrens[i] = noeud.children[i];
                 }
                 if (i > pos + 1) {
-                    childrens[i - 1] = noeud.children[i];
+                    childrens[i-1] = noeud.children[i];
+                
                 }
 
             }
@@ -224,7 +225,7 @@ public class amr {
                     }
                     if (predecesseur == true) {
                         Noeud.data[i] = getP(Noeud.children[i]).data[getP(Noeud.children[i]).size - 1];
-                        recusup(getP(Noeud.children[i]), getP(Noeud.children[i]).data[getP(Noeud.children[i]).size - 1]);
+                        recusup(getP(Noeud.children[i]), getP(Noeud.children[i]).data[getP(Noeud.children[i]).size-1]);
                         return;
                     }
 
@@ -370,7 +371,7 @@ public class amr {
         arbre.getChildren().clear();
         int gap = profendeur(root);
         gap = gap * this.t * 40;
-        this.Afficher(this.getRoot(), null, 1200 / 2, 0, 1200 / 2, 0, 0, gap);
+        this.Afficher(this.getRoot(), null, 1200/ 2, 0, 1200 / 2, 0, 0, gap);
 
     }
 

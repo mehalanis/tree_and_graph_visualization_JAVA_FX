@@ -9,9 +9,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Line;
 
-/**
- * DataStructure Created by Blaise Wang on 16/6/5.
- */
 public class BTNode<E extends Comparable<E>>  {
 
     private int fullNumber;

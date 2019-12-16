@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TAS;
 
-/**
- *
- * @author meder
- */
+
 import Formes.Cercle;
 import java.util.*;
 import java.util.logging.Level;
@@ -138,16 +130,6 @@ public class TASmax {
 
     public void Supprimer(int val) {
         new SupprimerAnimation(this,val).start();
-       /* int pos = 0;
-        pos = Rechercher(val);
-        if (pos != 0) {
-            Node popped;
-            popped = Tas[pos];
-            Tas[pos] = Tas[taille--];
-            Equi(pos);
-            return popped;
-        }
-        return null;*/
     }
     public void Aff() {
         for(int i=1;i<=taille;i++){
@@ -161,9 +143,8 @@ public class TASmax {
 
     public void Afficher() {
         group.getChildren().clear();
-        //int gap = abr.depth(abr.root);
         int gap = profondeur();
-        gap = gap * 2 * 24;
+        gap = gap * 2 * 30;
         this.Afficher(1, group, (int)group.getWidth() / 2, 0, (int)group.getWidth() / 2, 0, 0, gap);
     }
 

@@ -1,4 +1,3 @@
-
 package algo;
 
 import TAS.LoadFileTXT;
@@ -16,36 +15,58 @@ import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 
 public class TAS_max_Controller implements Initializable {
+
     TASmax tas;
-    @FXML AnchorPane arbre;
-    @FXML TextField text;
-    @FXML Label trouver_label;
+    @FXML
+    AnchorPane arbre;
+    @FXML
+    TextField text;
+    @FXML
+    Label trouver_label;
     @FXML
     HBox List_Nombre;
+
     @FXML
-    public void insert(ActionEvent e){
-       tas.inserer(Integer.parseInt(text.getText())); 
-      // Afficher();
+    public void insert(ActionEvent e) {
+        try {
+            tas.inserer(Integer.parseInt(text.getText()));
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
     }
+
     @FXML
-    public void Rechercher(ActionEvent e){
-        tas.RechercherAnimation(Integer.parseInt(text.getText()));
+    public void Rechercher(ActionEvent e) {
+        try {
+            tas.RechercherAnimation(Integer.parseInt(text.getText()));
+
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
     }
+
     @FXML
-    public void supprimer(ActionEvent e){
-        tas.Supprimer(Integer.parseInt(text.getText()));
+    public void supprimer(ActionEvent e) {
+        try {
+            tas.Supprimer(Integer.parseInt(text.getText()));
+
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
     }
+
     @FXML
     public void FileTXT(ActionEvent e) {
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichier txt", "*.txt"));
-        File f=fc.showOpenDialog(null);
-        LoadFileTXT load = new LoadFileTXT(tas, f, arbre,List_Nombre);
+        File f = fc.showOpenDialog(null);
+        LoadFileTXT load = new LoadFileTXT(tas, f, arbre, List_Nombre);
         load.start();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tas=new TASmax(40,arbre,trouver_label);
+        tas = new TASmax(40, arbre, trouver_label);
         trouver_label.setText("");
     }
 }

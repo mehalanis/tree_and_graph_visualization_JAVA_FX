@@ -28,18 +28,33 @@ public class TAS_min_Controller implements Initializable {
 
     @FXML
     public void insert(ActionEvent e) {
-        tas.inserer(Integer.parseInt(text.getText()));
-        tas.Afficher();
+        try {
+            tas.inserer(Integer.parseInt(text.getText()));
+          //  tas.Afficher();
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
 
     @FXML
     public void Rechercher(ActionEvent e) {
-        tas.RechercherAnimation(Integer.parseInt(text.getText()));
+        try {
+            tas.RechercherAnimation(Integer.parseInt(text.getText()));
+
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
 
     @FXML
     public void supprimer(ActionEvent e) {
-        tas.Supprimer(Integer.parseInt(text.getText()));
+        try {
+            tas.Supprimer(Integer.parseInt(text.getText()));
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
     }
 
     @FXML

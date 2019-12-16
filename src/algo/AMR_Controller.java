@@ -1,4 +1,3 @@
-
 package algo;
 
 import AMR.*;
@@ -18,7 +17,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 
-
 public class AMR_Controller implements Initializable {
 
     amr amr;
@@ -34,42 +32,60 @@ public class AMR_Controller implements Initializable {
     HBox List_Nombre;
     @FXML
     ComboBox ordre;
+
     @FXML
     public void insert(ActionEvent e) {
-        amr.insertion(Integer.parseInt(text.getText()));
-        amr.Afficher();
+        try {
+            amr.insertion(Integer.parseInt(text.getText()));
+            amr.Afficher();
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
 
     @FXML
     public void Rechercher(ActionEvent e) {
-       amr.RechercherAnimation(Integer.parseInt(text.getText()),trouver_label);
+        try {
+            amr.RechercherAnimation(Integer.parseInt(text.getText()), trouver_label);
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
 
     @FXML
     public void supprimer(ActionEvent e) {
-        amr.SwitchSucPred( ((predecesseur.isSelected()) ? 'P' : 'S'));
-       amr.suppression(Integer.parseInt(text.getText()));
-        amr.Afficher();
+        try {
+            amr.SwitchSucPred(((predecesseur.isSelected()) ? 'P' : 'S'));
+            amr.suppression(Integer.parseInt(text.getText()));
+            amr.Afficher();
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
 
     @FXML
     public void FileTXT(ActionEvent e) {
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichier txt", "*.txt"));
-        File f=fc.showOpenDialog(null);
-        LoadFileTXT load = new LoadFileTXT(amr, f, arbre,List_Nombre);
+        File f = fc.showOpenDialog(null);
+        LoadFileTXT load = new LoadFileTXT(amr, f, arbre, List_Nombre);
         load.start();
     }
+
     @FXML
-    public void ChangerOrdre(ActionEvent e){
-       amr = new amr(Integer.parseInt((String) ordre.getValue()),arbre);
-       amr.Afficher();
+    public void ChangerOrdre(ActionEvent e) {
+        amr = new amr(Integer.parseInt((String) ordre.getValue()), arbre);
+        amr.Afficher();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        amr = new amr(3,arbre);  
-        for(int i=3;i<=5;i++){
-            ordre.getItems().add(i+"");
+        amr = new amr(3, arbre);
+        for (int i = 3; i <= 5; i++) {
+            ordre.getItems().add(i + "");
         }
         trouver_label.setText("");
         ToggleGroup tg = new ToggleGroup();
@@ -77,5 +93,5 @@ public class AMR_Controller implements Initializable {
         successeur.setToggleGroup(tg);
         predecesseur.setSelected(true);
     }
-    
+
 }

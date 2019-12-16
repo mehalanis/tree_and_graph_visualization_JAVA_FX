@@ -31,22 +31,38 @@ public class B_Arbre_Controller implements Initializable {
     HBox List_Nombre;
     @FXML
     ComboBox ordre;
+
     @FXML
     public void insert(ActionEvent e) {
-        bTree.insert(Integer.parseInt(text.getText()));
-        bTree.Afficher();
+        try {
+            bTree.insert(Integer.parseInt(text.getText()));
+            bTree.Afficher();
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
 
     @FXML
     public void Rechercher(ActionEvent e) {
-        bTree.RechercheAnimation(Integer.parseInt(text.getText()),trouver_label);
+        try {
+            bTree.RechercheAnimation(Integer.parseInt(text.getText()), trouver_label);
+
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
 
     }
 
     @FXML
     public void supprimer(ActionEvent e) {
-        bTree.delete(Integer.parseInt(text.getText()));
-        bTree.Afficher();
+        try {
+            bTree.delete(Integer.parseInt(text.getText()));
+            bTree.Afficher();
+        } catch (NumberFormatException ere) {
+        }
+        text.setText("");
+
     }
 
     @FXML
@@ -68,8 +84,8 @@ public class B_Arbre_Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         bTree = new BTree<Integer>(3, arbre);
         trouver_label.setText("");
-        for(int i=3;i<=5;i++){
-            ordre.getItems().add(i+"");
+        for (int i = 3; i <= 5; i = i + 2) {
+            ordre.getItems().add(i + "");
         }
     }
 
