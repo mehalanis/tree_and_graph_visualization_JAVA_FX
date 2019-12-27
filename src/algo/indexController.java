@@ -45,9 +45,10 @@ public class indexController implements Initializable {
         
         try {
             FXMLLoader load=new FXMLLoader();
-            load.setLocation(getClass().getResource("menu.fxml"));
+            load.setLocation(getClass().getResource("Menu.fxml"));
+            
             load.load();
-            MenuController i= load.getController();
+            Menu_Controller i= load.getController();
             i.setPanel(panel);
             i.setTitre(titre);
             menu=load.getRoot();

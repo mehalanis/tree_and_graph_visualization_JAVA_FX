@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Arbre.ABRController">
+   <top>
+      <VBox style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <TextField fx:id="text" prefHeight="30.0" prefWidth="200.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#insert" prefHeight="30.0" text="Inserer">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Rechercher" prefHeight="30.0" text="Rechercher">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#supprimer" text="supprimer">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <RadioButton fx:id="predecesseur" mnemonicParsing="false" text="Predecesseur">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="successeur" mnemonicParsing="false" text="Successeur">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <Button mnemonicParsing="false" onAction="#FileTXT" text="File TXT">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="40.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="60.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox fx:id="List_Nombre" GridPane.columnIndex="1" />
+                  <Label fx:id="trouver_label" text="Label">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <AnchorPane fx:id="arbre" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets top="5.0" />
+                     </BorderPane.margin></AnchorPane>
+                  
+               </center>
+            </BorderPane>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

@@ -3,47 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/ABR_AVL/Arbre.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/TAS/SupprimerAnimation.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/TAS/OnFinishedInsertionAnimation.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/TAS/RechercherAnimation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/B_Arbre_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AMR_Controller.java</file>
             <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/ALGO.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AVLController.java</file>
             <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/indexController.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/TAS/TASmin.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/ABR_AVL/insertionAnimation.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/BTree/Pair.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/AMR/amr.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/BTree/RechercheAnimation.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/AMR/RechercherAnimation.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/TAS/Node.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/TAS/LoadFileTXT.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/TAS_max_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/B_Arbre_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/ABR_AVL/AVL.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/AMR/LoadFileTXT.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/TAS/insertionAnimation.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/AVLController.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/ABR_AVL/NodeAVL.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/menu.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/AMR/Noeud.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/ABRController.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/BTree/LoadFileTXT.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/TAS/Permutation.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/TAS/TASmax.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Formes/CercleAVL.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/ABR_AVL/Find.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/ABR_AVL/Node.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/BTree/BTree.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Formes/rectangle.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/ABR_AVL/LoadFileTXT.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/B_Arbre.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Formes/Cercle.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/BTree/BTNode.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/AMR_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/TAS_min_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/MenuController.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/ABR_AVL/OnFinishedInsertionAnimation.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/ABR_AVL/ABR.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AVL.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_max_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/B_Arbre.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/MenuController.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Menu_Graphe.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/Menu_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_min.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/index.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_max.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/amr.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/Menu.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Graphe/Sommet.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/menu.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Menu_Graphe_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_min_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABRController.java</file>
         </group>
     </open-files>
 </project-private>

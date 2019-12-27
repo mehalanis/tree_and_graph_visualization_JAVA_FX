@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Arbre.indexController">
+   <center>
+      <StackPane fx:id="panel" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <BorderPane prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: #00355f;" BorderPane.alignment="CENTER">
+         <left>
+            <Button mnemonicParsing="false" onAction="#home" style="-fx-background-color: none;" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icon/HomeWhite32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </left>
+         <center>
+            <Label fx:id="titre" text="Label" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+   </top>
+</BorderPane>
