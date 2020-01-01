@@ -39,12 +39,12 @@ public class bell_ford {
         int[][] listarc = new int[numberofvertices][2];
 
         for (int node = 0; node < numberofvertices; node++) {
-            list[node] = "Inf";
+            list[node] = "INFINI";
             distances[node] = MAX_VALUE;
             listarc[node][0] = MAX_VALUE;
             listarc[node][1] = MAX_VALUE;
         }
-        list[source] = "0";
+        list[source] = "0 (*)";
         distances[source] = 0;
         listString.add(list);
         String s;
@@ -53,8 +53,7 @@ public class bell_ford {
             list = new String[numberofvertices];
             int index = listString.size() - 1;
             for (int i = 0; i < listString.get(index).length; i++) {
-                if ((!listString.get(index)[i].equals("Inf")) &&(listString.get(index)[i].length()>4)){
-                    System.out.print("val "+ listString.get(index)[i]+ " "+( listString.get(index)[i].length() - 4 + 1));
+                if ((!listString.get(index)[i].equals("INFINI")) &&(listString.get(index)[i].length()>4)){
                     s = listString.get(index)[i].substring(0, listString.get(index)[i].length() - 4 + 1);
                 } else {
                     s = listString.get(index)[i];
