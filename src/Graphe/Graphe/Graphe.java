@@ -43,5 +43,7 @@ public abstract class Graphe {
     public ArrayList<Sommet> getList_sommet() {
         return list_sommet;
     }
-
+     public MatriceAdjacence MatriceAdjacence(){
+        return new MatriceAdjacence(this);
+    }
 }

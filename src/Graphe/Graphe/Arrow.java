@@ -16,17 +16,9 @@ public class Arrow extends Path {
 
     public Arrow(double startX, double startY, double endX, double endY) {
         super();
-        Point a = new Point(startX, startY);
-        Point b = new Point(endX, endY);
+        
 
-        Point q1 = a.delta(b);
-        Point q2 = b.delta(a);
-
-        startX = q1.getX();
-        startY = q1.getY();
-        endX = q2.getX();
-        endY = q2.getY();
-       
+        
         strokeProperty().bind(fillProperty());
         setFill(Color.BLACK);
 

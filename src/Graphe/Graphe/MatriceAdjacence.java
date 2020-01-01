@@ -31,13 +31,21 @@ public class MatriceAdjacence {
                         } 
                     }
                     if(b==false){
-                        matric[i][j_matric] =-1;
+                        matric[i][j_matric] =99999;
                     }
                 }
             }
         }
     }
 
+    public int[][] getMatric() {
+        return matric;
+    }
+
+    public ArrayList<String> getList_sommet() {
+        return list_sommet;
+    }
+    
     public void Afficher() {
         int size = list_sommet.size();
         System.out.print("  ");

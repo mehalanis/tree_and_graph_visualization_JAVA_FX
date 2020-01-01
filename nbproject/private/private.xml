@@ -3,28 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/B_Arbre_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AMR_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/ALGO.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AVLController.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/indexController.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AVL.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_max_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/B_Arbre.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/MenuController.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Menu_Graphe.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/Menu_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_min.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/index.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_max.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/amr.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/algo/Menu.fxml</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Graphe/Sommet.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/menu.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Bellman_FordController.java</file>
             <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Menu_Graphe_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_min_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABRController.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Graphe/MatriceAdjacence.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Bellman_Ford/bell_ford.java</file>
         </group>
     </open-files>
 </project-private>

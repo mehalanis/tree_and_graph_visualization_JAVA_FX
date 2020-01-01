@@ -29,12 +29,12 @@
             <Font name="System Bold" size="30.0" />
          </font>
          </Button>
-            <Button fx:id="btn_amr" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadGraphe" prefHeight="140.0" prefWidth="171.0" text="Bellman-Ford" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+            <Button fx:id="bellman_ford" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadGraphe" prefHeight="140.0" prefWidth="171.0" text="Bellman-Ford" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
              <font>
             <Font name="System Bold" size="30.0" />
          </font>
          </Button>
-            <Button fx:id="btn_avl" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadGraphe" prefHeight="140.0" prefWidth="169.0" text="Floyd" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Button fx:id="floyd" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadGraphe" prefHeight="140.0" prefWidth="169.0" text="Floyd" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
              <font>
             <Font name="System Bold" size="30.0" />
          </font>

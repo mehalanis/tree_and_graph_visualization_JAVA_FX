@@ -36,4 +36,6 @@ public class ArcOriente extends Arc {
         label.setLayoutX(x);
         label.setLayoutY(y);
     }
+
+ 
 }

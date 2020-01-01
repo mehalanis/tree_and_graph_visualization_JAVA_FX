@@ -48,13 +48,14 @@ public class Point {
         mt = ((b.y-a.y)/(b.x-a.x));
         return mt;
     }*/
-    public Point Center(Point p){
+    public Point Center(Point p) {
         return new Point();
     }
+
     public Point delta(Point z) {
         vecteur(z);
         kVal();
-        double a, b, c, delta,x;
+        double a, b, c, delta, x;
         a = 1 + mt * mt;
         b = ((-2 * this.x) + (-2 * this.y * mt) + (2 * mt * k));
         c = ((this.x * this.x) + (this.y * this.y) + (k * k) + (-2 * this.y * k) - r * r);
@@ -69,17 +70,25 @@ public class Point {
         } else {
             x1 = (-b - Math.sqrt(delta)) / (2 * a);
             x2 = (-b + Math.sqrt(delta)) / (2 * a);
-            if(this.getX()>z.getX()){
-                x=x1;
-            }else{
-                x=x2;
+            if (this.getX() > z.getX()) {
+                x = x1;
+            } else {
+                x = x2;
             }
-            return new Point(x, mt*x +k); // l9itha x2 , x1 normalment x1 x2 no ??
+            return new Point(x, mt * x + k); // l9itha x2 , x1 normalment x1 x2 no ??
 
         }
         return new Point(0, 0);
     }
+
     //public double 
+    public Point Rotation(Point M, int angle) {
+        double xM = M.x - this.x;
+        double yM = M.y - this.y;
+        x = xM * Math.cos(angle) + yM * Math.sin(angle) + this.x;
+        y = -xM * Math.sin(angle) + yM * Math.cos(angle) + this.y;
+        return new Point(x, y);
+    }
 
     public String toString() {
         return "(" + x + ", " + y + ")";
