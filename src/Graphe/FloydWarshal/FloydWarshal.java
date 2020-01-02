@@ -59,7 +59,6 @@ public class FloydWarshal {
     }
 
     public void printSolution() {
-        table.setVisible(true);
         table.getColumns().clear();
         String[][] staffArray = new String[dist.length][dist.length + 1];
         for (int i = 0; i < dist.length; ++i) {

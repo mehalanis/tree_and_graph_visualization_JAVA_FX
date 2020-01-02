@@ -20,6 +20,8 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -34,16 +36,19 @@ public class FloydWarshalController implements Initializable {
     TableView table;
     @FXML
     HBox Creer_circle_box;
-    Button start;
+    Button start, remove;
     Cercle cercle;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cercle = new Cercle("");
         cercle.setPadding(new Insets(0, 20, 0, 0));
-
+       // Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
+        remove = new Button("Supprimer");
+       // remove.setGraphic(new ImageView(iconremove));
         Creer_circle_box.getChildren().add(cercle);
-        graphe_controller = new GrapheController(cercle);
+        Creer_circle_box.getChildren().add(remove);
+        graphe_controller = new GrapheController(cercle, remove);
         border_Pane.setCenter(graphe_controller);
         start = new Button("Start");
         start.setFont(new Font(18));
@@ -56,7 +61,6 @@ public class FloydWarshalController implements Initializable {
             }
         });
         Creer_circle_box.getChildren().add(start);
-       
 
     }
 

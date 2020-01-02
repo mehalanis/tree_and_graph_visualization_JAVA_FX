@@ -30,6 +30,7 @@ public class Cercle extends StackPane {
     }
 
     public void setVal(String val) {
+        this.val=val;
         label.setText(val);
     }
 

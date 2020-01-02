@@ -1,7 +1,10 @@
+
 package Bellman_Ford;
 
+import Graphe.Arc;
 import Graphe.ArcOriente;
 import Graphe.Graphe;
+import Graphe.GrapheOriente;
 import Graphe.Sommet;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,8 +13,12 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 
@@ -20,12 +27,12 @@ public class bell_ford {
     private int distances[]; //distance entre les sommets, (poids) 
     private int numberofvertices; // nombre de sommet 
     public static final int MAX_VALUE = 99999; // l'infini 
-    public Graphe g;
+    public GrapheOriente g;
     int adjacencymatrix[][];
     public TableView table;
 
     public bell_ford(Graphe g, TableView table) {
-        this.g = g;
+        this.g = (GrapheOriente) g;
         this.table = table;
         this.numberofvertices = g.getList_sommet().size();
         adjacencymatrix = g.MatriceAdjacence().getMatric();
@@ -33,6 +40,7 @@ public class bell_ford {
 
     public void BellmanFordEvaluation(int source) {
         //initialisation de la table distance pour connaitre les distance qu'on a changer...
+        g.initArcBlack();
         distances = new int[numberofvertices];
         ArrayList<String[]> listString = new ArrayList<String[]>();
         String[] list = new String[numberofvertices];
@@ -53,31 +61,33 @@ public class bell_ford {
             list = new String[numberofvertices];
             int index = listString.size() - 1;
             for (int i = 0; i < listString.get(index).length; i++) {
-                if ((!listString.get(index)[i].equals("INFINI")) &&(listString.get(index)[i].length()>4)){
+                if ((!listString.get(index)[i].equals("INFINI")) && (listString.get(index)[i].length() > 4)) {
                     s = listString.get(index)[i].substring(0, listString.get(index)[i].length() - 4 + 1);
                 } else {
                     s = listString.get(index)[i];
                 }
                 list[i] = s;
             }
-            for (int destinationnode = 0; destinationnode < numberofvertices; destinationnode++) {
-                if (adjacencymatrix[node][destinationnode] != MAX_VALUE) {
-                    // il y'as un meilleur chemin.. 
-                    if (distances[destinationnode] > distances[node]
-                            + adjacencymatrix[node][destinationnode]) {
-                        if (listarc[destinationnode][0] != MAX_VALUE) {
+            for (int sourcenode = 0; sourcenode < numberofvertices; sourcenode++) {
+                for (int destinationnode = 0; destinationnode < numberofvertices; destinationnode++) {
+                    if (adjacencymatrix[sourcenode][destinationnode] != MAX_VALUE) {
+                        // il y'as un meilleur chemin.. 
+                        if (distances[destinationnode] > distances[sourcenode]
+                                + adjacencymatrix[sourcenode][destinationnode]) {
+                            if (listarc[destinationnode][0] != MAX_VALUE) {
+                                Sommet sm = g.getSommet(listarc[destinationnode][0]);
+                                ArcOriente arc = (ArcOriente) sm.getArc(g.getSommet(listarc[destinationnode][1]).getNom());
+                                arc.getLine().setFill(Color.BLACK);
+                            }
+                            distances[destinationnode] = distances[sourcenode] + adjacencymatrix[sourcenode][destinationnode];
+                            listarc[destinationnode][0] = sourcenode;
+                            listarc[destinationnode][1] = destinationnode;
                             Sommet sm = g.getSommet(listarc[destinationnode][0]);
                             ArcOriente arc = (ArcOriente) sm.getArc(g.getSommet(listarc[destinationnode][1]).getNom());
-                            arc.getLine().setFill(Color.BLACK);
-                        }
-                        distances[destinationnode] = distances[node] + adjacencymatrix[node][destinationnode];
-                        listarc[destinationnode][0] = node;
-                        listarc[destinationnode][1] = destinationnode;
-                        Sommet sm = g.getSommet(listarc[destinationnode][0]);
-                        ArcOriente arc = (ArcOriente) sm.getArc(g.getSommet(listarc[destinationnode][1]).getNom());
-                        arc.getLine().setFill(Color.RED);
-                        list[destinationnode] = distances[destinationnode] + " (*)";
+                            arc.getLine().setFill(Color.RED);
+                            list[destinationnode] = distances[destinationnode] + " (*)";
 
+                        }
                     }
                 }
 
@@ -89,7 +99,7 @@ public class bell_ford {
         String sar = "Init";
         for (int i = 0; i < listString.size(); i++) {
             if (i > 0) {
-                sar= i + "";
+                sar = i + "";
             }
             liststring[i][0] = sar;
             for (int j = 0; j < listString.get(i).length; j++) {
@@ -105,6 +115,13 @@ public class bell_ford {
                     if (distances[destinationnode] > distances[sourcenode]
                             + adjacencymatrix[sourcenode][destinationnode]) {
                         System.out.println("The Graph contains negative edge cycle");
+                        
+                        Alert alert = new Alert(AlertType.WARNING);
+                        alert.setTitle("ALert");
+                        alert.setHeaderText("Information Alert");
+                      
+                        alert.setContentText("The Graph contains negative edge cycle");
+                        alert.show();
                     }
                 }
             }
@@ -119,6 +136,8 @@ public class bell_ford {
     String[][] liststring;
 
     public void Affichar() {
+        table.getColumns().clear();
+
         ObservableList<String[]> data = FXCollections.observableArrayList();
         data.addAll(Arrays.asList(liststring));
         // data.remove(0);//remove titles from data

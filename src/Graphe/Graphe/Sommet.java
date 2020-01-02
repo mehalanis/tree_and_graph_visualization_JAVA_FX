@@ -45,6 +45,7 @@ public class Sommet {
 
     public void setNom(String nom) {
         this.nom = nom.toCharArray();
+        cercle.setVal(nom);
     }
 
     public ArrayList<Arc> getList_arc() {
@@ -73,7 +74,11 @@ public class Sommet {
             Point q2 = b.delta(a);
             Arrow ss = arc_a_o.getLine(q1.getX(), q1.getY(), q2.getX(), q2.getY());
             pane.getChildren().add(ss);
-            arc_a_o.setLayoutLabel((arc_a_o.getLine().getStartX() + arc_a_o.getLine().getEndX() - 15) / 2, (arc_a_o.getLine().getStartY() + arc_a_o.getLine().getEndY() + 10) / 2);
+            int y=0;
+            if(Math.abs(q1.getX()-q2.getX())<50){
+                y=15;
+            }
+            arc_a_o.setLayoutLabel((arc_a_o.getLine().getStartX() + arc_a_o.getLine().getEndX() - 15-y) / 2, (arc_a_o.getLine().getStartY() + arc_a_o.getLine().getEndY() + 10) / 2);
             pane.getChildren().add(arc_a_o.getLabel());
         } else {
              pane.getChildren().removeAll(arc_a_o.getLine(),arc_a_o.getLabel());

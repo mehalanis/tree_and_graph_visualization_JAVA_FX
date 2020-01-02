@@ -20,33 +20,41 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 
 public class Bellman_FordController implements Initializable {
 
-       @FXML
+    @FXML
     BorderPane border_Pane;
     GrapheController graphe_controller;
     @FXML
     TableView table;
     @FXML
     HBox Creer_circle_box;
-    Button start;
+    Button start, remove;
     Cercle cercle;
+    ComboBox origine;
 
-
-  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         cercle = new Cercle("");
+        cercle = new Cercle("");
         cercle.setPadding(new Insets(0, 20, 0, 0));
-
+        //Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
+        remove = new Button("Supprimer");
+        //remove.setGraphic(new ImageView(iconremove));
+        
+        origine = new ComboBox();
         Creer_circle_box.getChildren().add(cercle);
-        graphe_controller = new GrapheController(cercle);
+        Creer_circle_box.getChildren().add(remove);
+        Creer_circle_box.getChildren().add(origine);
+        graphe_controller = new GrapheController(cercle, remove, origine);
         border_Pane.setCenter(graphe_controller);
         start = new Button("Start");
         start.setFont(new Font(18));
@@ -54,25 +62,12 @@ public class Bellman_FordController implements Initializable {
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-               bell_ford bell=new bell_ford(graphe_controller.go,table);
-               bell.BellmanFordEvaluation(0);
-               bell.Affichar();
+                bell_ford bell = new bell_ford(graphe_controller.go, table);
+                bell.BellmanFordEvaluation(origine.getSelectionModel().getSelectedIndex());
+                bell.Affichar();
             }
         });
         Creer_circle_box.getChildren().add(start);
-//                border_Pane.setCenter(new GrapheController(cercle));
-
-    /*    try {
-            FXMLLoader load = new FXMLLoader();
-            load.setLocation(getClass().getResource("Graphe.fxml"));
-            load.load();
-            graphe_controller = load.getController();
-            graphe_controller.setTable(table);
-            border_Pane.setCenter(load.getRoot());
-        } catch (IOException ex) {
-            Logger.getLogger(Bellman_FordController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-      // graphe_controller.AffichierCol(new ArrayList<String>());
     }
 
 }

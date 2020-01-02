@@ -1,4 +1,4 @@
-package algo;
+package Arbre;
 
 import BTree.*;
 import BTree.Pair;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Graphe {
 
-    private ArrayList<Sommet> list_sommet;
+    protected ArrayList<Sommet> list_sommet;
 
     public Graphe() {
         this.list_sommet = new ArrayList<Sommet>();
