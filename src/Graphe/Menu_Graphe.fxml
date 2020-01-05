@@ -20,11 +20,11 @@
           
         </rowConstraints>
          <children>
-            <Button fx:id="btn_abr" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadGraphe" prefHeight="140.0" prefWidth="169.0" text="Dijkstra" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM">
+            <Button fx:id="Dijkstra" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadGraphe" prefHeight="140.0" prefWidth="169.0" text="Dijkstra" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="30.0" />
          </font></Button>
-         <Button fx:id="btn_tas_min" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadGraphe" prefHeight="140.0" prefWidth="194.0" text="Bellman" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+         <Button fx:id="Bellman" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LoadGraphe" prefHeight="140.0" prefWidth="194.0" text="Bellman" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
              <font>
             <Font name="System Bold" size="30.0" />
          </font>

@@ -16,7 +16,7 @@ public class Menu_Graphe_Controller implements Initializable {
 
     Pane panel;
     Label titre;
-    @FXML Button bellman_ford,floyd;
+    @FXML Button bellman_ford,floyd,Dijkstra,Bellman;
     @FXML
     public void LoadGraphe(ActionEvent e) {
         try {
@@ -34,12 +34,16 @@ public class Menu_Graphe_Controller implements Initializable {
         String s="";
         if(btn==bellman_ford) s="Bellman_Ford";
         else if(btn==floyd)s="FloydWarshal";
+        else if(btn==Dijkstra)s="Djikstra";
+        else if(btn==Bellman)s="Bellman";
         return s;
     }
     private String Nom(String nom){
         switch(nom){
             case "Bellman_Ford":{return "Bellman Ford"; }
             case "FloydWarshal" :{ return "Floyd Warshal";}
+            case "Djikstra" :{ return "Dijkstra";}
+            case "Bellman" :{ return "Bellman";}
         }
         return "";
     }
