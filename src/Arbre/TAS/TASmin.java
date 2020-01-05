@@ -1,4 +1,4 @@
-package TAS;
+package Arbre.TAS;
 
 import java.util.Scanner;
 import javafx.scene.Group;

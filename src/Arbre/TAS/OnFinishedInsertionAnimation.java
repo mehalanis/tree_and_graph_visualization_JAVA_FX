@@ -1,6 +1,5 @@
-package TAS;
+package Arbre.TAS;
 
-import Formes.Cercle;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.layout.AnchorPane;

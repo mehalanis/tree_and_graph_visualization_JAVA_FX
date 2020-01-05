@@ -1,6 +1,6 @@
-package TAS;
+package Arbre.TAS;
 
-import Formes.Cercle;
+import Arbre.Formes.Cercle;
 import javafx.scene.shape.Line;
 
 

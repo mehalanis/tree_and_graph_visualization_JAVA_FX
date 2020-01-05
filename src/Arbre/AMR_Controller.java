@@ -1,6 +1,7 @@
 package Arbre;
 
-import AMR.*;
+import Arbre.AMR.LoadFileTXT;
+import Arbre.AMR.amr;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;

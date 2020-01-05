@@ -1,7 +1,7 @@
-package TAS;
+package Arbre.TAS;
 
 
-import Formes.Cercle;
+import Arbre.Formes.Cercle;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -1,4 +1,4 @@
-package TAS;
+package Arbre.TAS;
 
 import java.io.File;
 import java.io.FileNotFoundException;

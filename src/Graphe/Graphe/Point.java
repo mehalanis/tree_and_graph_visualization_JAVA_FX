@@ -1,4 +1,4 @@
-package Graphe;
+package Graphe.graphe;
 
 public class Point {
 
@@ -61,12 +61,8 @@ public class Point {
         c = ((this.x * this.x) + (this.y * this.y) + (k * k) + (-2 * this.y * k) - r * r);
 
         delta = (b * b) - 4 * a * c;
-        System.out.println("delta est : " + delta);
-        System.out.println("a est : " + a);
-        System.out.println("b est : " + b);
-        System.out.println("c : " + c);
+
         if (delta < 0) {
-            System.out.println("\n\nIl n'y a pas de racines reelle a l'equation.");
         } else {
             x1 = (-b - Math.sqrt(delta)) / (2 * a);
             x2 = (-b + Math.sqrt(delta)) / (2 * a);

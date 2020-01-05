@@ -1,7 +1,7 @@
-package ABR_AVL;
+package Arbre.ABR_AVL;
 
-import Formes.Cercle;
-import Formes.CercleAVL;
+import Arbre.Formes.Cercle;
+import Arbre.Formes.CercleAVL;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -1,4 +1,4 @@
-package BTree;
+package Arbre.BTree;
 
 import java.io.File;
 import java.io.FileNotFoundException;

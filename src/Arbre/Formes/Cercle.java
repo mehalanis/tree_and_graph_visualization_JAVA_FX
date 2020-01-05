@@ -1,7 +1,6 @@
 
-package Formes;
+package Arbre.Formes;
 
-import ABR_AVL.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;

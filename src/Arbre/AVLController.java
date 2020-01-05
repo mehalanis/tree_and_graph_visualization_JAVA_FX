@@ -1,7 +1,7 @@
 package Arbre;
 
-import ABR_AVL.AVL;
-import ABR_AVL.LoadFileTXT;
+import Arbre.ABR_AVL.AVL;
+import Arbre.ABR_AVL.LoadFileTXT;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;

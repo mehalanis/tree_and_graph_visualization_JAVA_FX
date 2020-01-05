@@ -1,8 +1,7 @@
 package Arbre;
 
-import ABR_AVL.ABR;
-import ABR_AVL.LoadFileTXT;
-import Formes.Cercle;
+import Arbre.ABR_AVL.ABR;
+import Arbre.ABR_AVL.LoadFileTXT;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;

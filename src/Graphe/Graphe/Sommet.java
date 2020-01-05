@@ -1,6 +1,6 @@
-package Graphe;
+package Graphe.graphe;
 
-import Forms.Cercle;
+import Graphe.Forms.Cercle;
 import java.util.ArrayList;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;

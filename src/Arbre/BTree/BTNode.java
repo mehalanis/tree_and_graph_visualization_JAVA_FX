@@ -1,13 +1,13 @@
-package BTree;
+package Arbre.BTree;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import Formes.rectangle;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Line;
+import Arbre.Formes.rectangle;
 
 public class BTNode<E extends Comparable<E>>  {
 

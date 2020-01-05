@@ -1,6 +1,6 @@
-package AMR;
+package Arbre.AMR;
 
-import Formes.rectangle;
+import Arbre.Formes.rectangle;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;

@@ -1,4 +1,4 @@
-package ABR_AVL;
+package Arbre.ABR_AVL;
 
 import java.io.File;
 import java.io.FileNotFoundException;

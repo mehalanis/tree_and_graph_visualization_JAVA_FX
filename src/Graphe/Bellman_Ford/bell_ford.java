@@ -1,11 +1,11 @@
 
-package Bellman_Ford;
+package Graphe.Bellman_Ford;
 
-import Graphe.Arc;
-import Graphe.ArcOriente;
-import Graphe.Graphe;
-import Graphe.GrapheOriente;
-import Graphe.Sommet;
+
+import Graphe.graphe.ArcOriente;
+import Graphe.graphe.Graphe;
+import Graphe.graphe.GrapheOriente;
+import Graphe.graphe.Sommet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -72,8 +72,9 @@ public class bell_ford {
                 for (int destinationnode = 0; destinationnode < numberofvertices; destinationnode++) {
                     if (adjacencymatrix[sourcenode][destinationnode] != MAX_VALUE) {
                         // il y'as un meilleur chemin.. 
-                        if (distances[destinationnode] > distances[sourcenode]
-                                + adjacencymatrix[sourcenode][destinationnode]) {
+                        if ((distances[destinationnode] > distances[sourcenode]
+                                + adjacencymatrix[sourcenode][destinationnode])&& (distances[sourcenode]
+                                + adjacencymatrix[sourcenode][destinationnode]<9000))  {
                             if (listarc[destinationnode][0] != MAX_VALUE) {
                                 Sommet sm = g.getSommet(listarc[destinationnode][0]);
                                 ArcOriente arc = (ArcOriente) sm.getArc(g.getSommet(listarc[destinationnode][1]).getNom());

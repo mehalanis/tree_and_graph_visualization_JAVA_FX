@@ -1,8 +1,7 @@
 package Arbre;
 
-import BTree.*;
-import BTree.Pair;
-import Formes.rectangle;
+import Arbre.BTree.BTree;
+import Arbre.BTree.LoadFileTXT;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;

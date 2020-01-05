@@ -1,4 +1,4 @@
-package BTree;
+package Arbre.BTree;
 
 
 public class Pair<A extends Comparable<A>> implements Comparable<Pair<A>> {

@@ -1,7 +1,7 @@
 package Arbre;
 
-import TAS.LoadFileTXT;
-import TAS.TASmin;
+import Arbre.TAS.LoadFileTXT;
+import Arbre.TAS.TASmin;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;

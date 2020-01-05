@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Graphe.FloydWarshal;
 
-import Graphe.Graphe;
+import Graphe.graphe.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -68,10 +63,8 @@ public class FloydWarshal {
                     staffArray[i][0] =  g.getList_sommet().get(i).getNom();
                 
                     if (dist[i][j] == INFINI) {
-                        System.out.print("INFINI ");
                         staffArray[i][j + 1] = "INFINI ";
                     } else {
-                        System.out.print(dist[i][j] + "   ");
                         staffArray[i][j + 1] = dist[i][j] + "";
                     }
                 

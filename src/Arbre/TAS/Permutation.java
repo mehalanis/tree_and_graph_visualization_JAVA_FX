@@ -1,4 +1,4 @@
-package TAS;
+package Arbre.TAS;
 
 import javafx.animation.TranslateTransition;
 import javafx.util.Duration;

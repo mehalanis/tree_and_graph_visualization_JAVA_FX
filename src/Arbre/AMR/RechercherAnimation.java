@@ -1,5 +1,6 @@
-package AMR;
+package Arbre.AMR;
 
+import Arbre.AMR.Noeud;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;

@@ -1,4 +1,4 @@
-package Graphe;
+package Graphe.graphe;
 
 import javafx.scene.Group;
 import javafx.scene.control.Label;

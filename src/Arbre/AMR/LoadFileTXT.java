@@ -1,4 +1,4 @@
-package AMR;
+package Arbre.AMR;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -52,7 +52,6 @@ public class LoadFileTXT extends Thread {
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(TAS.LoadFileTXT.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

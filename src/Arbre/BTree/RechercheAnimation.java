@@ -1,4 +1,4 @@
-package BTree;
+package Arbre.BTree;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

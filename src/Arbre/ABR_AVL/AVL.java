@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ABR_AVL;
+package Arbre.ABR_AVL;
 
 import static java.lang.Integer.max;
 import javafx.scene.layout.AnchorPane;
 
-/**
- *
- * @author mounir
- */
+
 public class AVL extends Arbre {
 
     public AVL(AnchorPane group) {

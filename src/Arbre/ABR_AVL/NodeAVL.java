@@ -1,6 +1,7 @@
-package ABR_AVL;
+package Arbre.ABR_AVL;
 
-import Formes.CercleAVL;
+import Arbre.Formes.CercleAVL;
+
 
 public class NodeAVL extends Node {
     private int balence;

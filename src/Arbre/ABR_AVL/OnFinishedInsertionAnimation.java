@@ -1,6 +1,5 @@
-package ABR_AVL;
+package Arbre.ABR_AVL;
 
-import Formes.Cercle;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.layout.AnchorPane;

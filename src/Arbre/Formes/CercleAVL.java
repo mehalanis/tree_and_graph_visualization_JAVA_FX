@@ -1,4 +1,4 @@
-package Formes;
+package Arbre.Formes;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

@@ -1,4 +1,4 @@
-package Formes;
+package Arbre.Formes;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;

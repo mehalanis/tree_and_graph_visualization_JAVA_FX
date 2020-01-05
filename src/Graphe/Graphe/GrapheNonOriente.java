@@ -1,4 +1,4 @@
-package Graphe;
+package Graphe.graphe;
 
 public class GrapheNonOriente extends Graphe {
     public boolean addArc(Sommet a,Sommet b,int poids){ 

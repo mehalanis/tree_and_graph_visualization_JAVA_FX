@@ -5,7 +5,7 @@
  */
 package Graphe;
 
-import Forms.Cercle;
+import Graphe.Forms.Cercle;
 import Graphe.FloydWarshal.FloydWarshal;
 import java.io.IOException;
 import java.net.URL;

@@ -1,7 +1,7 @@
 package Graphe;
 
-import Bellman_Ford.bell_ford;
-import Forms.Cercle;
+
+import Graphe.Bellman_Ford.bell_ford;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,6 +28,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
+import Graphe.Forms.Cercle;
 
 public class Bellman_FordController implements Initializable {
 

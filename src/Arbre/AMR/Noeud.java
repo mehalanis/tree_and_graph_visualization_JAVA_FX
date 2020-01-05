@@ -1,9 +1,11 @@
 
-package AMR;
+package Arbre.AMR;
 
 // creation de notre structure de noeud
 
-import Formes.rectangle;
+import Arbre.Formes.rectangle;
+
+
 
 public class Noeud {
 

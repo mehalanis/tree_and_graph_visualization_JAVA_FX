@@ -3,13 +3,60 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/B_Arbre_Controller.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/FloydWarshalController.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Bellman_FordController.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AMR/Parent.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/Formes/Cercle.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/Point.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/Sommet.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Menu_Graphe_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS/TASmin.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/Arc.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR_AVL/insertionAnimation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR_AVL/Node.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/BTree/RechercheAnimation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AVLController.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR_AVL/LoadFileTXT.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/MatriceAdjacence.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/GrapheNonOriente.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS/RechercherAnimation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/ArcNonOriente.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR_AVL/NodeAVL.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR_AVL/Find.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AMR/Noeud.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS/LoadFileTXT.java</file>
             <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/GrapheController.java</file>
-            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/B_Arbre.fxml</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/ArcOriente.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Forms/Cercle.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/B_Arbre_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AMR/amr.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AMR_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS/Permutation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/Formes/rectangle.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_max_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS/insertionAnimation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR_AVL/AVL.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/Graphe.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/BTree/Pair.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR_AVL/ABR.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/GrapheOriente.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/BTree/BTree.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/BTree/LoadFileTXT.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS_min_Controller.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS/Node.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/FloydWarshal/FloydWarshal.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABRController.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR_AVL/OnFinishedInsertionAnimation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS/SupprimerAnimation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS/TASmax.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/FloydWarshalController.java</file>
             <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/BTree/BTNode.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/ABR_AVL/Arbre.java</file>
             <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Bellman_Ford/bell_ford.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AMR/LoadFileTXT.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/Bellman_FordController.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/AMR/RechercherAnimation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/TAS/OnFinishedInsertionAnimation.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Graphe/graphe/Arrow.java</file>
+            <file>file:/C:/Users/anispitchou/Documents/NetBeansProject/Projet_ALGO/src/Arbre/Formes/CercleAVL.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,10 +1,10 @@
-package Graphe;
+package Graphe.graphe;
 
 import java.util.ArrayList;
 
 public abstract class Graphe {
 
-    protected ArrayList<Sommet> list_sommet;
+    public  ArrayList<Sommet> list_sommet;
 
     public Graphe() {
         this.list_sommet = new ArrayList<Sommet>();

@@ -1,6 +1,5 @@
-package ABR_AVL;
+package Arbre.ABR_AVL;
 
-import Formes.Cercle;
 import static java.lang.Thread.sleep;
 import java.util.*;
 import java.util.logging.Level;

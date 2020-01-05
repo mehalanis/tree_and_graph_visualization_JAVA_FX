@@ -1,11 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Graphe;
 
-import Forms.Cercle;
+import Graphe.Forms.Cercle;
+import Graphe.graphe.Arc;
+import Graphe.graphe.GrapheOriente;
+import Graphe.graphe.Sommet;
+import Graphe.graphe.ArcOriente;
+import Graphe.graphe.Arrow;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -56,6 +56,14 @@ public class GrapheController extends AnchorPane {
 
     }
 
+    public void InitComboBox() {
+        origine.getItems().remove(0, go.list_sommet.size());
+        for (int i = 0; i < go.list_sommet.size(); i++) {
+            origine.getItems().add(go.list_sommet.get(i).getNom());
+        }
+        origine.getSelectionModel().selectFirst();
+    }
+
     public GrapheController(Cercle creer_cercle, Button remove) {
         this.creer_cercle = creer_cercle;
         this.remove = remove;
@@ -85,6 +93,7 @@ public class GrapheController extends AnchorPane {
 
                         cs.setNom(result.get());
                     }
+                    InitComboBox();
                 } else {
                     if (remove_b == true) {
 
@@ -93,22 +102,22 @@ public class GrapheController extends AnchorPane {
                         ArcOriente arcOriente;
                         for (int i = 0; i < go.list_sommet.size(); i++) {
                             listarc = go.getSommet(i).getList_arc();
-                            for (int j = 0; j < listarc.size(); j++) {
-                                arc = listarc.get(j);
-                                if ((arc.getSommet() == cs)||(go.getSommet(i)==cs)) {
-                                    if (arc instanceof ArcOriente) {
-                                        arcOriente = (ArcOriente) arc;
+                           for(Arc arc_i:listarc){
+                                if ((arc_i.getSommet() == cs) || (go.getSommet(i) == cs)) {
+                                    if (arc_i instanceof ArcOriente) {
+                                        arcOriente = (ArcOriente) arc_i;
                                         graphe.getChildren().remove(arcOriente.getLine());
                                         graphe.getChildren().remove(arcOriente.getLabel());
                                     }
-                                    listarc.remove(arc);
+                                    listarc.remove(arc_i);
                                 }
 
                             }
                         }
-                        
+
                         go.list_sommet.remove(cs);
                         graphe.getChildren().remove(cs.getCercle());
+                        InitComboBox();
                     } else {
                         if (b == false) {
                             b = true;
