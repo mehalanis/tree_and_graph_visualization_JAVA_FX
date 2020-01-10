@@ -1,5 +1,8 @@
 package Graphe;
 
+import Graphe.graphe.Graphe;
+import Graphe.graphe.GrapheOriente;
+import Graphe.graphe.GrapheNonOriente;
 import Graphe.Bellman.bellman;
 import Graphe.Forms.Cercle;
 import java.net.URL;
@@ -36,7 +39,7 @@ public class BellmanController implements Initializable {
     Button start, remove;
     Cercle cercle;
     ComboBox origine;
-
+    GrapheOriente graphe;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cercle = new Cercle("");
@@ -56,6 +59,7 @@ public class BellmanController implements Initializable {
         start = new Button("Start");
         start.setFont(new Font(18));
         start.setPrefSize(80, 45);
+        this.graphe=(GrapheOriente)graphe_controller.go;
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

@@ -1,6 +1,8 @@
 package Graphe;
 
-
+import Graphe.graphe.Graphe;
+import Graphe.graphe.GrapheOriente;
+import Graphe.graphe.GrapheNonOriente;
 import Graphe.Bellman_Ford.bell_ford;
 import java.io.IOException;
 import java.net.URL;

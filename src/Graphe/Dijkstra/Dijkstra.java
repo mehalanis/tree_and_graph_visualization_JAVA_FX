@@ -9,12 +9,20 @@ import Graphe.graphe.Arc;
 import Graphe.graphe.Graphe;
 import Graphe.graphe.Sommet;
 import java.util.ArrayList;
+import java.util.Arrays;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.util.Callback;
 
 public class Dijkstra {
 
     Sommet sommet;
     int total_poids;
-
+    public TableView table;
     public Dijkstra(Sommet sommet, int total_poids) {
         this.sommet = sommet;
         this.total_poids = total_poids;
@@ -110,5 +118,6 @@ public class Dijkstra {
         }
         return null;
     }
+   
 
 }

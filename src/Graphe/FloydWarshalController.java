@@ -1,10 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Graphe;
 
+import Graphe.graphe.Graphe;
+import Graphe.graphe.GrapheOriente;
+import Graphe.graphe.GrapheNonOriente;
 import Graphe.Forms.Cercle;
 import Graphe.FloydWarshal.FloydWarshal;
 import java.io.IOException;

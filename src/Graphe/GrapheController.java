@@ -2,7 +2,10 @@ package Graphe;
 
 import Graphe.Forms.Cercle;
 import Graphe.graphe.Arc;
+import Graphe.graphe.Graphe;
 import Graphe.graphe.GrapheOriente;
+import Graphe.graphe.GrapheNonOriente;
+
 import Graphe.graphe.Sommet;
 import Graphe.graphe.ArcOriente;
 import Graphe.graphe.Arrow;
@@ -41,15 +44,16 @@ public class GrapheController extends AnchorPane {
     @FXML
     VBox bar_graphe;
     Cercle cercle_moved, creer_cercle;
-    GrapheOriente go;
+    Graphe go;
     Sommet pass;
     boolean b = false;
-    int i = 65;
+    int i = 64;
     TableView table;
     ComboBox origine;
     Button remove;
     boolean remove_b = false;
-    public boolean bellman=false;
+    public boolean bellman = false;
+
     public GrapheController(Cercle creer_cercle, Button remove, ComboBox origine) {
         this(creer_cercle, remove);
         this.origine = origine;
@@ -57,7 +61,7 @@ public class GrapheController extends AnchorPane {
     }
 
     public void InitComboBox() {
-        
+
         origine.getItems().removeAll(origine.getItems());
         for (int i = 0; i < go.list_sommet.size(); i++) {
             origine.getItems().add(go.list_sommet.get(i).getNom());
@@ -103,7 +107,7 @@ public class GrapheController extends AnchorPane {
                         ArcOriente arcOriente;
                         for (int i = 0; i < go.list_sommet.size(); i++) {
                             listarc = go.getSommet(i).getList_arc();
-                            for (int j=0;j<listarc.size();j++) {
+                            for (int j = 0; j < listarc.size(); j++) {
                                 if ((listarc.get(j).getSommet() == cs) || (go.getSommet(i) == cs)) {
                                     if (listarc.get(j) instanceof ArcOriente) {
                                         arcOriente = (ArcOriente) listarc.get(j);
@@ -117,18 +121,18 @@ public class GrapheController extends AnchorPane {
                         }
 
                         go.list_sommet.remove(cs);
-                        while (cs.getList_arc().size()>0) {
+                        while (cs.getList_arc().size() > 0) {
                             if (cs.getList_arc().get(0) instanceof ArcOriente) {
                                 arcOriente = (ArcOriente) cs.getList_arc().get(0);
                                 graphe.getChildren().remove(arcOriente.getLine());
                                 graphe.getChildren().remove(arcOriente.getLabel());
                             }
-                            
+
                             cs.getList_arc().remove(cs.getList_arc().get(0));
                         }
                         graphe.getChildren().remove(cs.getCercle());
                         InitComboBox();
-                        remove_b=false;
+                        remove_b = false;
                     } else {
                         if (b == false) {
                             b = true;
@@ -149,8 +153,19 @@ public class GrapheController extends AnchorPane {
                                 if (result.isPresent()) {
                                     i = Integer.parseInt(result.get());
                                 }
-                                go.addArc(pass, cs, i);
-                                pass.DessinerArc(cs, graphe);
+                                if (go instanceof GrapheOriente) {
+                                    GrapheOriente g = (GrapheOriente) go;
+                                    if (g.addArc(pass, cs, i)) {
+                                        pass.DessinerArc(cs, graphe);
+                                    }
+                                } else {
+                                    if (go instanceof GrapheNonOriente) {
+                                        GrapheNonOriente g = (GrapheNonOriente) go;
+                                        if (g.addArc(pass, cs, i)) {
+                                            pass.DessinerArc(cs, graphe);
+                                        }
+                                    }
+                                }
 
                             }
                             b = false;
@@ -167,14 +182,14 @@ public class GrapheController extends AnchorPane {
             @Override
             public void handle(MouseEvent event) {
                 String nom;
-                 i++;
-                if(bellman){
-                   
-                    nom=i+"";
-                }else{
-                    nom=(char)i+"";
+                i++;
+                if (bellman) {
+
+                    nom = i + "";
+                } else {
+                    nom = (char) i + "";
                 }
-                Sommet s = new Sommet( nom+ "");
+                Sommet s = new Sommet(nom + "");
                 go.addSommet(s);
                 cercle_moved = s.getCercle();
 

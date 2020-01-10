@@ -23,13 +23,12 @@ import javafx.scene.layout.StackPane;
 
 public class indexController implements Initializable {
     GridPane  menu;
-    @FXML
-    private Label label;
+    
+   
     
     @FXML
     private StackPane panel;
-    @FXML
-    private Button btn_abr;
+ 
     @FXML
     private Label titre;
     
@@ -45,7 +44,7 @@ public class indexController implements Initializable {
         
         try {
             FXMLLoader load=new FXMLLoader();
-            load.setLocation(getClass().getResource("Menu.fxml"));
+            load.setLocation(getClass().getResource("menu.fxml"));
             
             load.load();
             Menu_Controller i= load.getController();

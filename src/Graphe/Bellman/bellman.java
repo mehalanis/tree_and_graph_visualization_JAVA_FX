@@ -51,7 +51,17 @@ public class bellman {
         for(int i=0;i<M.length;i++){
             M[i][i]=infini;
         }
-        list_sommet=g.getList_sommet();
+        for(int i=0;i<M.length;i++){
+            for(int j=0;j<M.length;j++){
+                System.out.print(M[i][j]+" ");
+            }
+            System.out.println();
+        }
+        
+        for(int i=0;i<g.getList_sommet().size();i++){
+            list_sommet.add(new Sommet(g.getList_sommet().get(i).getNom()));
+            list_sommet2.add(new Sommet(g.getList_sommet().get(i).getNom()));
+        }
     }
   
     public bellman()                          // constructeur pour tester l'implémentation :) 
