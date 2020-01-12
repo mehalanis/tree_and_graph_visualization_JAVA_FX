@@ -61,11 +61,10 @@ public class Dijkstra {
                 adjacencyMatrix[i][j] = adjacency_matrix[i][j];
             }
         }*/
-        int distArc[] = new int[number_of_nodes];
         for (int i = 0; i < number_of_nodes; i++) {
             result[0][i + 1] = "INFINI";
             distances[i] = this.INFINI;
-            distArc[i] = this.INFINI;
+            
 
         }
         result[0][0] = "Init";
@@ -73,7 +72,7 @@ public class Dijkstra {
 
         result[0][source + 1] = "0";
         distances[source] = 0;
-        distArc[source] = 0;
+        
 
         while (!unsettled.isEmpty()) {
             this.k++;
@@ -86,30 +85,8 @@ public class Dijkstra {
             evaluateNeighbours(evaluationNode);
             this.result[k][evaluationNode + 1] = this.result[k][evaluationNode + 1] + " (*)";
         }
-        if(graphe instanceof GrapheOriente){
-            ((GrapheOriente)graphe).initArcBlack();
-        }
-        
-        Queue<Sommet> q = new LinkedList<Sommet>();
-        q.add(graphe.getSommet(source));
-        Sommet s;
-        int pos_s, pos_i;
-        ArcOriente arc_o;
-        while (q.size() > 0) {
-            s = q.remove();
-            pos_s = graphe.getList_sommet().indexOf(s);
-            for (int i = 0; i < s.getList_arc().size(); i++) {
-                pos_i = graphe.getList_sommet().indexOf(s.getList_arc().get(i).getSommet());
-                if (distArc[pos_s] + s.getList_arc().get(i).getPoids() == distances[pos_i]) {
-                    if(s.getList_arc().get(i) instanceof ArcOriente){
-                        arc_o=(ArcOriente)s.getList_arc().get(i);
-                        arc_o.getLine().setFill(Color.RED);
-                    }
-                    distArc[pos_i]=distances[pos_i];
-                    q.add(s.getList_arc().get(i).getSommet());
-                }
-            }
-        }
+     
+ 
 
     }
 

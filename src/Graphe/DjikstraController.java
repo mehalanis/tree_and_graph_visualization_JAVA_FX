@@ -5,11 +5,11 @@
  */
 package Graphe;
 
+import Graphe.Dijkstra.Djkstra;
 import Graphe.graphe.Graphe;
 import Graphe.graphe.GrapheOriente;
 import Graphe.graphe.GrapheNonOriente;
 import Graphe.Forms.Cercle;
-import Graphe.Johnson.Dijkstra;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,10 +65,17 @@ public class DjikstraController implements Initializable {
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Dijkstra j = new Dijkstra(graphe_controller.go, table);
-                int source=origine.getSelectionModel().getSelectedIndex();
+                int source = origine.getSelectionModel().getSelectedIndex();
+                /*  Dijkstra j = new Dijkstra(graphe_controller.go, table);
+               
                 j.dijkstra_algorithm(source);
-                j.AfficherTable(source);
+                j.AfficherTable(source);*/
+                Djkstra d = new Djkstra(table, graphe_controller.go);
+                d.pcc(graphe_controller.go.getSommet(source));
+                d.AfficherTable(source);
+                if(graphe_controller.go instanceof GrapheOriente){
+                    ((GrapheOriente)graphe_controller.go).InitColorRED(source, d.distance);
+                }
             }
         });
         Creer_circle_box.getChildren().add(start);

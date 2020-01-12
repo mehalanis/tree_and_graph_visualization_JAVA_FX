@@ -55,7 +55,7 @@ public class FloydWarshalController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 FloydWarshal m = new FloydWarshal(graphe_controller.go, table);
-                m.printSolution();
+                m.printSolution(m.listreult.size()-1);
             }
         });
         Creer_circle_box.getChildren().add(start);
