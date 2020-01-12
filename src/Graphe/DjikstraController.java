@@ -10,6 +10,7 @@ import Graphe.graphe.Graphe;
 import Graphe.graphe.GrapheOriente;
 import Graphe.graphe.GrapheNonOriente;
 import Graphe.Forms.Cercle;
+import Graphe.Johnson.Dijkstra;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,8 +26,10 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -52,13 +55,41 @@ public class DjikstraController implements Initializable {
         //Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
         remove = new Button("Supprimer");
         //remove.setGraphic(new ImageView(iconremove));
+        ToggleGroup tg = new ToggleGroup();
+        RadioButton oriente = new RadioButton("Oriente");
+        RadioButton Nonoriente = new RadioButton("Non Oriente");
+        oriente.setToggleGroup(tg);
+        Nonoriente.setToggleGroup(tg);
+        tg.selectToggle(oriente);
+        EventHandler<ActionEvent> action = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (oriente.isSelected()) {
+                    graphe_controller = new GrapheController(cercle, remove, origine);
+                    graphe_controller.go = new GrapheOriente();
+                    border_Pane.setCenter(graphe_controller);
+                } else {
+                    graphe_controller = new GrapheController(cercle, remove, origine);
+                    graphe_controller.go = new GrapheNonOriente();
+                    border_Pane.setCenter(graphe_controller);
 
+                }
+            }
+        };
+        oriente.setOnAction(action);
+        Nonoriente.setOnAction(action);
         origine = new ComboBox();
         Creer_circle_box.getChildren().add(cercle);
         Creer_circle_box.getChildren().add(remove);
+        oriente.setPrefSize(80, 45);
+        Creer_circle_box.getChildren().add(oriente);
+         Nonoriente.setPrefSize(105, 45);
+        Creer_circle_box.getChildren().add(Nonoriente);
+      
         Creer_circle_box.getChildren().add(origine);
         graphe_controller = new GrapheController(cercle, remove, origine);
         border_Pane.setCenter(graphe_controller);
+        graphe_controller.go = new GrapheOriente();
         start = new Button("Start");
         start.setFont(new Font(18));
         start.setPrefSize(80, 45);
@@ -66,16 +97,15 @@ public class DjikstraController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 int source = origine.getSelectionModel().getSelectedIndex();
-                /*  Dijkstra j = new Dijkstra(graphe_controller.go, table);
-               
+                Dijkstra j = new Dijkstra(graphe_controller.go, table);
+
                 j.dijkstra_algorithm(source);
-                j.AfficherTable(source);*/
-                Djkstra d = new Djkstra(table, graphe_controller.go);
+                j.AfficherTable(source);
+                /* Djkstra d = new Djkstra(table, graphe_controller.go);
                 d.pcc(graphe_controller.go.getSommet(source));
-                d.AfficherTable(source);
-                if(graphe_controller.go instanceof GrapheOriente){
-                    ((GrapheOriente)graphe_controller.go).InitColorRED(source, d.distance);
-                }
+                d.AfficherTable(source);*/
+                graphe_controller.go.InitColorRED(source, j.distances);
+
             }
         });
         Creer_circle_box.getChildren().add(start);

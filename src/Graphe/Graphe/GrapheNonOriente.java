@@ -1,8 +1,12 @@
 package Graphe.graphe;
 
+import javafx.scene.shape.Line;
+
 public class GrapheNonOriente extends Graphe {
     public boolean addArc(Sommet a,Sommet b,int poids){ 
-       return (a.addArc(new ArcNonOriente(b,poids))&&b.addArc(new ArcNonOriente(a,poids)));// a---poids---b        
+        Line line=new Line();
+        line.setStrokeWidth(2);
+       return (a.addArc(new ArcNonOriente(b,poids,line))&&b.addArc(new ArcNonOriente(a,poids,line)));// a---poids---b        
     }
     public boolean addArc(String a,String b,int poids){
         Sommet sommet_a=this.getSommet(a);
@@ -12,4 +16,5 @@ public class GrapheNonOriente extends Graphe {
         }
         return false;
     }
+    
 }

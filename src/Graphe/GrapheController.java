@@ -57,7 +57,6 @@ public class GrapheController extends AnchorPane {
     public GrapheController(Cercle creer_cercle, Button remove, ComboBox origine) {
         this(creer_cercle, remove);
         this.origine = origine;
-
     }
 
     public void InitComboBox() {

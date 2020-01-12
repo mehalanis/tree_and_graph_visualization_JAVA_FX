@@ -35,6 +35,7 @@ public class Dijkstra {
     int k = 0;
     public TableView table;
     public Graphe graphe;
+    public boolean bol_distances[];
 
     public Dijkstra(Graphe g, TableView table) {
         this.table = table;
@@ -44,11 +45,11 @@ public class Dijkstra {
         adjacencyMatrix = g.MatriceAdjacence().getMatric();
 
         distances = new int[number_of_nodes];
-
+        bol_distances = new boolean[number_of_nodes];
         settled = new HashSet<Integer>();
 
         unsettled = new HashSet<Integer>();
-        result = new String[number_of_nodes + 1][number_of_nodes + 1];
+        result = new String[number_of_nodes + 2][number_of_nodes + 1];
 
     }
 
@@ -64,7 +65,6 @@ public class Dijkstra {
         for (int i = 0; i < number_of_nodes; i++) {
             result[0][i + 1] = "INFINI";
             distances[i] = this.INFINI;
-            
 
         }
         result[0][0] = "Init";
@@ -72,7 +72,6 @@ public class Dijkstra {
 
         result[0][source + 1] = "0";
         distances[source] = 0;
-        
 
         while (!unsettled.isEmpty()) {
             this.k++;
@@ -83,11 +82,14 @@ public class Dijkstra {
             settled.add(evaluationNode);
 
             evaluateNeighbours(evaluationNode);
+            bol_distances[evaluationNode] = true;
             this.result[k][evaluationNode + 1] = this.result[k][evaluationNode + 1] + " (*)";
         }
-     
- 
-
+        k++;
+        this.result[k][0] = "Fin";
+        for (int i = 0; i < distances.length; i++) {
+            this.result[k][i + 1] = distances[i] + "";
+        }
     }
 
     private int getNodeWithMinimumDistanceFromUnsettled() {
@@ -155,7 +157,11 @@ public class Dijkstra {
                 f = "INFINI";
 
             } else {
-                f = distances[destinationNode] + "";
+                if (bol_distances[destinationNode] == true) {
+                    f="";
+                } else {
+                    f = distances[destinationNode] + "";
+                }
             }
             result[this.k][destinationNode + 1] = f;
 

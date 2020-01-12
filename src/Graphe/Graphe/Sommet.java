@@ -64,24 +64,34 @@ public class Sommet {
     public void DessinerArc(Sommet s, AnchorPane pane) {
         Arc arc_a = this.getArc(s.getNom());
         Arc arc_b = s.getArc(this.getNom());
-       
+
         Point a = new Point(this.getCercle().getCenterX(), this.getCercle().getCenterY());
         Point b = new Point(s.getCercle().getCenterX(), s.getCercle().getCenterY());
-        ArcOriente arc_a_o = (ArcOriente) arc_a;
+
         if ((arc_a == null || arc_b == null) || arc_a instanceof ArcNonOriente) {
 
             Point q1 = a.delta(b);
             Point q2 = b.delta(a);
-            Arrow ss = arc_a_o.getLine(q1.getX(), q1.getY(), q2.getX(), q2.getY());
-            pane.getChildren().add(ss);
-            int y=0;
-            if(Math.abs(q1.getX()-q2.getX())<50){
-                y=15;
+            int y = 0;
+            if (Math.abs(q1.getX() - q2.getX()) < 50) {
+                y = 20;
             }
-            arc_a_o.setLayoutLabel((arc_a_o.getLine().getStartX() + arc_a_o.getLine().getEndX() - 15-y) / 2, (arc_a_o.getLine().getStartY() + arc_a_o.getLine().getEndY() + 10) / 2);
-            pane.getChildren().add(arc_a_o.getLabel());
+            if (arc_a instanceof ArcOriente) {
+                ArcOriente arc_a_o = (ArcOriente) arc_a;
+                Arrow ss = arc_a_o.getLine(q1.getX(), q1.getY(), q2.getX(), q2.getY());
+                pane.getChildren().add(ss);
+                arc_a_o.setLayoutLabel((arc_a_o.getLine().getStartX() + arc_a_o.getLine().getEndX() - 15 - y) / 2, (arc_a_o.getLine().getStartY() + arc_a_o.getLine().getEndY() + 10) / 2);
+                pane.getChildren().add(arc_a_o.getLabel());
+            } else {
+                ArcNonOriente arc_a_no = (ArcNonOriente) arc_a;;
+                pane.getChildren().add(arc_a_no.getLine(q1.getX(), q1.getY(), q2.getX(), q2.getY()));
+                 arc_a_no.setLayoutLabel((arc_a_no.getLine().getStartX() + arc_a_no.getLine().getEndX() - 15 - y) / 2, (arc_a_no.getLine().getStartY() + arc_a_no.getLine().getEndY() + 10) / 2);
+                pane.getChildren().add(arc_a_no.getLabel());
+            }
+
         } else {
-             pane.getChildren().removeAll(arc_a_o.getLine(),arc_a_o.getLabel());
+            ArcOriente arc_a_o = (ArcOriente) arc_a;
+            pane.getChildren().removeAll(arc_a_o.getLine(), arc_a_o.getLabel());
             Point q1 = a.delta(b);
             Point q2 = b.delta(a);
             q1 = (new Point(this.getCercle().getCenterX(), this.getCercle().getCenterY())).Rotation(q1, 70);
@@ -93,8 +103,8 @@ public class Sommet {
             arc_a_o = (ArcOriente) arc_b;
             q1 = b.delta(a);
             q2 = a.delta(b);
-            
-             pane.getChildren().removeAll(arc_a_o.getLine(),arc_a_o.getLabel());
+
+            pane.getChildren().removeAll(arc_a_o.getLine(), arc_a_o.getLabel());
             q1 = (new Point(s.getCercle().getCenterX(), s.getCercle().getCenterY())).Rotation(q1, 70);
             q2 = (new Point(this.getCercle().getCenterX(), this.getCercle().getCenterY())).Rotation(q2, -70);
             ss = arc_a_o.getLine(q1.getX(), q1.getY(), q2.getX(), q2.getY());
