@@ -38,7 +38,7 @@ public class BellmanController implements Initializable {
     HBox Creer_circle_box;
     Button start, remove;
     Cercle cercle;
-    ComboBox origine;
+    ComboBox origine, cible;
     GrapheOriente graphe;
 
     @Override
@@ -48,12 +48,15 @@ public class BellmanController implements Initializable {
         //Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
         remove = new Button("Supprimer");
         //remove.setGraphic(new ImageView(iconremove));
+        remove.setPadding(new Insets(0, 20, 0, 0));
 
         origine = new ComboBox();
+        cible = new ComboBox();
         Creer_circle_box.getChildren().add(cercle);
         Creer_circle_box.getChildren().add(remove);
         Creer_circle_box.getChildren().add(origine);
-        graphe_controller = new GrapheController(cercle, remove, origine);
+        Creer_circle_box.getChildren().add(cible);
+        graphe_controller = new GrapheController(cercle, remove, origine,cible);
         graphe_controller.i = 0;
         graphe_controller.bellman = true;
         border_Pane.setCenter(graphe_controller);
@@ -66,7 +69,9 @@ public class BellmanController implements Initializable {
             public void handle(ActionEvent event) {
                 bellman bel = new bellman(graphe_controller.go);
                 int source = origine.getSelectionModel().getSelectedIndex();
-                ArrayList<ArrayList<String>> myResult = bel.PlusCC(bel.list_sommet.get(0)); // vers l'orgine à tous les sommets
+                int cible_s = cible.getSelectionModel().getSelectedIndex();
+                //ArrayList<ArrayList<String>> myResult = bel.PlusCC(bel.list_sommet.get(source)); // vers l'orgine à tous les sommets
+                ArrayList<ArrayList<String>> myResult = bel.PlusCC(bel.getList_sommet().get(source), bel.getList_sommet().get(cible_s));
                 String[][] result = new String[myResult.size()][myResult.get(0).size() + 1];
 
                 result[0][0] = "init";

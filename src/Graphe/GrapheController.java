@@ -49,10 +49,16 @@ public class GrapheController extends AnchorPane {
     boolean b = false;
     int i = 64;
     TableView table;
-    ComboBox origine;
+    ComboBox origine, cible;
     Button remove;
     boolean remove_b = false;
     public boolean bellman = false;
+
+    public GrapheController(Cercle creer_cercle, Button remove, ComboBox origine, ComboBox cible) {
+        this(creer_cercle, remove);
+        this.origine = origine;
+        this.cible = cible;
+    }
 
     public GrapheController(Cercle creer_cercle, Button remove, ComboBox origine) {
         this(creer_cercle, remove);
@@ -60,12 +66,27 @@ public class GrapheController extends AnchorPane {
     }
 
     public void InitComboBox() {
-
-        origine.getItems().removeAll(origine.getItems());
-        for (int i = 0; i < go.list_sommet.size(); i++) {
-            origine.getItems().add(go.list_sommet.get(i).getNom());
+        if (origine != null) {
+            origine.getItems().removeAll(origine.getItems());
         }
-        origine.getSelectionModel().selectFirst();
+        if (cible != null) {
+            cible.getItems().removeAll(cible.getItems());
+        }
+        for (int i = 0; i < go.list_sommet.size(); i++) {
+            if (origine != null) {
+                origine.getItems().add(go.list_sommet.get(i).getNom());
+            }
+            if (cible != null) {
+                cible.getItems().add(go.list_sommet.get(i).getNom());
+            }
+        }
+        if (origine != null) {
+            origine.getSelectionModel().selectFirst();
+        }
+        if (cible != null) {
+            cible.getSelectionModel().selectFirst();
+        }
+
     }
 
     public GrapheController(Cercle creer_cercle, Button remove) {
@@ -192,16 +213,13 @@ public class GrapheController extends AnchorPane {
                 go.addSommet(s);
                 cercle_moved = s.getCercle();
 
-                if (origine != null) {
-                    origine.getItems().add(s.getCercle().label.getText());
-                    origine.getSelectionModel().selectFirst();
-                }
+                InitComboBox();
                 graphe.getChildren().add(cercle_moved);
                 graphe.setOnMouseMoved(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
                         if (cercle_moved != null) {
-                            cercle_moved.setLayout(event.getX(), event.getY());
+                            cercle_moved.setLayout(event.getX() - 40, event.getY() - 40);
                         }
                     }
                 });

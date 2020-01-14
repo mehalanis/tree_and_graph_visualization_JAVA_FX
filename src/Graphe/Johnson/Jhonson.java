@@ -6,6 +6,7 @@
 package Graphe.Johnson;
 
 import Graphe.Bellman_Ford.bell_ford;
+import Graphe.graphe.ArcOriente;
 import Graphe.graphe.Graphe;
 import Graphe.graphe.Sommet;
 import java.util.ArrayList;
@@ -25,8 +26,7 @@ public class Jhonson {
          this.graphe=g;
          q = new Sommet("q");
          for (int i = 0; i < graphe.getList_sommet().size(); i++) {
-             q.Arc(graphe.getSommet(i),0);
-             graphe.getList_sommet().addIndex(q,0);
+             q.addArc(new ArcOriente(graphe.getSommet(i),0));
          }
          
          

@@ -41,9 +41,10 @@ public class FloydWarshalController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cercle = new Cercle("");
         cercle.setPadding(new Insets(0, 20, 0, 0));
-       // Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
+        // Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
         remove = new Button("Supprimer");
-       // remove.setGraphic(new ImageView(iconremove));
+        // remove.setGraphic(new ImageView(iconremove));
+        remove.setPadding(new Insets(0, 20, 0, 0));
         Creer_circle_box.getChildren().add(cercle);
         Creer_circle_box.getChildren().add(remove);
         graphe_controller = new GrapheController(cercle, remove);
@@ -55,7 +56,7 @@ public class FloydWarshalController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 FloydWarshal m = new FloydWarshal(graphe_controller.go, table);
-                m.printSolution(m.listreult.size()-1);
+                m.printSolution(m.listreult.size() - 1);
             }
         });
         Creer_circle_box.getChildren().add(start);

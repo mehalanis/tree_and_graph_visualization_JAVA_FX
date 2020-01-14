@@ -55,6 +55,7 @@ public class DjikstraController implements Initializable {
         //Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
         remove = new Button("Supprimer");
         //remove.setGraphic(new ImageView(iconremove));
+        remove.setPadding(new Insets(0, 20, 0, 0));
         ToggleGroup tg = new ToggleGroup();
         RadioButton oriente = new RadioButton("Oriente");
         RadioButton Nonoriente = new RadioButton("Non Oriente");
@@ -83,9 +84,9 @@ public class DjikstraController implements Initializable {
         Creer_circle_box.getChildren().add(remove);
         oriente.setPrefSize(80, 45);
         Creer_circle_box.getChildren().add(oriente);
-         Nonoriente.setPrefSize(105, 45);
+        Nonoriente.setPrefSize(105, 45);
         Creer_circle_box.getChildren().add(Nonoriente);
-      
+
         Creer_circle_box.getChildren().add(origine);
         graphe_controller = new GrapheController(cercle, remove, origine);
         border_Pane.setCenter(graphe_controller);
