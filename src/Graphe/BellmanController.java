@@ -40,6 +40,7 @@ public class BellmanController implements Initializable {
     Cercle cercle;
     ComboBox origine;
     GrapheOriente graphe;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cercle = new Cercle("");
@@ -53,29 +54,42 @@ public class BellmanController implements Initializable {
         Creer_circle_box.getChildren().add(remove);
         Creer_circle_box.getChildren().add(origine);
         graphe_controller = new GrapheController(cercle, remove, origine);
-        graphe_controller.i=0;
-        graphe_controller.bellman=true;
+        graphe_controller.i = 0;
+        graphe_controller.bellman = true;
         border_Pane.setCenter(graphe_controller);
         start = new Button("Start");
         start.setFont(new Font(18));
         start.setPrefSize(80, 45);
-        this.graphe=(GrapheOriente)graphe_controller.go;
+        this.graphe = (GrapheOriente) graphe_controller.go;
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 bellman bel = new bellman(graphe_controller.go);
-
+                int source = origine.getSelectionModel().getSelectedIndex();
                 ArrayList<ArrayList<String>> myResult = bel.PlusCC(bel.list_sommet.get(0)); // vers l'orgine à tous les sommets
-                String[][] result=new String[myResult.size()][myResult.get(0).size()+1];
-                
-                result[0][0]="init";
-                for(int i=0;i<myResult.size();i++){
-                    if(i>0)result[i][0]=i+"";
-                    for(int j=0;j<myResult.get(i).size();j++){
-                        result[i][j+1]=myResult.get(i).get(j);
+                String[][] result = new String[myResult.size()][myResult.get(0).size() + 1];
+
+                result[0][0] = "init";
+
+                for (int i = 0; i < myResult.size(); i++) {
+                    if (i > 0) {
+                        result[i][0] = i + "";
+                    }
+                    for (int j = 0; j < myResult.get(i).size(); j++) {
+                        result[i][j + 1] = myResult.get(i).get(j);
                     }
                 }
-               
+                int[] distance = new int[result[0].length];
+
+                for (int j = 0; j < result[0].length - 1; j++) {
+                    if (result[result.length - 1][j + 1].equals("inf")) {
+                        distance[j] = 99999;
+                    } else {
+                        distance[j] = Integer.parseInt(result[result.length - 1][j + 1]);
+                    }
+
+                }
+                graphe_controller.go.InitColorRED(source, distance);
                 table.getColumns().clear();
 
                 ObservableList<String[]> data = FXCollections.observableArrayList();
