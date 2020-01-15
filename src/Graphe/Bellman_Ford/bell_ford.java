@@ -24,7 +24,7 @@ import javafx.util.Callback;
 
 public class bell_ford {
 
-    private int distances[]; //distance entre les sommets, (poids) 
+    public int distances[]; //distance entre les sommets, (poids) 
     private int numberofvertices; // nombre de sommet 
     public static final int MAX_VALUE = 99999; // l'infini 
     public GrapheOriente g;
