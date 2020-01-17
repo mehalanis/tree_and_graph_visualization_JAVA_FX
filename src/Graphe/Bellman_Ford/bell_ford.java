@@ -40,7 +40,7 @@ public class bell_ford {
 
     public void BellmanFordEvaluation(int source) {
         //initialisation de la table distance pour connaitre les distance qu'on a changer...
-        g.initArcBlack();
+        
         distances = new int[numberofvertices];
         ArrayList<String[]> listString = new ArrayList<String[]>();
         String[] list = new String[numberofvertices];
@@ -75,17 +75,9 @@ public class bell_ford {
                         if ((distances[destinationnode] > distances[sourcenode]
                                 + adjacencymatrix[sourcenode][destinationnode])&& (distances[sourcenode]
                                 + adjacencymatrix[sourcenode][destinationnode]<9000))  {
-                            if (listarc[destinationnode][0] != MAX_VALUE) {
-                                Sommet sm = g.getSommet(listarc[destinationnode][0]);
-                                ArcOriente arc = (ArcOriente) sm.getArc(g.getSommet(listarc[destinationnode][1]).getNom());
-                                arc.getLine().setFill(Color.BLACK);
-                            }
+                           
                             distances[destinationnode] = distances[sourcenode] + adjacencymatrix[sourcenode][destinationnode];
-                            listarc[destinationnode][0] = sourcenode;
-                            listarc[destinationnode][1] = destinationnode;
-                            Sommet sm = g.getSommet(listarc[destinationnode][0]);
-                            ArcOriente arc = (ArcOriente) sm.getArc(g.getSommet(listarc[destinationnode][1]).getNom());
-                            arc.getLine().setFill(Color.RED);
+                            
                             list[destinationnode] = distances[destinationnode] + " (*)";
 
                         }

@@ -10,7 +10,14 @@ import Graphe.graphe.ArcOriente;
 import Graphe.graphe.GrapheOriente;
 import Graphe.graphe.Sommet;
 import java.util.ArrayList;
+import java.util.Arrays;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.util.Callback;
 
 /**
  *
@@ -22,11 +29,9 @@ public class Jhonson {
     bell_ford bell;
     Sommet q;
     GrapheOriente graphe;
-    public TableView table;
-    public TableView tableDji;
     Dijkstra djikstra;
 
-    public Jhonson(GrapheOriente g ,TableView t) {
+    public Jhonson(GrapheOriente g) {
         this.graphe = g;
         
         
@@ -52,17 +57,18 @@ public class Jhonson {
      *********
      * @param graphe
      */
-    public void etape2() {
+    public void etape2(TableView t) {
         // bell = new bell_ford(graphe ,table); 
-        bell = new bell_ford(graphe, table);
+        bell = new bell_ford(graphe, t);
         bell.BellmanFordEvaluation(0);
+        bell.Affichar();
         //bell.distances;
     }
 
     /**
      * *******Etape 3*********
      */
-    public void etape3() {
+    public void etape3(TableView table) {
         graphe.getList_sommet().remove(q);
         Sommet S;
         int poid;
@@ -75,6 +81,34 @@ public class Jhonson {
                 S.getList_arc().get(j).setPoids(poid);
             }
         }
+        table.getColumns().clear();
+        String result[][]=new String [2][result3.size()];
+        for(int i=0;i<result[0].length;i++){
+            result[0][i]=result3.get(i).getNom();
+            result[1][i]=result3.get(i).getPoids()+"";
+        }
+        ObservableList<String[]> data = FXCollections.observableArrayList();
+        data.addAll(Arrays.asList(result));
+        
+         data.remove(0);//remove titles from data
+
+        for (int i = 0; i < result[0].length; i++) {
+            TableColumn tc;
+          
+                tc = new TableColumn(result[0][i]);
+        
+
+            final int colNo = i;
+            tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {
+                @Override
+                public ObservableValue<String> call(TableColumn.CellDataFeatures<String[], String> p) {
+                    return new SimpleStringProperty((p.getValue()[colNo]));
+                }
+            });
+            tc.setPrefWidth(120);
+            table.getColumns().add(tc);
+        }
+        table.setItems(data);
     }
 
     /**
@@ -83,13 +117,15 @@ public class Jhonson {
      * @param graphe
      * @param table
      */
-    public void etape4() {
-        dji = new ArrayList<>();
+    public void etape4(ArrayList<TableView> list_table) {
+        
 
         for (int i = 0; i < graphe.list_sommet.size(); i++) {
-            djikstra = new Dijkstra(graphe, table);
+            djikstra = new Dijkstra(graphe, list_table.get(i));
             djikstra.dijkstra_algorithm(i);
-            dji.add(djikstra);
+            djikstra.AfficherTable(i);
+            
+            
         }
     }
 

@@ -69,6 +69,7 @@ public class Bellman_FordController implements Initializable {
                 bell_ford bell = new bell_ford(graphe_controller.go, table);
                 bell.BellmanFordEvaluation(origine.getSelectionModel().getSelectedIndex());
                 bell.Affichar();
+                graphe_controller.go.InitColorRED(origine.getSelectionModel().getSelectedIndex(), bell.distances);
             }
         });
         Creer_circle_box.getChildren().add(start);
