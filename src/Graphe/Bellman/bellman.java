@@ -147,18 +147,42 @@ public class bellman {
             boolean found=false;
             int PosSommetFound=-1;
             Sommet SPChoisi=null;
-            int j=0;
+            
+              int j=0;int i=0;
+            int cmpt=list_sommet2.size()*2;
+            
+            while(R.size()>0 && cmpt>0)
+                
+                    { 
+                        int dern=0;
+                        cmpt --;
+                        j=0;i=0; 
+                        System.out.println("----------1");
+                        found=false;
             // for(int j=0;j<R.size();j++)
               while (j<R.size())  
               { int min=infini;
                     if(!found)  {   //System.out.println("hola");
                                     predeceseur=ListPredecesseur(R.get(j));
                                    // System.out.println("its"+predeceseur.get(0).getKey().getNom()+"hoo");
-                                    for(int i=0;i<predeceseur.size();i++)
+                                    //for(int i=0;i<predeceseur.size();i++)
+                                    i=0;
+                                    while(i<predeceseur.size())
                                     {
-                                        if(R.contains(predeceseur.get(i).getKey()))   // assurer que tous les predcs sont marqués sinn on marque pas le sommet 
+                                        boolean bool=false;
+                                    
+                                        for (int k=0;k<R.size();k++)
+                                        {
+                                           
+                                                if (R.get(k).getNom().equals(predeceseur.get(i).getKey().getNom()))
+                                                {bool=true; break;}
+                                            
+                                        }
+                                        if(bool)
+                                        //if(R.contains(predeceseur.get(i).getKey()))   // assurer que tous les predcs sont marqués sinn on marque pas le sommet 
                                             {
                                             found=false;
+                                            i++;
                                               //  System.out.println("Found");
                                              break;
                                             }
@@ -167,7 +191,7 @@ public class bellman {
                                             //System.out.println("not Found");
                                             }
                                         if (i==predeceseur.size()-1)
-                                        {                                  //fin de vérification de marquage de tous les préds de ce sommet donc on le marque et on ajoute son poids dans S ^^
+                                        { found=true;                                 //fin de vérification de marquage de tous les préds de ce sommet donc on le marque et on ajoute son poids dans S ^^
                                            // System.out.println("fin devérif");
                                                                            // on choisit le min entre les poids des sommets
                                             for(int k=0 ;k<S.size();k++)
@@ -220,11 +244,11 @@ public class bellman {
                                             // on peut pas supprimer le sommet marquer de R dans cette itération donc je le supriime dans la prochaine itération ^^
                                             chemin.add(new Pair(SPChoisi,R.get(j)));
                              
-                              
+                                            dern=j;
                                            
                                             break;
                                         }
-                                        
+                                        i++;
                                         
                                     }
                                    j++;
@@ -248,18 +272,28 @@ public class bellman {
                             
                         }
                 }
+              R.remove(dern);
+                    }
            //sommet trouver d'ou on va retourner le pcc depuis l'origine à la cible
           if (!chemin.isEmpty()){
               
               
               
-          
+          for(ArrayList<String> tab:LesEtapes)
+    {
+        for(String ligne : tab)
+            {
+                System.out.print(" "+ligne+" | ");
+            }
+        System.out.println("");
+    }
           
            return LesEtapes;
           }else{
         
         return new  ArrayList<ArrayList<String>>() ;
-        }}
+        }
+                    }
      public ArrayList<ArrayList<String>> PlusCC(Sommet Origine )// pcc de l'origine vers un sommet 
         { // init 
          Sommet  cible=list_sommet.get(list_sommet.size()-1);
@@ -299,28 +333,65 @@ public class bellman {
             boolean found=false;
             int PosSommetFound=-1;
             Sommet SPChoisi=null;
-            int j=0;
+                      int j=0;int i=0;
+            int cmpt=list_sommet2.size()*2;
+            
+            while(R.size()>0 && cmpt>0)
+                
+                    { 
+                        int dern=0;
+                        cmpt --;
+                        j=0;i=0; 
+                        System.out.println("----------1");
+                        found=false;
             // for(int j=0;j<R.size();j++)
               while (j<R.size())  
-              { int min=infini;
-                    if(!found)  {   //System.out.println("hola");
+              {
+                  System.out.println("----------2");
+                  int min=infini;
+              boolean w=false;
+                  System.out.println("r . size= "+R.size());
+                    if(!found)  {
+                        System.out.println("----------3");
+                        //System.out.println("hola");
                                     predeceseur=ListPredecesseur(R.get(j));
+                                   // System.out.println("R = sommet :"+R.get(j).getNom());
                                    // System.out.println("its"+predeceseur.get(0).getKey().getNom()+"hoo");
-                                    for(int i=0;i<predeceseur.size();i++)
-                                    {
-                                        if(R.contains(predeceseur.get(i).getKey()))   // assurer que tous les predcs sont marqués sinn on marque pas le sommet 
+                                    //for(int i=0;i<predeceseur.size();i++)
+                                     i=0;
+                                    while(i<predeceseur.size())
+                                    {   //System.out.println("i="+i);
+                                        boolean bool=false;
+                                        for (int k=0;k<R.size();k++)
+                                        {
+                                           
+                                                if (R.get(k).getNom().equals(predeceseur.get(i).getKey().getNom()))
+                                                {bool=true; break;}
+                                            
+                                        }
+                                        if(bool)   // assurer que tous les predcs sont marqués sinn on marque pas le sommet 
                                             {
                                             found=false;
+                                            //predeceseur.add(predeceseur.get(i));
+                                          
+                                            //int inx=R.indexOf(tmp);
+                                                //
+                                              i++; 
                                               //  System.out.println("Found");
                                              break;
                                             }
                                         else{
-                                            found=true;
-                                            //System.out.println("not Found");
+                                            found=true; 
+                                           //System.out.println("not Found");
                                             }
+                                        
                                         if (i==predeceseur.size()-1)
-                                        {                                  //fin de vérification de marquage de tous les préds de ce sommet donc on le marque et on ajoute son poids dans S ^^
-                                           // System.out.println("fin devérif");
+                                        {  
+                                            found=true;
+                                            /*System.out.println("inx= "+i+" et "+predeceseur.size()+j);                               //fin de vérification de marquage de tous les préds de ce sommet donc on le marque et on ajoute son poids dans S ^^
+                                            System.out.println("fin devérif");*/
+                                            
+                                            
                                                                            // on choisit le min entre les poids des sommets
                                             for(int k=0 ;k<S.size();k++)
                                                 {   
@@ -346,7 +417,7 @@ public class bellman {
                                                                 }
                                                             }
                                                 }
-                                            // System.out.println("poids final"+min);
+                                            
                                             S.add(new Pair(R.get(j),min));
                                             int PosInTab=-1;
                                             for(int ii=0 ;ii<list_sommet2.size();ii++)
@@ -371,15 +442,24 @@ public class bellman {
                                            
                                             // on peut pas supprimer le sommet marquer de R dans cette itération donc je le supriime dans la prochaine itération ^^
                                             chemin.add(new Pair(SPChoisi,R.get(j)));
-                             
-                              
-                                           
+                                            
+                                           /* if((j+1)>=R.size())
+                                            {
+                                                System.out.println("=========="+R.size()+"  j===== "+j);
+                                                found=false;
+                                            
+                                            }*/
+                                            dern=j;
+                                            
+                                          
+                                            
                                             break;
                                         }
                                         
-                                        
+                                        i++;
                                     }
                                    j++;
+                                  
                                 }
                     else
                         { 
@@ -388,6 +468,7 @@ public class bellman {
                                            R.remove(j-1); // suppr de sommet choisi 
                                            
                                             j=0;
+                                            //System.out.println("j=  "+j);
                                                     
                                  found=false;
                                  }catch(Exception e){}
@@ -396,7 +477,14 @@ public class bellman {
                             
                             
                         }
+                 /*   int test=cpt-R.size(); System.out.println("testss"+test);
+                                        if(test==0)
+                                        {System.out.println("ttttttttteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeest");
+                                            i=0;
+                                        j=0;}*/
                 }
+              R.remove(dern);
+                    }
            //sommet trouver d'ou on va retourner le pcc depuis l'origine à la cible
           if (!chemin.isEmpty()){
               
