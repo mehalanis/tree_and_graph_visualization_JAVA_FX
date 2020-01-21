@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +28,7 @@ public class Menu_Controller implements Initializable {
     @FXML
     Button arbre, graphe;
     Parent root;
+    Button home;
     @FXML
     public void Load(ActionEvent e) {
         String s;
@@ -70,5 +72,6 @@ public class Menu_Controller implements Initializable {
     public void setTitre(Label titre) {
         this.titre = titre;
     }
+    
 
 }

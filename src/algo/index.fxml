@@ -17,7 +17,7 @@
    <top>
       <BorderPane prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: #00355f;" BorderPane.alignment="CENTER">
          <left>
-            <Button mnemonicParsing="false" onAction="#home" style="-fx-background-color: none;" BorderPane.alignment="CENTER">
+            <Button fx:id="btn_home" mnemonicParsing="false" onAction="#home" style="-fx-background-color: none;" BorderPane.alignment="CENTER">
                <graphic>
                   <ImageView fitHeight="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>

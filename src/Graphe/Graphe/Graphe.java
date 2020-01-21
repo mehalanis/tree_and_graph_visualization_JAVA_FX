@@ -74,11 +74,13 @@ public abstract class Graphe {
     public void InitColorRED(int source, int distances[]) {
         this.initArcBlack();
         int distArc[] = new int[distances.length];
+        boolean tabMarque[]=new boolean[distances.length];
         for (int i = 0; i < distArc.length; i++) {
             distArc[i] = 99999;
+            tabMarque[i]=false;
         }
         distArc[source] = 0;
-
+        tabMarque[source]=true;
         Queue<Sommet> q = new LinkedList<Sommet>();
         q.add(this.getSommet(source));
         Sommet s;
@@ -91,7 +93,7 @@ public abstract class Graphe {
             pos_s = list_sommet.indexOf(s);
             for (int i = 0; i < s.getList_arc().size(); i++) {
                 pos_i = list_sommet.indexOf(s.getList_arc().get(i).getSommet());
-                if (distArc[pos_s] + s.getList_arc().get(i).getPoids() == distances[pos_i]) {
+                if ((distArc[pos_s] + s.getList_arc().get(i).getPoids() == distances[pos_i])&&(tabMarque[pos_i]==false)) {
                     if (s.getList_arc().get(i) instanceof ArcOriente) {
                         arc_o = (ArcOriente) s.getList_arc().get(i);
                         arc_o.getLine().setFill(Color.RED);
@@ -100,6 +102,7 @@ public abstract class Graphe {
                         ano.getLine().setStroke(Color.RED);
                     }
                     distArc[pos_i] = distances[pos_i];
+                    tabMarque[pos_i]=true;
                     q.add(s.getList_arc().get(i).getSommet());
                 }
             }

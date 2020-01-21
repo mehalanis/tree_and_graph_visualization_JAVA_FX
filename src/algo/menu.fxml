@@ -14,15 +14,15 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="50.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" percentHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="30.0" percentHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
           
         </rowConstraints>
          <children>
-            <Button fx:id="arbre" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Load" prefHeight="140.0" prefWidth="169.0" text="Arbre" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM">
+            <Button fx:id="arbre" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Load" prefHeight="200.0" prefWidth="169.0" text="Arbre" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="30.0" />
          </font></Button>
-         <Button fx:id="graphe" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Load" prefHeight="140.0" prefWidth="194.0" text="Graphe" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+         <Button fx:id="graphe" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Load" prefHeight="200.0" prefWidth="194.0" text="Graphe" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
              <font>
             <Font name="System Bold" size="30.0" />
          </font>

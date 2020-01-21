@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,16 +29,14 @@ public class indexController implements Initializable {
 
     @FXML
     private Label titre;
+    @FXML
+    Button btn_home;
 
     @FXML
     public void home() {
         panel.getChildren().clear();
-        if (root != null) {
-            panel.getChildren().add(menu);
-            titre.setText("Projet ALGO");
-        } else {
-            
-        }
+        panel.getChildren().add(menu);
+        titre.setText("Projet ALGO");
 
     }
 
@@ -62,5 +61,5 @@ public class indexController implements Initializable {
         }
 
     }
-    
+
 }
