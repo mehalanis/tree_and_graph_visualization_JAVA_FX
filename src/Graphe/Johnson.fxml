@@ -41,7 +41,10 @@
                <content>
                   <VBox>
                      <children>
-                        <TableView fx:id="table_etape2" prefHeight="200.0" prefWidth="200.0" />
+                        <TableView fx:id="table_etape2" prefHeight="200.0" prefWidth="200.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy></TableView>
                      </children>
                   </VBox>
                </content>

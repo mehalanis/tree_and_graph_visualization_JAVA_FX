@@ -65,19 +65,19 @@ public class FloydWarshal {
         }
         listreult.add(result_e);
         for (k = 0; k < graph.length; k++) {
-            result_e = new String[graph.length][graph.length+1];
+            result_e = new String[graph.length][graph.length + 1];
             for (i = 0; i < graph.length; i++) {
                 ligne = new String[graph.length + 1];
-            ligne[0] = g.getSommet(i).getNom();
+                ligne[0] = g.getSommet(i).getNom();
                 for (j = 0; j < graph.length; j++) {
                     if (dist[i][k] + dist[k][j] < dist[i][j]) {
                         dist[i][j] = dist[i][k] + dist[k][j];
                     }
-                    if ((dist[i][j] == INFINI)||(dist[i][j]>90000)) {
-                    ligne[j + 1] = "INFINI ";
-                } else {
-                    ligne[j + 1] = dist[i][j] + "";
-                }
+                    if ((dist[i][j] == INFINI) || (dist[i][j] > 90000)) {
+                        ligne[j + 1] = "INFINI ";
+                    } else {
+                        ligne[j + 1] = dist[i][j] + "";
+                    }
 
                 }
                 result_e[i] = ligne;
@@ -86,7 +86,7 @@ public class FloydWarshal {
         }
         combo = new ComboBox();
         for (int ie = 0; ie < listreult.size(); ie++) {
-            combo.getItems().add("Etape "+ie);
+            combo.getItems().add("Etape " + ie);
         }
         combo.getSelectionModel().selectLast();
         combo.setOnAction(new EventHandler() {
@@ -131,6 +131,7 @@ public class FloydWarshal {
                 tc.setGraphic(combo);
 
             }
+            tc.setSortable(false);
 
             final int colNo = i;
             tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {

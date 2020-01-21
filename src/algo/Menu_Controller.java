@@ -19,18 +19,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-/**
- * FXML Controller class
- *
- * @author anispitchou
- */
+
 public class Menu_Controller implements Initializable {
 
     Pane panel;
     Label titre;
     @FXML
     Button arbre, graphe;
-
+    Parent root;
     @FXML
     public void Load(ActionEvent e) {
         String s;
@@ -55,7 +51,7 @@ public class Menu_Controller implements Initializable {
                     i.setPanel(panel);
                     i.setTitre(titre);
                 }
-                Parent root = load.getRoot();
+                root = load.getRoot();
                 panel.getChildren().add(root);
             } catch (IOException ex) {
             }

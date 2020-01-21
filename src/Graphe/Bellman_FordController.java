@@ -31,6 +31,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import Graphe.Forms.Cercle;
+import javafx.scene.layout.Background;
 
 public class Bellman_FordController implements Initializable {
 
@@ -49,15 +50,17 @@ public class Bellman_FordController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cercle = new Cercle("");
         cercle.setPadding(new Insets(0, 20, 0, 0));
-        //Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
-        remove = new Button("Supprimer");
-        //remove.setGraphic(new ImageView(iconremove));
+        Image iconremove = new Image(getClass().getResourceAsStream("iconX.png"));
+        remove = new Button("");
+        remove.setBackground(Background.EMPTY);
+        remove.setGraphic(new ImageView(iconremove));
         remove.setPadding(new Insets(0, 20, 0, 0));
-
+        table.setVisible(false);
         origine = new ComboBox();
         Creer_circle_box.getChildren().add(cercle);
         Creer_circle_box.getChildren().add(remove);
         Creer_circle_box.getChildren().add(origine);
+        origine.setPrefSize(30, 45);
         graphe_controller = new GrapheController(cercle, remove, origine);
         border_Pane.setCenter(graphe_controller);
         start = new Button("Start");
@@ -66,6 +69,8 @@ public class Bellman_FordController implements Initializable {
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                table.setVisible(true);
+
                 bell_ford bell = new bell_ford(graphe_controller.go, table);
                 bell.BellmanFordEvaluation(origine.getSelectionModel().getSelectedIndex());
                 bell.Affichar();

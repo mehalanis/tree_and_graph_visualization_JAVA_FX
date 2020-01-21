@@ -15,6 +15,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
@@ -44,7 +45,7 @@ public class Jhonson {
      * @param graphe
      */
     public void etape1() {
-        q = new Sommet("q");
+        q = new Sommet("Q");
         for (int i = 0; i < graphe.getList_sommet().size(); i++) {
             q.addArc(new ArcOriente(graphe.getSommet(i), 0));
         }
@@ -93,11 +94,9 @@ public class Jhonson {
          data.remove(0);//remove titles from data
 
         for (int i = 0; i < result[0].length; i++) {
-            TableColumn tc;
-          
-                tc = new TableColumn(result[0][i]);
-        
-
+            TableColumn tc = new TableColumn(result[0][i]);
+            tc.setStyle("-fx-alignment: CENTER;");
+                tc.setSortable(false);
             final int colNo = i;
             tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {
                 @Override

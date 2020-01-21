@@ -19,6 +19,9 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -46,10 +49,12 @@ public class Johnson_Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cercle = new Cercle("");
         cercle.setPadding(new Insets(0, 20, 0, 0));
-        // Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
-        remove = new Button("Supprimer");
-        // remove.setGraphic(new ImageView(iconremove));
+        Image iconremove = new Image(getClass().getResourceAsStream("iconX.png"));
+        remove = new Button("");
+        remove.setBackground(Background.EMPTY);
+        remove.setGraphic(new ImageView(iconremove));
         remove.setPadding(new Insets(0, 20, 0, 0));
+
         Creer_circle_box.getChildren().add(cercle);
         Creer_circle_box.getChildren().add(remove);
         graphe_controller = new GrapheController(cercle, remove);
@@ -65,11 +70,16 @@ public class Johnson_Controller implements Initializable {
                 Jhonson john=new Jhonson((GrapheOriente) graphe_controller.go);
                 john.etape1();
                 john.etape2(table_bell);
+                
                 john.etape3(table_etape2);
-                //list_table_dijkstra.removeAll(list_table_dijkstra);
+                
+                dijkstra_grid_pane.getChildren().remove(list_table_dijkstra);
+                list_table_dijkstra.removeAll(list_table_dijkstra);
+                
                 int len=graphe_controller.go.getList_sommet().size();
                 for(int i=0;i<len;i++){
                     list_table_dijkstra.add(new TableView());
+                    list_table_dijkstra.get(i).setColumnResizePolicy( TableView.CONSTRAINED_RESIZE_POLICY);
                 }
                 john.etape4(list_table_dijkstra);
                 int k=0;

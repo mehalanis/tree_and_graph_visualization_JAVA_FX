@@ -158,7 +158,7 @@ public class Dijkstra {
 
             } else {
                 if (bol_distances[destinationNode] == true) {
-                    f="";
+                    f = "";
                 } else {
                     f = distances[destinationNode] + "";
                 }
@@ -183,6 +183,7 @@ public class Dijkstra {
             } else {
                 tc = new TableColumn("sommet origine " + graphe.getList_sommet().get(source).getNom());
             }
+            tc.setSortable(false);
 
             final int colNo = i;
             tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {

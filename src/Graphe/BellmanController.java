@@ -22,6 +22,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -45,18 +48,21 @@ public class BellmanController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cercle = new Cercle("");
         cercle.setPadding(new Insets(0, 20, 0, 0));
-        //Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
-        remove = new Button("Supprimer");
-        //remove.setGraphic(new ImageView(iconremove));
+        Image iconremove = new Image(getClass().getResourceAsStream("iconX.png"));
+        remove = new Button("");
+        remove.setBackground(Background.EMPTY);
+        remove.setGraphic(new ImageView(iconremove));
         remove.setPadding(new Insets(0, 20, 0, 0));
-
+        table.setVisible(false);
         origine = new ComboBox();
         cible = new ComboBox();
         Creer_circle_box.getChildren().add(cercle);
         Creer_circle_box.getChildren().add(remove);
         Creer_circle_box.getChildren().add(origine);
+        origine.setPrefSize(30, 45);
         Creer_circle_box.getChildren().add(cible);
-        graphe_controller = new GrapheController(cercle, remove, origine,cible);
+        cible.setPrefSize(30, 45);
+        graphe_controller = new GrapheController(cercle, remove, origine, cible);
         graphe_controller.i = 0;
         graphe_controller.bellman = true;
         border_Pane.setCenter(graphe_controller);
@@ -67,11 +73,12 @@ public class BellmanController implements Initializable {
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                table.setVisible(true);
                 bellman bel = new bellman(graphe_controller.go);
                 int source = origine.getSelectionModel().getSelectedIndex();
                 int cible_s = cible.getSelectionModel().getSelectedIndex();
-                //ArrayList<ArrayList<String>> myResult = bel.PlusCC(bel.list_sommet.get(source)); // vers l'orgine à tous les sommets
-                ArrayList<ArrayList<String>> myResult = bel.PlusCC(bel.getList_sommet().get(source), bel.getList_sommet().get(cible_s));
+                ArrayList<ArrayList<String>> myResult = bel.PlusCC(bel.list_sommet.get(source)); // vers l'orgine à tous les sommets
+                //     ArrayList<ArrayList<String>> myResult = bel.PlusCC(bel.getList_sommet().get(source), bel.getList_sommet().get(cible_s));
                 String[][] result = new String[myResult.size()][myResult.get(0).size() + 1];
 
                 result[0][0] = "init";
@@ -108,6 +115,7 @@ public class BellmanController implements Initializable {
                     } else {
                         tc = new TableColumn("");
                     }
+                    tc.setSortable(false);
 
                     final int colNo = i;
                     tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {

@@ -8,6 +8,8 @@ import Graphe.graphe.GrapheNonOriente;
 
 import Graphe.graphe.Sommet;
 import Graphe.graphe.ArcOriente;
+import Graphe.graphe.ArcNonOriente;
+
 import Graphe.graphe.Arrow;
 import java.net.URL;
 import java.util.ArrayList;
@@ -30,6 +32,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -88,6 +92,7 @@ public class GrapheController extends AnchorPane {
         }
 
     }
+    ImageView IconRemove;
 
     public GrapheController(Cercle creer_cercle, Button remove) {
         this.creer_cercle = creer_cercle;
@@ -98,7 +103,21 @@ public class GrapheController extends AnchorPane {
             @Override
             public void handle(Event event) {
                 remove_b = !remove_b;
-                System.out.println(remove_b);
+                Image iconremove = new Image(getClass().getResourceAsStream("iconX.png"));
+                IconRemove = new ImageView(iconremove);
+                graphe.getChildren().add(IconRemove);
+                graphe.setOnMouseMoved(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        if (remove_b) {
+                            IconRemove.setLayoutX(event.getX());
+                            IconRemove.setLayoutY(event.getY());
+                        }else{
+                            graphe.getChildren().remove(IconRemove);
+                            graphe.setOnMouseMoved(null);
+                        }
+                    }
+                });
             }
         });
         EventHandler<MouseEvent> lineEvent = new EventHandler<MouseEvent>() {
@@ -121,10 +140,12 @@ public class GrapheController extends AnchorPane {
                     InitComboBox();
                 } else {
                     if (remove_b == true) {
+                        graphe.getChildren().remove(IconRemove);
 
                         ArrayList<Arc> listarc;
                         Arc arc;
                         ArcOriente arcOriente;
+                        ArcNonOriente arcnonoriente;
                         for (int i = 0; i < go.list_sommet.size(); i++) {
                             listarc = go.getSommet(i).getList_arc();
                             for (int j = 0; j < listarc.size(); j++) {
@@ -133,6 +154,11 @@ public class GrapheController extends AnchorPane {
                                         arcOriente = (ArcOriente) listarc.get(j);
                                         graphe.getChildren().remove(arcOriente.getLine());
                                         graphe.getChildren().remove(arcOriente.getLabel());
+                                    }
+                                    if (listarc.get(j) instanceof ArcNonOriente) {
+                                        arcnonoriente = (ArcNonOriente) listarc.get(j);
+                                        graphe.getChildren().remove(arcnonoriente.getLine());
+                                        graphe.getChildren().remove(arcnonoriente.getLabel());
                                     }
                                     listarc.remove(listarc.get(j));
                                 }
@@ -147,7 +173,11 @@ public class GrapheController extends AnchorPane {
                                 graphe.getChildren().remove(arcOriente.getLine());
                                 graphe.getChildren().remove(arcOriente.getLabel());
                             }
-
+                            if (cs.getList_arc().get(0) instanceof ArcNonOriente) {
+                                arcnonoriente = (ArcNonOriente) cs.getList_arc().get(0);
+                                graphe.getChildren().remove(arcnonoriente.getLine());
+                                graphe.getChildren().remove(arcnonoriente.getLabel());
+                            }
                             cs.getList_arc().remove(cs.getList_arc().get(0));
                         }
                         graphe.getChildren().remove(cs.getCercle());

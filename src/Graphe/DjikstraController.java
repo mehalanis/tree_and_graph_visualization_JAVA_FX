@@ -30,6 +30,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -52,10 +55,13 @@ public class DjikstraController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cercle = new Cercle("");
         cercle.setPadding(new Insets(0, 20, 0, 0));
-        //Image iconremove = new Image(getClass().getResourceAsStream("not.png"));
-        remove = new Button("Supprimer");
-        //remove.setGraphic(new ImageView(iconremove));
+        Image iconremove = new Image(getClass().getResourceAsStream("iconX.png"));
+        remove = new Button("");
+        remove.setBackground(Background.EMPTY);
+        remove.setGraphic(new ImageView(iconremove));
         remove.setPadding(new Insets(0, 20, 0, 0));
+        table.setVisible(false);
+
         ToggleGroup tg = new ToggleGroup();
         RadioButton oriente = new RadioButton("Oriente");
         RadioButton Nonoriente = new RadioButton("Non Oriente");
@@ -65,6 +71,7 @@ public class DjikstraController implements Initializable {
         EventHandler<ActionEvent> action = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
                 if (oriente.isSelected()) {
                     graphe_controller = new GrapheController(cercle, remove, origine);
                     graphe_controller.go = new GrapheOriente();
@@ -88,6 +95,7 @@ public class DjikstraController implements Initializable {
         Creer_circle_box.getChildren().add(Nonoriente);
 
         Creer_circle_box.getChildren().add(origine);
+        origine.setPrefSize(30, 45);
         graphe_controller = new GrapheController(cercle, remove, origine);
         border_Pane.setCenter(graphe_controller);
         graphe_controller.go = new GrapheOriente();
@@ -97,6 +105,8 @@ public class DjikstraController implements Initializable {
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                table.setVisible(true);
+
                 int source = origine.getSelectionModel().getSelectedIndex();
                 Dijkstra j = new Dijkstra(graphe_controller.go, table);
 

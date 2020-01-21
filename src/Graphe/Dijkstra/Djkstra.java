@@ -143,7 +143,7 @@ public class Djkstra {
             } else {
                 tc = new TableColumn("sommet origine " + graphe.getList_sommet().get(source).getNom());
             }
-
+            tc.setSortable(false);
             final int colNo = i;
             tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {
                 @Override

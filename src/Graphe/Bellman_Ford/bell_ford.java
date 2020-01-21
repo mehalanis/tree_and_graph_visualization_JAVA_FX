@@ -1,6 +1,4 @@
-
 package Graphe.Bellman_Ford;
-
 
 import Graphe.graphe.ArcOriente;
 import Graphe.graphe.Graphe;
@@ -40,7 +38,7 @@ public class bell_ford {
 
     public void BellmanFordEvaluation(int source) {
         //initialisation de la table distance pour connaitre les distance qu'on a changer...
-        
+
         distances = new int[numberofvertices];
         ArrayList<String[]> listString = new ArrayList<String[]>();
         String[] list = new String[numberofvertices];
@@ -73,11 +71,11 @@ public class bell_ford {
                     if (adjacencymatrix[sourcenode][destinationnode] != MAX_VALUE) {
                         // il y'as un meilleur chemin.. 
                         if ((distances[destinationnode] > distances[sourcenode]
-                                + adjacencymatrix[sourcenode][destinationnode])&& (distances[sourcenode]
-                                + adjacencymatrix[sourcenode][destinationnode]<9000))  {
-                           
+                                + adjacencymatrix[sourcenode][destinationnode]) && (distances[sourcenode]
+                                + adjacencymatrix[sourcenode][destinationnode] < 9000)) {
+
                             distances[destinationnode] = distances[sourcenode] + adjacencymatrix[sourcenode][destinationnode];
-                            
+
                             list[destinationnode] = distances[destinationnode] + " (*)";
 
                         }
@@ -108,11 +106,11 @@ public class bell_ford {
                     if (distances[destinationnode] > distances[sourcenode]
                             + adjacencymatrix[sourcenode][destinationnode]) {
                         System.out.println("The Graph contains negative edge cycle");
-                        
+
                         Alert alert = new Alert(AlertType.WARNING);
                         alert.setTitle("ALert");
                         alert.setHeaderText("Information Alert");
-                      
+
                         alert.setContentText("The Graph contains negative edge cycle");
                         alert.show();
                     }
@@ -142,6 +140,7 @@ public class bell_ford {
             } else {
                 tc = new TableColumn("");
             }
+            tc.setSortable(false);
 
             final int colNo = i;
             tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {
