@@ -9,8 +9,8 @@ import javafx.scene.shape.Line;
 
 public class amr {
 
-    // pour le test 
-    private Noeud root;		//la racine de notre amr 
+    // pour le test
+    private Noeud root;		//la racine de notre amr
     public int t = 3;		//l'ordre de l'amr a recupur� de notre interface
     private boolean sucesseur = false;
     private boolean predecesseur = true; // pour la supression a recup de l'interface
@@ -43,7 +43,7 @@ public class amr {
         return noeud.size == 0;
     }
 
-    // insertion 
+    // insertion
     public void insertData(Noeud node, int data) { // en param�tre on a le noeud et la valeur a ajout�
         // creation de fonction de l'ajout dans le m�me noeud
         int index = node.size;
@@ -75,7 +75,7 @@ public class amr {
                     Noeud.children[i] = node;
                     Noeud.leaf = false;
                     return;
-                } // feuille pleine, je cr�e un nvx noeud 
+                } // feuille pleine, je cr�e un nvx noeud
                 if (Noeud.leaf == false) {
                     recu(Noeud.children[i], data);
                 } // je refais le traitement pour les pr�decesseur de root.data[i]
@@ -97,7 +97,7 @@ public class amr {
                 Noeud.children[i + 1] = node;
                 Noeud.leaf = false;
                 return;
-            } // feuille pleine, je cr�e un nvx noeud 
+            } // feuille pleine, je cr�e un nvx noeud
             if (Noeud.leaf == false) {
                 recu(Noeud.children[i + 1], data);
             } // je refais le traitement pour les successeur de root.data[i]
@@ -116,11 +116,11 @@ public class amr {
             return;
         }
 
-        recu(root, data); //amr non vide, recherche et insertion 
+        recu(root, data); //amr non vide, recherche et insertion
 
-    } //fin insertion 
+    } //fin insertion
 
-    //Recherche ... 
+    //Recherche ...
     public boolean recurech(Noeud Noeud, int data) {
         for (int i = 0; i <= Noeud.size - 1; i++) {
             if (data == Noeud.data[i]) {
@@ -154,7 +154,7 @@ public class amr {
         new RechercherAnimation(this, val, l).start();
     }
 
-    // supression 	
+    // supression
     public Noeud supdnoeud(Noeud noeud, int pos) {
         int[] datas = new int[t - 1];
         Noeud[] childrens = new Noeud[t];
@@ -187,7 +187,7 @@ public class amr {
                 }
                 if (i > pos + 1) {
                     childrens[i-1] = noeud.children[i];
-                
+
                 }
 
             }
@@ -201,7 +201,7 @@ public class amr {
 
     public void recusup(Noeud Noeud, int data) {
         for (int i = 0; i <= Noeud.size - 1; i++) {
-            if (data == Noeud.data[i]) { // if found 
+            if (data == Noeud.data[i]) { // if found
 
                 if (Noeud.children[i] == null && Noeud.children[i + 1] == null) { // s'il n'as pas de fils
                     if (Noeud.size == 1) {
@@ -257,7 +257,7 @@ public class amr {
                 }
             }
 
-            // not in this lvl need to moove 
+            // not in this lvl need to moove
             if (data < Noeud.data[i]) {
                 recusup(Noeud.children[i], data);
                 return;
@@ -312,7 +312,7 @@ public class amr {
 
         System.out.print("Level : " + level + " " + "Data : ");
         for (int i = 0; i < node.size; i++) {
-            System.out.print(node.data[i] + " ");
+            System.out.print(node.data[i] + ".");
         }
 
         System.out.println();
@@ -387,7 +387,7 @@ public class amr {
             hbox.getChildren().add(t.getRectangle(i).getRectangle(0, 0));
 
         }
-     
+
         hbox.setLayoutX(x);
         hbox.setLayoutY(y);
         arbre.getChildren().add(hbox);
@@ -401,7 +401,7 @@ public class amr {
             return;
         }
         int xpere = x;
-        
+
         for (int i = 0; i < t.size + 1; i++) {
 
             Afficher(t.children[i], t, x - gap, y + 60, xpere, y, lev, gap);
@@ -413,7 +413,7 @@ public class amr {
             xpere += 35;
         }
     }
-    /*
+
     //HOPE IT WORK... AMR ORDRE 5 DE NOTRE SERIE D'EXO
     public static void main(String[] args) {
         insertion(25);
@@ -442,5 +442,5 @@ public class amr {
         suppression(35);
         display(root, 1);
     }
-     */
+     
 }
